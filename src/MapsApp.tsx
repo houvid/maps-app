@@ -5,7 +5,7 @@ export const MapsApps = () => {
     return (
         <PlacesProvider>
             <MapProvider>
-            <HomeScreen/>
+                <HomeScreen/>
             </MapProvider>
         </PlacesProvider>
     )
