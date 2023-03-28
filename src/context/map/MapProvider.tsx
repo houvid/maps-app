@@ -70,9 +70,9 @@ export const MapProvider = ({children}: Props ) => {
         
         const myLocationPopup = new Popup()
         .setHTML(
-            `<h4> Aquí estoy </h4>
-            <img src="https://cdn-icons-png.flaticon.com/512/10133/10133906.png" style="width: 50px;">
-            <p> Acá vamos pablito  </p>`)
+            `<h4> Ésta es tu ubicación actual </h4>
+            <center> <img src="https://cdn-icons-png.flaticon.com/512/10133/10133906.png" style="width: 50px; align: center "></center>
+            <p style="margin-top:15px;" > Acá podemos poner una descripción: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt quos delectus iusto suscipit pariatur iste vel magnam optio quo? Ea porro quisquam voluptatum quas numquam itaque similique aspernatur voluptates rem. </p>`)
 
         new Marker({
             color: '#61DAFB',
