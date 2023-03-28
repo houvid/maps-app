@@ -11,7 +11,7 @@ export const SearchBar = () => {
 
         debounceRef.current = setTimeout(()=>{
             // TODO:
-            searchPlacesByTerm (event.target.value);
+            searchPlacesByTerm (event.target.value+' antioquia');
 
             console.log('debunced value ' + event.target.value )
             },350)
