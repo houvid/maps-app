@@ -56,6 +56,7 @@ export const MapProvider = ({children}: Props ) => {
         }
 
         dispatch({ type:'setMarkers', payload: newMarkers })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ places ])
     
     const setMap = ( map: Map ) => {
