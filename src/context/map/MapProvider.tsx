@@ -34,8 +34,10 @@ const INITIAL_STATE: MapState = {
 export const MapProvider = ({children}: Props ) => {
     const { places } = useContext(PlacesContext);
     const [state, dispatch] = useReducer(mapReducer, INITIAL_STATE)
+
     useEffect(() => {
         state.markers.forEach(marker => marker.remove())
+
         const newMarkers: Marker[] = []; 
 
         for (const place of places) {
@@ -54,20 +56,16 @@ export const MapProvider = ({children}: Props ) => {
         }
 
         dispatch({ type:'setMarkers', payload: newMarkers })
-
-        //TODO: limpiar polyline
-
-
     }, [ places ])
     
     const setMap = ( map: Map ) => {
 
-        // const customMarker = document.createElement('div');
-        // customMarker.style.backgroundImage = 'url(https://cdn-icons-png.flaticon.com/512/10133/10133906.png)';
-        // customMarker.style.backgroundSize = 'cover';
-        // customMarker.style.backgroundPosition = 'center';
-        // customMarker.style.width = '32px';
-        // customMarker.style.height = '32px';
+        const customMarker = document.createElement('div');
+        customMarker.style.backgroundImage = 'url(https://cdn-icons-png.flaticon.com/512/10133/10133906.png)';
+        customMarker.style.backgroundSize = 'cover';
+        customMarker.style.backgroundPosition = 'center';
+        customMarker.style.width = '32px';
+        customMarker.style.height = '32px';
         
         const myLocationPopup = new Popup()
         .setHTML(
@@ -77,7 +75,7 @@ export const MapProvider = ({children}: Props ) => {
 
         new Marker({
             color: '#61DAFB',
-            //element: customMarker
+            element: customMarker
         })
         .setLngLat( map.getCenter() )
         .setPopup( myLocationPopup )
@@ -111,9 +109,9 @@ export const MapProvider = ({children}: Props ) => {
             const newCoord: [number, number] = [ coord[0],coord[1] ]
             bounds.extend(newCoord);
         }
-
+        
         state.map?.fitBounds ( bounds,
-            {padding: 200} 
+            {padding: 50} 
             )
 
         //Polyline 
