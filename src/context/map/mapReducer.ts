@@ -1,5 +1,8 @@
 import { MapState } from "./MapProvider";
-import { Map, Marker } from "mapbox-gl";
+
+//@ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import { Map, Marker } from "!mapbox-gl";
 
 type MapAction = 
 | { type: 'setMap', payload: Map }
