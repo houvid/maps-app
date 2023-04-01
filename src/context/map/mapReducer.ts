@@ -1,34 +1,30 @@
-import { MapState } from "./MapProvider";
+import { MapState } from './MapProvider'
 
-//@ts-ignore
+// @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import { Map, Marker } from "!mapbox-gl";
+import { Map, Marker } from '!mapbox-gl'
 
-type MapAction = 
+type MapAction =
 | { type: 'setMap', payload: Map }
 | { type: 'setMarkers', payload: Marker[] }
 
-
 export const mapReducer = (state: MapState, action: MapAction) :MapState => {
+  switch (action.type) {
+    case 'setMap':
+      return {
+        ...state,
+        isMapReady: true,
+        map: action.payload
+      }
 
-    switch (action.type) {
-        case 'setMap':
-            return {
-                ...state,
-                isMapReady: true,
-                map: action.payload
-            }
+    case 'setMarkers':
+      return {
+        ...state,
+        markers: action.payload
+      }
+      //         break;
 
-        case 'setMarkers':
-            return {
-                ...state,
-                markers: action.payload
-            }
-   //         break;
-    
-        default:
-            return state;
-            
-    }
-
+    default:
+      return state
+  }
 }

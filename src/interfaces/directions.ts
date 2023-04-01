@@ -1,39 +1,39 @@
 
 export interface DirectionsResponse {
-    routes:    Route[];
+    routes: Route[];
     waypoints: Waypoint[];
-    code:      string;
-    uuid:      string;
+    code: string;
+    uuid: string;
 }
 
 export interface Route {
     weight_name: string;
-    weight:      number;
-    duration:    number;
-    distance:    number;
-    legs:        Leg[];
-    geometry:    Geometry;
+    weight: number;
+    duration: number;
+    distance: number;
+    legs: Leg[];
+    geometry: Geometry;
 }
 
 export interface Geometry {
     coordinates: Array<number[]>;
-    type:        string;
+    type: string;
 }
 
 export interface Leg {
     via_waypoints: any[];
-    annotation:    Annotation;
-    admins:        Admin[];
-    weight:        number;
-    duration:      number;
-    steps:         any[];
-    distance:      number;
-    summary:       string;
+    annotation: Annotation;
+    admins: Admin[];
+    weight: number;
+    duration: number;
+    steps: any[];
+    distance: number;
+    summary: string;
 }
 
 export interface Admin {
     iso_3166_1_alpha3: string;
-    iso_3166_1:        string;
+    iso_3166_1: string;
 }
 
 export interface Annotation {
@@ -42,6 +42,6 @@ export interface Annotation {
 
 export interface Waypoint {
     distance: number;
-    name:     string;
+    name: string;
     location: number[];
 }

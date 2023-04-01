@@ -1,32 +1,32 @@
-import { ChangeEvent, useContext, useRef } from "react"
-import { PlacesContext } from "../context"
-import { SearchResuls } from "./SearchResults"
+import { ChangeEvent, useContext, useRef } from 'react'
+import { PlacesContext } from '../context'
+import { SearchResuls } from './SearchResults'
 
 export const SearchBar = () => {
-    const { searchPlacesByTerm } = useContext(PlacesContext)
-    const debounceRef = useRef<NodeJS.Timeout>()
+  const { searchPlacesByTerm } = useContext(PlacesContext)
+  const debounceRef = useRef<NodeJS.Timeout>()
 
-    const onQueryChange = (event:ChangeEvent<HTMLInputElement>) => {
-        if( debounceRef.current ) clearTimeout( debounceRef.current )
+  const onQueryChange = (event:ChangeEvent<HTMLInputElement>) => {
+    if (debounceRef.current) clearTimeout(debounceRef.current)
 
-        debounceRef.current = setTimeout(()=>{
-            // TODO:
-            searchPlacesByTerm (event.target.value);
+    debounceRef.current = setTimeout(() => {
+      // TODO:
+      searchPlacesByTerm(event.target.value)
 
-            console.log('debunced value ' + event.target.value )
-            },350)
+      console.log('debunced value ' + event.target.value)
+    }, 350)
+  }
 
-    }
+  return (
+    <div className='search-container'>
+      <input
+        type='text'
+        className='form-control'
+        placeholder='Buscar lugar...'
+        onChange={onQueryChange}
+      />
 
-    return (
-        <div className="search-container">
-            <input type="text"
-            className="form-control"
-            placeholder="Buscar lugar..."
-            onChange= { onQueryChange } 
-            />
-
-            <SearchResuls/>
-        </div>
-    )
+      <SearchResuls />
+    </div>
+  )
 }

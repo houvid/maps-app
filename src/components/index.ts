@@ -1,16 +1,13 @@
-export { LoadingPlaces } from "./LoadingPlaces";
+export { LoadingPlaces } from './LoadingPlaces'
 
-export { SearchResuls } from "./SearchResults";
+export { SearchResuls } from './SearchResults'
 
-export { SearchBar } from "./SerchBar";
+export { SearchBar } from './SerchBar'
 
-export { ReactLogo } from "./ReactLogo";
+export { ReactLogo } from './ReactLogo'
 
-export { BtnMyLocation } from "./BtnMyLocation";
+export { BtnMyLocation } from './BtnMyLocation'
 
-export { Loading } from "./Loading";
+export { Loading } from './Loading'
 
-export { MapView } from "./MapView";
-
-
-
+export { MapView } from './MapView'
