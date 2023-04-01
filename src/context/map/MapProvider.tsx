@@ -75,7 +75,7 @@ export const MapProvider = ({children}: Props ) => {
             <p style="margin-top:15px;" > Acá podemos poner una descripción: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt quos delectus iusto suscipit pariatur iste vel magnam optio quo? Ea porro quisquam voluptatum quas numquam itaque similique aspernatur voluptates rem. </p>`)
 
         new Marker({
-            color: '#61DAFB',
+            color: '#61DAFB' ,
             element: customMarker
         })
         .setLngLat( map.getCenter() )
