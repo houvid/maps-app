@@ -7,6 +7,7 @@ export interface PlacesContextProps {
     isLoadingPlaces?: boolean;
     places: Feature[];
     searchPlacesByTerm: (query: string) => Promise<Feature[]>;
+    SetPlacesInit: () => Promise<Feature[]>
 }
 
 export const PlacesContext = createContext<PlacesContextProps>({} as PlacesContextProps)

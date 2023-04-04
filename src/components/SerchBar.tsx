@@ -3,7 +3,7 @@ import { PlacesContext } from '../context'
 import { SearchResuls } from './SearchResults'
 
 export const SearchBar = () => {
-  const { searchPlacesByTerm } = useContext(PlacesContext)
+  const { searchPlacesByTerm, SetPlacesInit } = useContext(PlacesContext)
   const debounceRef = useRef<NodeJS.Timeout>()
 
   const onQueryChange = (event:ChangeEvent<HTMLInputElement>) => {
@@ -12,7 +12,7 @@ export const SearchBar = () => {
     debounceRef.current = setTimeout(() => {
       // TODO:
       searchPlacesByTerm(event.target.value)
-
+      SetPlacesInit()
       console.log('debunced value ' + event.target.value)
     }, 350)
   }

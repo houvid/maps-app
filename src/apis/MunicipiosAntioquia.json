@@ -1,0 +1,377 @@
+[
+ {
+   "id": 5001,"Nombre": "MEDELLÍN","LATITUD": "6.24555826957958","LONGITUD": "-75.57297040522482"
+ },
+ {
+   "id": 5002,"Nombre": "ABEJORRAL","LATITUD": "5.803728154","LONGITUD": "-75.43847353"
+ },
+ {
+   "id": 5004,"Nombre": "ABRIAQUÍ","LATITUD": "6.627569378","LONGITUD": "-76.08597756"
+ },
+ {
+   "id": 5021,"Nombre": "ALEJANDRÍA","LATITUD": "6.365534125","LONGITUD": "-75.09059702"
+ },
+ {
+   "id": 5030,"Nombre": "AMAGÁ","LATITUD": "6.032921994","LONGITUD": "-75.7080031"
+ },
+ {
+   "id": 5031,"Nombre": "AMALFI","LATITUD": "6.977788843","LONGITUD": "-74.9812393"
+ },
+ {
+   "id": 5034,"Nombre": "ANDES","LATITUD": "5.604993248","LONGITUD": "-75.94128391"
+ },
+ {
+   "id": 5036,"Nombre": "ANGELÓPOLIS","LATITUD": "6.121430303","LONGITUD": "-75.71594966"
+ },
+ {
+   "id": 5038,"Nombre": "ANGOSTURA","LATITUD": "6.861498764","LONGITUD": "-75.358316"
+ },
+ {
+   "id": 5040,"Nombre": "ANORÍ","LATITUD": "7.193110778","LONGITUD": "-75.10848954"
+ },
+ {
+   "id": 5042,"Nombre": "SANTA FÉ DE ANTIOQUIA","LATITUD": "6.535711576","LONGITUD": "-75.90426658"
+ },
+ {
+   "id": 5044,"Nombre": "ANZÁ","LATITUD": "6.293546613","LONGITUD": "-75.91736927"
+ },
+ {
+   "id": 5045,"Nombre": "APARTADÓ","LATITUD": "7.86047815","LONGITUD": "-76.58236264"
+ },
+ {
+   "id": 5051,"Nombre": "ARBOLETES","LATITUD": "8.611395262","LONGITUD": "-76.41478317"
+ },
+ {
+   "id": 5055,"Nombre": "ARGELIA","LATITUD": "5.708114524","LONGITUD": "-75.09469795"
+ },
+ {
+   "id": 5059,"Nombre": "ARMENIA","LATITUD": "6.163683758","LONGITUD": "-75.80995528"
+ },
+ {
+   "id": 5079,"Nombre": "BARBOSA","LATITUD": "6.443417935","LONGITUD": "-75.32924085"
+ },
+ {
+   "id": 5086,"Nombre": "BELMIRA","LATITUD": "6.665853953","LONGITUD": "-75.68621659"
+ },
+ {
+   "id": 5088,"Nombre": "BELLO","LATITUD": "6.358841086","LONGITUD": "-75.58973588"
+ },
+ {
+   "id": 5091,"Nombre": "BETANIA","LATITUD": "5.744820824293862","LONGITUD": "-75.97620113168344" 
+ },
+ {
+   "id": 5093,"Nombre": "BETULIA","LATITUD": "6.185783612","LONGITUD": "-75.95649246"
+ },
+ {
+   "id": 5101,"Nombre": "CIUDAD BOLÍVAR","LATITUD": "5.840995666","LONGITUD": "-76.01065253"
+ },
+ {
+   "id": 5107,"Nombre": "BRICEÑO","LATITUD": "7.111788462","LONGITUD": "-75.56223474"
+ },
+ {
+   "id": 5113,"Nombre": "BURITICÁ","LATITUD": "6.80906489","LONGITUD": "-75.91206595"
+ },
+ {
+   "id": 5120,"Nombre": "CÁCERES","LATITUD": "7.665155105","LONGITUD": "-75.22369744"
+ },
+ {
+   "id": 5125,"Nombre": "CAICEDO","LATITUD": "6.423463639","LONGITUD": "-75.99351498"
+ },
+ {
+   "id": 5129,"Nombre": "CALDAS","LATITUD": "6.054446841","LONGITUD": "-75.62642674"
+ },
+ {
+   "id": 5134,"Nombre": "CAMPAMENTO","LATITUD": "7.036017478","LONGITUD": "-75.28766178"
+ },
+ {
+   "id": 5138,"Nombre": "CAÑASGORDAS","LATITUD": "6.814950023","LONGITUD": "-76.02689632"
+ },
+ {
+   "id": 5142,"Nombre": "CARACOLÍ","LATITUD": "6.33797388","LONGITUD": "-74.73354817"
+ },
+ {
+   "id": 5145,"Nombre": "CARAMANTA","LATITUD": "5.555275296","LONGITUD": "-75.63082096"
+ },
+ {
+   "id": 5147,"Nombre": "CAREPA","LATITUD": "7.757967437","LONGITUD": "-76.64374657"
+ },
+ {
+   "id": 5148,"Nombre": "EL CARMEN DE VIBORAL","LATITUD": "5.978078841","LONGITUD": "-75.2635361"
+ },
+ {
+   "id": 5150,"Nombre": "CAROLINA","LATITUD": "6.754821442","LONGITUD": "-75.30590654"
+ },
+ {
+   "id": 5154,"Nombre": "CAUCASIA","LATITUD": "7.867941792","LONGITUD": "-75.03501824"
+ },
+ {
+   "id": 5172,"Nombre": "CHIGORODÓ","LATITUD": "7.631665644","LONGITUD": "-76.63964213"
+ },
+ {
+   "id": 5190,"Nombre": "CISNEROS","LATITUD": "6.550065431","LONGITUD": "-75.08254116"
+ },
+ {
+   "id": 5197,"Nombre": "COCORNÁ","LATITUD": "6.005593074","LONGITUD": "-75.16015403"
+ },
+ {
+   "id": 5206,"Nombre": "CONCEPCIÓN","LATITUD": "6.376106187","LONGITUD": "-75.21785901"
+ },
+ {
+   "id": 5209,"Nombre": "CONCORDIA","LATITUD": "6.057468678","LONGITUD": "-75.90014678"
+ },
+ {
+   "id": 5212,"Nombre": "COPACABANA","LATITUD": "6.351882893","LONGITUD": "-75.50075633"
+ },
+ {
+   "id": 5234,"Nombre": "DABEIBA","LATITUD": "6.992243782","LONGITUD": "-76.31426328"
+ },
+ {
+   "id": 5237,"Nombre": "DONMATÍAS","LATITUD": "6.492403905","LONGITUD": "-75.42227687"
+ },
+ {
+   "id": 5240,"Nombre": "EBÉJICO","LATITUD": "6.326444922","LONGITUD": "-75.78331175"
+ },
+ {
+   "id": 5250,"Nombre": "EL BAGRE","LATITUD": "7.704633351","LONGITUD": "-74.66427726"
+ },
+ {
+   "id": 5264,"Nombre": "ENTRERRÍOS","LATITUD": "6.594656004","LONGITUD": "-75.55913083"
+ },
+ {
+   "id": 5266,"Nombre": "ENVIGADO","LATITUD": "6.154394922","LONGITUD": "-75.54686779"
+ },
+ {
+   "id": 5282,"Nombre": "FREDONIA","LATITUD": "5.887702934","LONGITUD": "-75.67926242"
+ },
+ {
+   "id": 5284,"Nombre": "FRONTINO","LATITUD": "6.691364773","LONGITUD": "-76.33199656"
+ },
+ {
+   "id": 5306,"Nombre": "GIRALDO","LATITUD": "6.663095863","LONGITUD": "-75.94804663"
+ },
+ {
+   "id": 5308,"Nombre": "GIRARDOTA","LATITUD": "6.379745895","LONGITUD": "-75.44795744"
+ },
+ {
+   "id": 5310,"Nombre": "GÓMEZ PLATA","LATITUD": "6.709562839","LONGITUD": "-75.19270291"
+ },
+ {
+   "id": 5313,"Nombre": "GRANADA","LATITUD": "6.123380721","LONGITUD": "-75.12763646"
+ },
+ {
+   "id": 5315,"Nombre": "GUADALUPE","LATITUD": "6.861576325","LONGITUD": "-75.22591303"
+ },
+ {
+   "id": 5318,"Nombre": "GUARNE","LATITUD": "6.266625703","LONGITUD": "-75.43730801"
+ },
+ {
+   "id": 5321,"Nombre": "GUATAPÉ","LATITUD": "6.236329826","LONGITUD": "-75.15651272"
+ },
+ {
+   "id": 5347,"Nombre": "HELICONIA","LATITUD": "6.214511788","LONGITUD": "-75.74971002"
+ },
+ {
+   "id": 5353,"Nombre": "HISPANIA","LATITUD": "5.797039002","LONGITUD": "-75.90669203"
+ },
+ {
+   "id": 5360,"Nombre": "ITAGÜÍ","LATITUD": "6.179279438","LONGITUD": "-75.6142037"
+ },
+ {
+   "id": 5361,"Nombre": "ITUANGO","LATITUD": "7.341549718","LONGITUD": "-75.67842277"
+ },
+ {
+   "id": 5364,"Nombre": "JARDÍN","LATITUD": "5.574444339","LONGITUD": "-75.81842575"
+ },
+ {
+   "id": 5368,"Nombre": "JERICÓ","LATITUD": "5.769820536","LONGITUD": "-75.76488256"
+ },
+ {
+   "id": 5376,"Nombre": "LA CEJA","LATITUD": "5.992524843","LONGITUD": "-75.43086935"
+ },
+ {
+   "id": 5380,"Nombre": "LA ESTRELLA","LATITUD": "6.137595883","LONGITUD": "-75.64895499"
+ },
+ {
+   "id": 5390,"Nombre": "LA PINTADA","LATITUD": "5.746583958","LONGITUD": "-75.60220206"
+ },
+ {
+   "id": 5400,"Nombre": "LA UNIÓN","LATITUD": "5.940434685","LONGITUD": "-75.35429023"
+ },
+ {
+   "id": 5411,"Nombre": "LIBORINA","LATITUD": "6.723990935","LONGITUD": "-75.78300046"
+ },
+ {
+   "id": 5425,"Nombre": "MACEO","LATITUD": "6.534573585","LONGITUD": "-74.71410854"
+ },
+ {
+   "id": 5440,"Nombre": "MARINILLA","LATITUD": "6.18520515","LONGITUD": "-75.30487933"
+ },
+ {
+   "id": 5467,"Nombre": "MONTEBELLO","LATITUD": "5.916853903","LONGITUD": "-75.51972693"
+ },
+ {
+   "id": 5475,"Nombre": "MURINDÓ","LATITUD": "6.828773855","LONGITUD": "-76.70861349"
+ },
+ {
+   "id": 5480,"Nombre": "MUTATÁ","LATITUD": "7.329557848","LONGITUD": "-76.4630657"
+ },
+ {
+   "id": 5483,"Nombre": "NARIÑO","LATITUD": "5.581275312","LONGITUD": "-75.19457019"
+ },
+ {
+   "id": 5490,"Nombre": "NECOCLÍ","LATITUD": "8.493728551","LONGITUD": "-76.67699588"
+ },
+ {
+   "id": 5495,"Nombre": "NECHÍ","LATITUD": "7.983477394","LONGITUD": "-74.65844186"
+ },
+ {
+   "id": 5501,"Nombre": "OLAYA","LATITUD": "6.611418083","LONGITUD": "-75.77567097"
+ },
+ {
+   "id": 5541,"Nombre": "PEÑOL","LATITUD": "6.232396368","LONGITUD": "-75.22350906"
+ },
+ {
+   "id": 5543,"Nombre": "PEQUE","LATITUD": "7.044180058","LONGITUD": "-75.88968843"
+ },
+ {
+   "id": 5576,"Nombre": "PUEBLORRICO","LATITUD": "5.80970186","LONGITUD": "-75.86076667"
+ },
+ {
+   "id": 5579,"Nombre": "PUERTO BERRÍO","LATITUD": "6.481922267","LONGITUD": "-74.5287421"
+ },
+ {
+   "id": 5585,"Nombre": "PUERTO NARE","LATITUD": "6.126539139","LONGITUD": "-74.70317722"
+ },
+ {
+   "id": 5591,"Nombre": "PUERTO TRIUNFO","LATITUD": "5.954830151","LONGITUD": "-74.6861918"
+ },
+ {
+   "id": 5604,"Nombre": "REMEDIOS","LATITUD": "6.997267375","LONGITUD": "-74.55865652"
+ },
+ {
+   "id": 5607,"Nombre": "RETIRO","LATITUD": "6.053444254","LONGITUD": "-75.51573805"
+ },
+ {
+   "id": 5615,"Nombre": "RIONEGRO","LATITUD": "6.150785807","LONGITUD": "-75.41076052"
+ },
+ {
+   "id": 5628,"Nombre": "SABANALARGA","LATITUD": "6.901000506","LONGITUD": "-75.79222754"
+ },
+ {
+   "id": 5631,"Nombre": "SABANETA","LATITUD": "6.138305183","LONGITUD": "-75.60880599"
+ },
+ {
+   "id": 5642,"Nombre": "SALGAR","LATITUD": "5.970502334","LONGITUD": "-75.98137251"
+ },
+ {
+   "id": 5647,"Nombre": "SAN ANDRÉS DE CUERQUÍA","LATITUD": "6.918427233","LONGITUD": "-75.6657758"
+ },
+ {
+   "id": 5649,"Nombre": "SAN CARLOS","LATITUD": "6.193789659","LONGITUD": "-74.90732769"
+ },
+ {
+   "id": 5652,"Nombre": "SAN FRANCISCO","LATITUD": "5.840093731","LONGITUD": "-74.98176334"
+ },
+ {
+   "id": 5656,"Nombre": "SAN JERÓNIMO","LATITUD": "6.438300409","LONGITUD": "-75.70310727"
+ },
+ {
+   "id": 5658,"Nombre": "SAN JOSÉ DE LA MONTAÑA","LATITUD": "6.823258913","LONGITUD": "-75.67770826"
+ },
+ {
+   "id": 5659,"Nombre": "SAN JUAN DE URABÁ","LATITUD": "8.707141583","LONGITUD": "-76.53248234"
+ },
+ {
+   "id": 5660,"Nombre": "SAN LUIS","LATITUD": "6.024205956","LONGITUD": "-75.0076674"
+ },
+ {
+   "id": 5664,"Nombre": "SAN PEDRO DE LOS MILAGROS","LATITUD": "6.458666308","LONGITUD": "-75.5624839"
+ },
+ {
+   "id": 5665,"Nombre": "SAN PEDRO DE URABÁ","LATITUD": "8.37915695","LONGITUD": "-76.31664233"
+ },
+ {
+   "id": 5667,"Nombre": "SAN RAFAEL","LATITUD": "6.31074453","LONGITUD": "-74.99858652"
+ },
+ {
+   "id": 5670,"Nombre": "SAN ROQUE","LATITUD": "6.466165211","LONGITUD": "-74.9450732"
+ },
+ {
+   "id": 5674,"Nombre": "SAN VICENTE FERRER","LATITUD": "6.310387522","LONGITUD": "-75.32740163"
+ },
+ {
+   "id": 5679,"Nombre": "SANTA BÁRBARA","LATITUD": "5.878984956","LONGITUD": "-75.58330371"
+ },
+ {
+   "id": 5686,"Nombre": "SANTA ROSA DE OSOS","LATITUD": "6.675827825","LONGITUD": "-75.43814333"
+ },
+ {
+   "id": 5690,"Nombre": "SANTO DOMINGO","LATITUD": "6.481044132","LONGITUD": "-75.14260097"
+ },
+ {
+   "id": 5697,"Nombre": "EL SANTUARIO","LATITUD": "6.124209495","LONGITUD": "-75.25212278"
+ },
+ {
+   "id": 5736,"Nombre": "SEGOVIA","LATITUD": "7.26692339","LONGITUD": "-74.62163926"
+ },
+ {
+   "id": 5756,"Nombre": "SONSÓN","LATITUD": "5.826388779","LONGITUD": "-74.83637623"
+ },
+ {
+   "id": 5761,"Nombre": "SOPETRÁN","LATITUD": "6.520164552","LONGITUD": "-75.74580903"
+ },
+ {
+   "id": 5789,"Nombre": "TÁMESIS","LATITUD": "5.673758571","LONGITUD": "-75.70979974"
+ },
+ {
+   "id": 5790,"Nombre": "TARAZÁ","LATITUD": "7.488875998","LONGITUD": "-75.40189438"
+ },
+ {
+   "id": 5792,"Nombre": "TARSO","LATITUD": "5.871064557","LONGITUD": "-75.82871144"
+ },
+ {
+   "id": 5809,"Nombre": "TITIRIBÍ","LATITUD": "6.058349971","LONGITUD": "-75.79966005"
+ },
+ {
+   "id": 5819,"Nombre": "TOLEDO","LATITUD": "7.016397069","LONGITUD": "-75.71363382"
+ },
+ {
+   "id": 5837,"Nombre": "TURBO","LATITUD": "8.173851745","LONGITUD": "-76.5740377"
+ },
+ {
+   "id": 5842,"Nombre": "URAMITA","LATITUD": "6.913916924","LONGITUD": "-76.13318514"
+ },
+ {
+   "id": 5847,"Nombre": "URRAO","LATITUD": "6.33534134","LONGITUD": "-76.25906482"
+ },
+ {
+   "id": 5854,"Nombre": "VALDIVIA","LATITUD": "7.265404213","LONGITUD": "-75.40094502"
+ },
+ {
+   "id": 5856,"Nombre": "VALPARAÍSO","LATITUD": "5.651937802","LONGITUD": "-75.63083412"
+ },
+ {
+   "id": 5858,"Nombre": "VEGACHÍ","LATITUD": "6.836535122","LONGITUD": "-74.7540302"
+ },
+ {
+   "id": 5861,"Nombre": "VENECIA","LATITUD": "5.956576355","LONGITUD": "-75.77722423"
+ },
+ {
+   "id": 5873,"Nombre": "VIGÍA DEL FUERTE","LATITUD": "6.453351334","LONGITUD": "-76.69504802"
+ },
+ {
+   "id": 5885,"Nombre": "YALÍ","LATITUD": "6.716870679","LONGITUD": "-74.75565002"
+ },
+ {
+   "id": 5887,"Nombre": "YARUMAL","LATITUD": "6.9881309","LONGITUD": "-75.45439957"
+ },
+ {
+   "id": 5890,"Nombre": "YOLOMBÓ","LATITUD": "6.64442786","LONGITUD": "-75.02990266"
+ },
+ {
+   "id": 5893,"Nombre": "YONDÓ","LATITUD": "6.925159318","LONGITUD": "-74.15824041"
+ },
+ {
+   "id": 5895,"Nombre": "ZARAGOZA","LATITUD": "7.474004006","LONGITUD": "-74.85848326"
+ }
+]

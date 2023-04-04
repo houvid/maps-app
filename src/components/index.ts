@@ -1,3 +1,7 @@
+export { SelectMunicipios } from './SelectMunicipios'
+
+export { Nav } from './nav'
+
 export { LoadingPlaces } from './LoadingPlaces'
 
 export { SearchResuls } from './SearchResults'

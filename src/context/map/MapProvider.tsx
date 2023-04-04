@@ -38,7 +38,7 @@ export const MapProvider = ({ children }: Props) => {
     const newMarkers: Marker[] = []
 
     for (const place of places) {
-      const [lng, lat] = place.center
+      const [lng, lat]: any = place.center
       const popup = new Popup()
         .setHTML(`
                     <h6>${place.text_es}</h6>
