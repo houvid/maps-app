@@ -1,7 +1,6 @@
 
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, addDoc, getDoc, query, where, setDoc, deleteDoc, getDocs, Firestore } from 'firebase/firestore'
-import { Feature } from '../interfaces/places'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASEAPIKEY,
