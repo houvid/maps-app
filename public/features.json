@@ -1,0 +1,165 @@
+{
+    "id": "place.6309938",
+    "type": "Feature",
+    "place_type": [
+        "place"
+    ],
+    "relevance": 1,
+    "properties": {
+        "wikidata": "Q1774644",
+        "mapbox_id": "dXJuOm1ieHBsYzpZRWd5"
+    },
+    "text_es": "Rionegro",
+    "language_es": "es",
+    "place_name_es": "Rionegro, Antioquia, Colombia",
+    "text": "Rionegro",
+    "language": "es",
+    "place_name": "Rionegro, Antioquia, Colombia",
+    "bbox": [
+        -75.485928,
+        6.057516,
+        -75.322135,
+        6.233877
+    ],
+    "center": [
+        -75.374169,
+        6.153617
+    ],
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -75.374169,
+            6.153617
+        ]
+    },
+    "context": [
+        {
+            "id": "region.17458",
+            "short_code": "CO-ANT",
+            "wikidata": "Q123304",
+            "mapbox_id": "dXJuOm1ieHBsYzpSREk",
+            "text_es": "Antioquia",
+            "language_es": "es",
+            "text": "Antioquia",
+            "language": "es"
+        },
+        {
+            "id": "country.8754",
+            "short_code": "co",
+            "wikidata": "Q739",
+            "mapbox_id": "dXJuOm1ieHBsYzpJakk",
+            "text_es": "Colombia",
+            "language_es": "es",
+            "text": "Colombia",
+            "language": "es"
+        }
+    ]
+},
+{
+    "id": "place.5515314",
+    "type": "Feature",
+    "place_type": [
+        "place"
+    ],
+    "relevance": 1,
+    "properties": {
+        "mapbox_id": "dXJuOm1ieHBsYzpWQ2d5"
+    },
+    "text_es": "Peñol",
+    "place_name_es": "Peñol, Antioquia, Colombia",
+    "text": "Peñol",
+    "place_name": "Peñol, Antioquia, Colombia",
+    "bbox": [
+        -75.284185,
+        6.157143,
+        -75.163319,
+        6.32526
+    ],
+    "center": [
+        -75.232369,
+        6.216922
+    ],
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -75.232369,
+            6.216922
+        ]
+    },
+    "context": [
+        {
+            "id": "region.17458",
+            "short_code": "CO-ANT",
+            "wikidata": "Q123304",
+            "mapbox_id": "dXJuOm1ieHBsYzpSREk",
+            "text_es": "Antioquia",
+            "language_es": "es",
+            "text": "Antioquia",
+            "language": "es"
+        },
+        {
+            "id": "country.8754",
+            "short_code": "co",
+            "wikidata": "Q739",
+            "mapbox_id": "dXJuOm1ieHBsYzpJakk",
+            "text_es": "Colombia",
+            "language_es": "es",
+            "text": "Colombia",
+            "language": "es"
+        }
+    ]
+},
+place.4507698: {
+    "id": "place.4507698",
+    "type": "Feature",
+    "place_type": [
+        "place"
+    ],
+    "relevance": 1,
+    "properties": {
+        "mapbox_id": "dXJuOm1ieHBsYzpSTWd5"
+    },
+    "text_es": "Marinilla",
+    "place_name_es": "Marinilla, Antioquia, Colombia",
+    "text": "Marinilla",
+    "place_name": "Marinilla, Antioquia, Colombia",
+    "bbox": [
+        -75.364147,
+        6.09433,
+        -75.244919,
+        6.263181
+    ],
+    "center": [
+        -75.3378,
+        6.175294
+    ],
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -75.3378,
+            6.175294
+        ]
+    },
+    "context": [
+        {
+            "id": "region.17458",
+            "short_code": "CO-ANT",
+            "wikidata": "Q123304",
+            "mapbox_id": "dXJuOm1ieHBsYzpSREk",
+            "text_es": "Antioquia",
+            "language_es": "es",
+            "text": "Antioquia",
+            "language": "es"
+        },
+        {
+            "id": "country.8754",
+            "short_code": "co",
+            "wikidata": "Q739",
+            "mapbox_id": "dXJuOm1ieHBsYzpJakk",
+            "text_es": "Colombia",
+            "language_es": "es",
+            "text": "Colombia",
+            "language": "es"
+        }
+    ]
+}

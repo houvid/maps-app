@@ -4,6 +4,7 @@ import { getUserLocation } from '../../helpers'
 import { Feature, PlacesResponse } from '../../interfaces/places'
 import { PlacesContext } from './PlacesContext'
 import { placesReducer } from './placesReducer'
+import { getFeatures } from '../../firebase/firebase'
 
 export interface PlacesState {
     isLoading: boolean;
@@ -46,9 +47,22 @@ export const PlacesProvider = ({ children }: Props) => {
       }
     })
     dispatch({ type: 'setPlaces', payload: resp.data.features })
-    console.log(resp.data.features[0])
+    console.log('searchPlacesByTerm')
+    console.log('"' + resp.data.features[0].id + '" : ' + JSON.stringify(resp.data.features[0]))
 
     return resp.data.features
+  }
+
+  const SetPlacesInit = async ():Promise<Feature[]> => {
+    if (!state.userLocation) throw new Error('No tenemos ubicacion del usuario')
+    // dispatch({ type: 'setLoadingPlaces' })
+
+    const resp = await getFeatures()
+    dispatch({ type: 'setPlaces', payload: resp })
+    console.log('SetPlacesInit')
+    console.log(resp[0])
+
+    return resp
   }
 
   return (
@@ -56,7 +70,8 @@ export const PlacesProvider = ({ children }: Props) => {
       ...state,
 
       // Methods
-      searchPlacesByTerm
+      searchPlacesByTerm,
+      SetPlacesInit
 
     }}
     >
