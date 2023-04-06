@@ -1,4 +1,5 @@
 import { SelectMunicipios } from './'
+import { FaRegTimesCircle, FaSearch } from 'react-icons/fa'
 
 export const Nav = () => {
   //     const onClick = () => {
@@ -12,14 +13,20 @@ export const Nav = () => {
 
   return (
     <div className='nav'>
-      <button className='btn btn-success' data-bs-toggle='offcanvas' data-bs-target='#intro'> Abrir </button>
-      <div className='offcanvas offcanvas-end' id='intro'>
+      <button className='btn btn-Ligth btnTopLeft' data-bs-toggle='offcanvas' data-bs-target='#intro'> <FaSearch /> </button>
+      <div className='offcanvas offcanvas-start' id='intro'>
         <div className='offcanvas-header'>
           <div className='offcanvas-title'>
-            <button className='btn btn-warning' data-bs-dismiss='offcanvas' id='cerrar'> cerrar </button>
+            <button
+              className='btn btn-Light btnTopLeft' data-bs-dismiss='offcanvas'
+              id='cerrar'
+            >
+              <FaRegTimesCircle />
+            </button>
           </div>
         </div>
-        <div className='offcanvas-body'>
+        <div className='offcanvas-body panel__header'>
+          <h3> Selecciona un municipio</h3>
           <SelectMunicipios />
         </div>
       </div>

@@ -21,7 +21,7 @@ export const MapView = () => {
     if (!isLoading) {
       const map = new Map({
         container: 'map', // container ID
-        style: 'mapbox://styles/houvid/clfydo7yt002501k6fyhxwoj9', // style URL
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
         center: [-75.573553, 6.2443382], // starting position [lng, lat]
         zoom: 6 // starting zoom
       })

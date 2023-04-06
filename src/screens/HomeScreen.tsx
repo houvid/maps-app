@@ -6,7 +6,6 @@ export const HomeScreen = () => {
       <MapView />
       <BtnMyLocation />
       <ReactLogo />
-      <SearchBar />
       <Nav />
     </div>
   )
