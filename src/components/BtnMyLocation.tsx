@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { MapContext, PlacesContext } from '../context'
+import { FaLocationArrow } from 'react-icons/fa'
 
 export const BtnMyLocation = () => {
   const { map, isMapReady } = useContext(MapContext)
@@ -17,7 +18,7 @@ export const BtnMyLocation = () => {
 
   return (
     <button
-      className='btn btn-primary'
+      className='btn btn-ligth'
       onClick={onClick}
       style={{
         position: 'fixed',
@@ -27,7 +28,7 @@ export const BtnMyLocation = () => {
 
       }}
     >
-      Mi Ubicación
+      <FaLocationArrow />
     </button>
   )
 }

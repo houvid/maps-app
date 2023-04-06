@@ -25,6 +25,7 @@ export const SelectMunicipios = () => {
   }
   return (
     <select className='form-select' aria-label='Default select example' onChange={onQueryChange}>
+      <option> Selecciona un municipio </option>
       {nuevosDatos.map((dato) => (
         <option key={dato.id} value={dato.LONGITUD + ',' + dato.LATITUD}>{dato.Nombre}</option>
       ))}
