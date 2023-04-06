@@ -3,9 +3,6 @@ import mapboxgl from 'mapbox-gl'
 import datos from '../apis//earthquakes.json'
 function Clusters (map) {
   map.on('load', () => {
-    console.log(datos.features.filter(feature => {
-      feature.properties.text_es = 'Marinilla'
-    }))
     map.addSource('puntos', {
       type: 'geojson',
       data: datos,
