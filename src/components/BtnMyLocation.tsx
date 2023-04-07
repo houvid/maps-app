@@ -18,12 +18,12 @@ export const BtnMyLocation = () => {
 
   return (
     <button
-      className='btn btn-ligth'
+      className='btn btn-link'
       onClick={onClick}
       style={{
         position: 'fixed',
-        top: '20px',
-        right: '20px',
+        top: '30px',
+        right: '30px',
         zIndex: 999
 
       }}

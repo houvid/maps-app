@@ -38,29 +38,83 @@
             -75.374169,
             6.153617
         ]
+    }
+},
+{
+    "id": "Parque marinilla",
+    "type": "Feature",
+    "place_type": [
+        "place"
+    ],
+    "relevance": 1,
+    "properties": {
+        "wikidata": "Q1774644",
+        "mapbox_id": "dXJuOm1ieHBsYzpZRWd5",
+        "text_es": "Parque marinilla",
+        "datos_adicionales": "Parque marinilla ",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Rionegro-Iglesia.jpg"
     },
-    "context": [
-        {
-            "id": "region.17458",
-            "short_code": "CO-ANT",
-            "wikidata": "Q123304",
-            "mapbox_id": "dXJuOm1ieHBsYzpSREk",
-            "text_es": "Antioquia",
-            "language_es": "es",
-            "text": "Antioquia",
-            "language": "es"
-        },
-        {
-            "id": "country.8754",
-            "short_code": "co",
-            "wikidata": "Q739",
-            "mapbox_id": "dXJuOm1ieHBsYzpJakk",
-            "text_es": "Colombia",
-            "language_es": "es",
-            "text": "Colombia",
-            "language": "es"
-        }
-    ]
+    "text_es": "Parque marinilla",
+    "language_es": "es",
+    "place_name_es": "Parque marinilla",
+    "text": "Parque marinilla",
+    "language": "es",
+    "place_name": "Parque marinilla",
+    "bbox": [
+        -75.485928,
+        6.057516,
+        -75.322135,
+        6.233877
+    ],
+    "center": [ 
+        -75.33465289279913,
+        6.17370854300391
+    ],
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -75.33465289279913,
+        6.17370854300391
+        ]
+    }
+},
+{
+    "id": "Casa de la cultura Marinilla",
+    "type": "Feature",
+    "place_type": [
+        "place"
+    ],
+    "relevance": 1,
+    "properties": {
+        "wikidata": "Q1774644",
+        "mapbox_id": "dXJuOm1ieHBsYzpZRWd5",
+        "text_es": "Casa de la cultura Marinilla",
+        "datos_adicionales": "Casa de la cultura Marinilla ",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Rionegro-Iglesia.jpg"
+    },
+    "text_es": "Casa de la cultura Marinilla",
+    "language_es": "es",
+    "place_name_es": "Casa de la cultura Marinilla",
+    "text": "Casa de la cultura Marinilla",
+    "language": "es",
+    "place_name": "Casa de la cultura Marinilla",
+    "bbox": [
+        -75.485928,
+        6.057516,
+        -75.322135,
+        6.233877
+    ],
+    "center": [  
+        -75.33381414637722,
+        6.173014654590507
+    ],
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -75.33381414637722,
+        6.173014654590507
+        ]
+    }
 },
 {
     "id": "place.4507698",
@@ -93,29 +147,7 @@
             -75.3378,
             6.175294
         ]
-    },
-    "context": [
-        {
-            "id": "region.17458",
-            "short_code": "CO-ANT",
-            "wikidata": "Q123304",
-            "mapbox_id": "dXJuOm1ieHBsYzpSREk",
-            "text_es": "Antioquia",
-            "language_es": "es",
-            "text": "Antioquia",
-            "language": "es"
-        },
-        {
-            "id": "country.8754",
-            "short_code": "co",
-            "wikidata": "Q739",
-            "mapbox_id": "dXJuOm1ieHBsYzpJakk",
-            "text_es": "Colombia",
-            "language_es": "es",
-            "text": "Colombia",
-            "language": "es"
-        }
-    ]
+    }
 },
 { "type": "Feature", "properties": { "id": "uu60250882", "mag": 1.44, "time": 1506931830720, "felt": null, "tsunami": 0 },"place_name": "Rionegro, Antioquia, Colombia", "geometry": { "type": "Point", "coordinates": [ -111.4165, 42.520333, 8.15 ] } }
 ]}
