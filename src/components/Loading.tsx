@@ -3,7 +3,7 @@ export const Loading = () => {
     return (
     <div className="loading-map d-flex justify-content-center aling-items-center">
         <div className= "text-center">
-            <h3>Espere por favor...</h3>
+            <h3>Espere por favor... aa</h3>
             <span>Localizando...</span>
         </div>
     </div>
