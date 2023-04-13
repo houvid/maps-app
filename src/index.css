@@ -35,3 +35,14 @@ code {
 .pointer {
   cursor: pointer;
 }
+.loader {
+display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #24344F;
+}
+      .loader img {
+        max-width: 50%;
+        max-height: 50%;
+      }

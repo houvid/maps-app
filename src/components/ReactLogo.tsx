@@ -1,5 +1,5 @@
 
-import reactLogo from "../logo.svg";
+import reactLogo from "../logo.png";
 
 export const ReactLogo = () => {
     return(
