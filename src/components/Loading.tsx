@@ -1,5 +1,3 @@
-import Logo from "../assets/map-loader.gif";
-
 export const Loading = () => {
 
     return (

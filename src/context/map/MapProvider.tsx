@@ -62,7 +62,7 @@ export const MapProvider = ({children}: Props ) => {
     const setMap = ( map: Map ) => {
 
         const customMarker = document.createElement('div');
-        customMarker.style.backgroundImage = 'url(https://cdn-icons-png.flaticon.com/512/10133/10133906.png)';
+        customMarker.style.backgroundImage = 'url(https://cdn-icons-png.flaticon.com/512/9701/9701571.png)';
         customMarker.style.backgroundSize = 'cover';
         customMarker.style.backgroundPosition = 'center';
         customMarker.style.width = '32px';
