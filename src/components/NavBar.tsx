@@ -4,7 +4,7 @@ export const NavBar = () => {
       <div className='container-fluid'>
         <a className='navbar-brand' href='#'>
           <i className='bi bi-flower1' />
-          <span className='text-warning'>Mapa</span>
+          <span className='text-info'>Mapa</span>
         </a>
         <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#menu' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
           <span className='navbar-toggler-icon' />
@@ -12,7 +12,7 @@ export const NavBar = () => {
         <div className='collapse navbar-collapse' id='menu'>
           <ul className='navbar-nav me-auto'>
             <li className='nav-item'>
-              <a className='nav-link active' aria-current='page' href='#'>Inicio</a>
+              <a className='nav-link active' aria-current='page' href='/administration'>Inicio</a>
             </li>
             <li className='nav-item'>
               <a className='nav-link' href='#'>Precios</a>
@@ -48,8 +48,7 @@ export const NavBar = () => {
           </ul>
           {/* boton Informacion */}
           <form className='d-flex'>
-            <button className='btn btn-outline-warning d-none d-md-inline-block ' type='submit'>Informacion</button>
-            <button className='btn btn-outline-warning d-none d-md-inline-block ' type='submit'>Informacion</button>
+            <button className='btn btn-outline-info d-none d-md-inline-block ' type='submit'>Informacion</button>
           </form>
         </div>
       </div>

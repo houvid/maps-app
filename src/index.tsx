@@ -9,6 +9,7 @@ import FormsFirebase from './screens/FormFirebase'
 import mapboxgl from '!mapbox-gl'
 import { AuthProvider } from './context/authContext'
 import { Administration } from './screens/Administration'
+import { FormNewFeature } from './screens/formNewFeature'
 
 const router = createBrowserRouter([
   {
@@ -23,8 +24,13 @@ const router = createBrowserRouter([
   {
     path: '/administration',
     element: <Administration />
+  },
+  {
+    path: '/formNewFeature',
+    element: <FormNewFeature />
   }
-]) // or "const mapboxgl = require('mapbox-gl');"
+])
+// or "const mapboxgl = require('mapbox-gl');"
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaG91dmlkIiwiYSI6ImNsZnBob2lkODBhMjIzeHBvZmlqd3E2ODgifQ.BAKHnn5wTYJUm01JLmgo3g'
 

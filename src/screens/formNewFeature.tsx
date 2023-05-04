@@ -1,0 +1,116 @@
+import { useContext, useState } from 'react'
+import { authContext, useAuth } from '../context/authContext'
+import { NavBar } from '../components/NavBar'
+
+export const FormNewFeature = () => {
+  const auth = useAuth()
+  const userEmail = auth.user.email
+  const [formData, setFormData] = useState({
+    properties: {
+      name: ''
+    },
+    dataAdicional: {
+      descripcion: ''
+    },
+    geometry: {
+      type: 'Point',
+      coordinates: [0, 0]
+    },
+    type: 'Feature'
+  })
+
+  const handleInputChangeName = (event: any) => {
+    const { name, value } = event.target
+    setFormData({
+      ...formData,
+      properties: { ...formData.properties, [name]: value }
+    })
+    console.log(formData)
+  }
+  const handleInputChangeDescripcion = (event: any) => {
+    const { name, value } = event.target
+    setFormData({
+      ...formData,
+      properties: { ...formData.properties, [name]: value }
+    })
+    console.log(formData)
+  }
+
+  const handleCoordinatesChange = (event: any) => {
+    const { name, value } = event.target
+    const newCoordinates = formData.geometry.coordinates.slice()
+    newCoordinates[name] = parseFloat(value)
+    setFormData({
+      ...formData,
+      geometry: { ...formData.geometry, coordinates: newCoordinates }
+    })
+    console.log(formData)
+  }
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault()
+    console.log(formData)
+    // Aquí puedes enviar los datos del formulario a un servidor
+  }
+
+  if (!userEmail) {
+    return (<div> <span className='loader' /> </div>)
+  }
+  return (
+
+    <div>
+      <NavBar />
+      <h1>Nuevo Punto</h1>
+      <div className='container mt-5'>
+        <form onSubmit={handleSubmit}>
+          <div className='form-group'>
+            <label htmlFor='name'>Nombre:</label>
+            <input
+              type='text'
+              id='name'
+              name='name'
+              className='form-control'
+              value={formData.properties.name}
+              onChange={handleInputChangeName}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='descripcion'>Descripcion:</label>
+            <input
+              type='text'
+              id='descripcion'
+              name='descripcion'
+              className='form-control'
+              onChange={handleInputChangeDescripcion}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='lng'>Longitud:</label>
+            <input
+              type='string'
+              id='lng'
+              name='0'
+              className='form-control'
+              value={formData.geometry.coordinates[0]}
+              onChange={handleCoordinatesChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='lat'>Latitud:</label>
+            <input
+              type='string'
+              id='lat'
+              name='1'
+              className='form-control'
+              value={formData.geometry.coordinates[1]}
+              onChange={handleCoordinatesChange}
+            />
+          </div>
+          <button type='submit' className='btn btn-primary'>
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
