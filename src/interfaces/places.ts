@@ -45,4 +45,5 @@ export interface Properties {
     landmark?: boolean;
     category?: string;
     accuracy?: string;
+    name?: string;
 }

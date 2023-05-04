@@ -5,28 +5,22 @@ import { useContext, useLayoutEffect } from 'react'
 import { Map } from '!mapbox-gl'
 import { PlacesContext, MapContext } from '../context'
 import { Loading } from './Loading'
-import Clusters from './clusters'
-import { getFeatures } from '../firebase/firebase'
 
-async function miMetodo () {
-  const featuresList = await getFeatures()
-  return featuresList
-  // Aquí puedes hacer lo que quieras con la lista de features que has obtenido
-}
 export const MapView = () => {
   const { isLoading, userLocation } = useContext(PlacesContext)
+  const { SetPlacesInit } = useContext(PlacesContext)
   const { setMap } = useContext(MapContext)
   useLayoutEffect(() => {
-    miMetodo()
     if (!isLoading) {
       const map = new Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
-        center: [-75.573553, 6.2443382], // starting position [lng, lat]
-        zoom: 6 // starting zoom
+        center: userLocation, // starting position [lng, lat]
+        zoom: 14 // starting zoom
       })
-      const mapWithClusters = Clusters(map)
-      setMap(mapWithClusters)
+      // const mapWithClusters = Clusters(map)
+      setMap(map)
+      SetPlacesInit()
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

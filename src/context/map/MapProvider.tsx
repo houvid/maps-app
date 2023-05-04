@@ -38,10 +38,10 @@ export const MapProvider = ({ children }: Props) => {
     const newMarkers: Marker[] = []
 
     for (const place of places) {
-      const [lng, lat]: any = place.center
+      const [lng, lat]: any = place.geometry?.coordinates
       const popup = new Popup()
         .setHTML(`
-                    <h6>${place.text_es}</h6>
+                    <h6>${place.properties?.name}</h6>
                     <p>${place.place_name}</p>
                 `)
       const newMarker = new Marker()
@@ -64,20 +64,20 @@ export const MapProvider = ({ children }: Props) => {
     customMarker.style.width = '32px'
     customMarker.style.height = '32px'
 
-    // const myLocationPopup = new Popup()
-    //   .setHTML(
-    //         `<h4> Ésta es tu ubicación actual </h4>
-    //         <center> <img src="https://cdn-icons-png.flaticon.com/512/10133/10133906.png" style="width: 50px; align: center "></center>
-    //         <p style="margin-top:15px;" > Acá podemos poner una descripción: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt quos delectus iusto suscipit pariatur iste vel magnam optio quo? Ea porro quisquam voluptatum quas numquam itaque similique aspernatur voluptates rem. </p>`)
+    const myLocationPopup = new Popup()
+      .setHTML(
+            `<h4> Ésta es tu ubicación actual </h4>
+            <center> <img src="https://cdn-icons-png.flaticon.com/512/10133/10133906.png" style="width: 50px; align: center "></center>
+            <p style="margin-top:15px;" > Acá podemos poner una descripción: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt quos delectus iusto suscipit pariatur iste vel magnam optio quo? Ea porro quisquam voluptatum quas numquam itaque similique aspernatur voluptates rem. </p>`)
 
-    // new Marker({
-    //   color: '#61DAFB',
-    //   element: customMarker
-    // })
-    //   .setLngLat(map.getCenter())
-    //   .setPopup(myLocationPopup)
-    //   .addTo(map)
-    // console.log(map.getCenter())
+    new Marker({
+      color: '#61DAFB',
+      element: customMarker
+    })
+      .setLngLat(map.getCenter())
+      .setPopup(myLocationPopup)
+      .addTo(map)
+    console.log(map.getCenter())
 
     dispatch({ type: 'setMap', payload: map })
   }

@@ -8,7 +8,7 @@ export const SearchResuls = () => {
   const { map, getRouteBetweenPoints } = useContext(MapContext)
 
   const onPlaceClicked = (place: Feature) => {
-    const [lng, lat]: any = place.center
+    const [lng, lat]: any = place.geometry?.coordinates
 
     map?.flyTo({
       zoom: 14,
@@ -18,7 +18,7 @@ export const SearchResuls = () => {
 
   const getRoute = (place: Feature) => {
     if (!userLocation) return
-    const [lng, lat]: any = place.center
+    const [lng, lat]: any = place.geometry?.coordinates
     getRouteBetweenPoints(userLocation, [lng, lat])
   }
 

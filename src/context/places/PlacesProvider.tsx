@@ -46,10 +46,8 @@ export const PlacesProvider = ({ children }: Props) => {
         proximity: state.userLocation.join(',')
       }
     })
-    dispatch({ type: 'setPlaces', payload: resp.data.features })
-    console.log('searchPlacesByTerm')
-    console.log('"' + resp.data.features[0].id + '" : ' + JSON.stringify(resp.data.features[0]))
-
+    SetPlacesInit()
+    // dispatch({ type: 'setPlaces', payload: resp.data.features })
     return resp.data.features
   }
 
@@ -59,9 +57,6 @@ export const PlacesProvider = ({ children }: Props) => {
 
     const resp = await getFeatures()
     dispatch({ type: 'setPlaces', payload: resp })
-    console.log('SetPlacesInit')
-    console.log(resp[0])
-
     return resp
   }
 
