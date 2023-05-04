@@ -1,6 +1,7 @@
 
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASEAPIKEY,
@@ -14,6 +15,8 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
+
+export const auth = getAuth(app)
 
 export async function getFeatures () {
   const featuresCollection = collection(db, 'features')
