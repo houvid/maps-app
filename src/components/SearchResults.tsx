@@ -35,15 +35,7 @@ export const SearchResuls = () => {
                     className='list-group-item list-group-item-action pointer'
                     onClick={() => onPlaceClicked(place)}
                   >
-                    <h6>{place.text_es} </h6>
-                    <p
-                      className='text-muted'
-                      style={{
-                        fontSize: '12px'
-                      }}
-                    >
-                      {place.place_name}
-                    </p>
+                    <h6>{place.properties?.name} </h6>
                     <button className='btn btn-outline-primary btn-sm ' onClick={() => getRoute(place)}>
                       Direcciones
                     </button>

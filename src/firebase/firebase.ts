@@ -1,6 +1,6 @@
 
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, addDoc, doc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -24,4 +24,14 @@ export async function getFeatures () {
   const featuresList = featuresSnapshot.docs.map(doc => doc.data())
   console.log(featuresList)
   return featuresList
+}
+export async function addFeature (feature: any) {
+  const featuresCollection = collection(db, 'features')
+  const newFeatureRef = doc(featuresCollection)
+  try {
+    await addDoc(featuresCollection, { ...feature, id: newFeatureRef.id })
+    console.log('Feature agregado correctamente')
+  } catch (e) {
+    console.error('Error al agregar el Feature: ', e)
+  }
 }

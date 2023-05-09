@@ -46,4 +46,6 @@ export interface Properties {
     category?: string;
     accuracy?: string;
     name?: string;
+    descripcion?: string;
+    urlImagen?: string;
 }

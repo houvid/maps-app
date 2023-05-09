@@ -1,13 +1,15 @@
 import { useContext, useState } from 'react'
 import { authContext, useAuth } from '../context/authContext'
 import { NavBar } from '../components/NavBar'
+import { addFeature } from '../firebase/firebase'
 
 export const FormNewFeature = () => {
   const auth = useAuth()
   const userEmail = auth.user.email
   const [formData, setFormData] = useState({
     properties: {
-      name: ''
+      name: '',
+      urlImagen: ''
     },
     dataAdicional: {
       descripcion: ''
@@ -20,6 +22,14 @@ export const FormNewFeature = () => {
   })
 
   const handleInputChangeName = (event: any) => {
+    const { name, value } = event.target
+    setFormData({
+      ...formData,
+      properties: { ...formData.properties, [name]: value }
+    })
+    console.log(formData)
+  }
+  const handleInputChangeUrlImagen = (event: any) => {
     const { name, value } = event.target
     setFormData({
       ...formData,
@@ -50,7 +60,9 @@ export const FormNewFeature = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault()
     console.log(formData)
+    addFeature(formData)
     // Aquí puedes enviar los datos del formulario a un servidor
+    // TODO: esperar respuesta, toast y borrar contenido del formulario
   }
 
   if (!userEmail) {
@@ -75,6 +87,17 @@ export const FormNewFeature = () => {
             />
           </div>
           <div className='form-group'>
+            <label htmlFor='name'>Link Imagen:</label>
+            <input
+              type='text'
+              id='urlImagen'
+              name='urlImagen'
+              className='form-control'
+              value={formData.properties.urlImagen}
+              onChange={handleInputChangeUrlImagen}
+            />
+          </div>
+          <div className='form-group'>
             <label htmlFor='descripcion'>Descripcion:</label>
             <input
               type='text'
@@ -87,7 +110,7 @@ export const FormNewFeature = () => {
           <div className='form-group'>
             <label htmlFor='lng'>Longitud:</label>
             <input
-              type='string'
+              type='text'
               id='lng'
               name='0'
               className='form-control'
@@ -98,7 +121,7 @@ export const FormNewFeature = () => {
           <div className='form-group'>
             <label htmlFor='lat'>Latitud:</label>
             <input
-              type='string'
+              type='text'
               id='lat'
               name='1'
               className='form-control'

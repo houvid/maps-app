@@ -35,4 +35,6 @@ export interface Geometry {
 export interface Properties {
     mapbox_id: string;
     name?: string;
+    descripcion?: string;
+    urlImagen?: string;
 }
