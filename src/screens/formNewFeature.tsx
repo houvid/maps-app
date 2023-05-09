@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react'
-import { authContext, useAuth } from '../context/authContext'
+import { useState } from 'react'
+import { useAuth } from '../context/authContext'
 import { NavBar } from '../components/NavBar'
 import { addFeature } from '../firebase/firebase'
 

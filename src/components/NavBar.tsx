@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 export const NavBar = () => {
   return (
     <nav className='navbar navbar-expand-md navbar-dark bg-dark'>

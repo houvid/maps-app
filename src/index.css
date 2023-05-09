@@ -94,9 +94,6 @@ code {
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
- body {
-	 font-family: 'Roboto', sans-serif;
-}
  .auth__header {
 	 padding: 13vh 1rem calc(11vh + 35px);
 	 display: flex;
