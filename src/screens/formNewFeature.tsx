@@ -61,7 +61,7 @@ export const FormNewFeature = () => {
     event.preventDefault()
     console.log(formData)
     addFeature(formData)
-    // Aquí puedes enviar los datos del formulario a un servidor
+    // Aquí puedes enviar los  datos del formulario a un servidor
     // TODO: esperar respuesta, toast y borrar contenido del formulario
   }
 
