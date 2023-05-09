@@ -35,7 +35,7 @@ const router = createBrowserRouter([
 mapboxgl.accessToken = 'pk.eyJ1IjoiaG91dmlkIiwiYSI6ImNsZnBob2lkODBhMjIzeHBvZmlqd3E2ODgifQ.BAKHnn5wTYJUm01JLmgo3g'
 
 if (!navigator.geolocation) {
-  alert('tu navegador no tiene opción de geolocalización')
+  alert('tu navegador no tiene opción d e geolocalización')
   throw new Error('tu navegador no tiene opción de geol')
 }
 
