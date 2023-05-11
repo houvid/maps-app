@@ -114,7 +114,7 @@ export const MapProvider = ({ children }: Props) => {
     container.style.fontFamily = 'Poppins'
     container.style.placeItems = 'center'
     container.style.margin = '0 auto'
-    const name = document.createElement('h7')
+    const name = document.createElement('h6')
     container.style.fontWeight = '500'
     name.textContent = place.properties?.name
 
