@@ -9,7 +9,7 @@ import { mapReducer } from './mapReducer'
 import { PlacesContext } from '../'
 import { directionsApi } from '../../apis'
 import { DirectionsResponse } from '../../interfaces/directions'
-import { Feature } from '../../interfaces/places'
+import { Feature } from '../../interfaces/placesFireBase'
 import { ModalContext } from '../modal/ModalContext'
 
 export interface MapState {
@@ -32,7 +32,7 @@ const INITIAL_STATE: MapState = {
 
 export const MapProvider = ({ children }: Props) => {
   const { places, userLocation } = useContext(PlacesContext)
-  const { SetStateModal } = useContext(ModalContext)
+  const { SetStateModal, SetPlace } = useContext(ModalContext)
   const [state, dispatch] = useReducer(mapReducer, INITIAL_STATE)
 
   useEffect(() => {
@@ -63,9 +63,10 @@ export const MapProvider = ({ children }: Props) => {
     const botonCerrar = document.querySelector('.mapboxgl-popup-close-button') as HTMLElement
     botonCerrar?.click()
   }
-  function openDetails (state:boolean) {
+  function openDetails (state:boolean, place: Feature) {
     const botonCerrar = document.querySelector('.mapboxgl-popup-close-button') as HTMLElement
     botonCerrar?.click()
+    SetPlace(place)
     SetStateModal(state)
   }
 
@@ -103,30 +104,38 @@ export const MapProvider = ({ children }: Props) => {
     const image = document.createElement('img')
     image.src = place.properties?.urlImagen
     image.style.width = '100%'
+    image.style.height = '120px'
+    image.style.objectFit = 'cover'
     image.style.marginTop = '5px'
     image.style.marginBottom = '5px'
+    image.style.borderRadius = '.5rem'
 
     const container = document.createElement('div')
-    const name = document.createElement('h6')
+    container.style.fontFamily = 'Poppins'
+    container.style.placeItems = 'center'
+    container.style.margin = '0 auto'
+    const name = document.createElement('h7')
+    container.style.fontWeight = '500'
     name.textContent = place.properties?.name
 
     const description = document.createElement('p')
     description.textContent = textodescripcion
 
     const btn = document.createElement('button')
-    btn.className = 'btn btn-primary'
-    btn.onclick = () => getRoute(place)
-    btn.textContent = 'Direcciones'
+    btn.className = 'btn'
+    btn.onclick = () => openDetails(true, place)
+    btn.textContent = 'Ver más detalles'
 
     const btnModal = document.createElement('button')
     btnModal.id = 'btnModal'
     btnModal.className = 'btn btn-primary'
-    btnModal.textContent = 'Detalles'
+    btnModal.textContent = 'Ir'
     btnModal.style.position = 'absolute'
-    btnModal.onclick = () => openDetails(true)
+    btnModal.style.marginLeft = '10px'
+    btnModal.onclick = () => getRoute(place)
 
-    container.appendChild(name)
     container.appendChild(image)
+    container.appendChild(name)
     container.appendChild(description)
     container.appendChild(btn)
     container.appendChild(btnModal)

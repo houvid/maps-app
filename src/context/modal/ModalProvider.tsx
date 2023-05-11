@@ -1,11 +1,11 @@
 import { useReducer } from 'react'
-import { Feature } from '../../interfaces/places'
+import { Feature } from '../../interfaces/placesFireBase'
 import { ModalContext } from './ModalContext'
 import { modalReducer } from './modalReducer'
 
 export interface ModalState {
     stateModal: boolean;
-    places: Feature[];
+    place: Feature;
 }
 
 export interface Props {
@@ -14,7 +14,7 @@ export interface Props {
 
 const INITIAL_STATE: ModalState = {
   stateModal: false,
-  places: []
+  place: {}
 }
 
 export const ModalProvider = ({ children }: Props) => {
@@ -23,13 +23,17 @@ export const ModalProvider = ({ children }: Props) => {
   const SetStateModal = async (state: boolean):Promise<any> => {
     dispatch({ type: 'setStateModal', payload: state })
   }
+  const SetPlace = async (place: Feature):Promise<any> => {
+    dispatch({ type: 'setPlace', payload: place })
+  }
 
   return (
     <ModalContext.Provider value={{
       ...state,
 
       // Methods
-      SetStateModal
+      SetStateModal,
+      SetPlace
 
     }}
     >

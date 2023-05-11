@@ -104,7 +104,7 @@ img{
   position: relative;
   background-color: var(--container-color);
   text-align: center;
-  padding: 3rem 2rem 2rem;
+  padding: 0rem 0rem 2rem;
   border-radius: 1rem 1rem 0 0;
   bottom: 0;
   height: 100%;
@@ -122,19 +122,21 @@ img{
 }
 
 .modal__img{
-  width: 150px;
+  width: 100%;
+  margin-top: 0;
   margin-bottom: .75rem;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .modal__close{
   display: inline-flex;
-  background-color: var(--first-color);
-  border-radius: .25rem;
-  color: #FFF;
+  background-color: #FFF;
+  border-radius: 1rem;
+  color: var(--first-color);
   font-size: 1.5rem;
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
 }
 
@@ -193,6 +195,6 @@ img{
   }
 
   .modal__img{
-    width: 170px;
+    width: 100%;
   }
 }
