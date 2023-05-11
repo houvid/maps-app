@@ -7,10 +7,16 @@ export const ModalDetalles = () => {
   return (
     <div className=''>
       <div className='modal__content'>
+
         <div className='modal__close close-modal' title='Close' onClick={() => SetStateModal(false)}>
           <i className='bx bx-x' />
         </div>
-        <img src={place.properties?.urlImagen} alt='' className='modal__img' />
+        <div className='slider'>
+          <img src={place.properties?.urlImagen} alt='' className='modal__img' />
+          <img src={place.properties?.urlImagen} alt='' className='modal__img' />
+          <img src={place.properties?.urlImagen} alt='' className='modal__img' />
+          <img src={place.properties?.urlImagen} alt='' className='modal__img' />
+        </div>
         <h1 className='modal__title'>{place.properties?.name}</h1>
         <p className='modal__description'>{place.properties?.descripcion}</p>
         {/* <button className='modal__button modal__button-width'>

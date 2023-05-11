@@ -125,7 +125,23 @@ img{
   width: 100%;
   margin-top: 0;
   margin-bottom: .75rem;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 1rem 1rem 1rem 1rem ;
+}
+.slider {
+  width:100%;
+  margin-top: 0;
+  position:relative;
+  display: flex;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+}
+.slider img {
+  width: 100%;
+left: 0;
+position: sticky;
+object-fit: cover;
+border-radius: 5px;
+scroll-snap-align: center;
 }
 
 .modal__close{
@@ -138,6 +154,7 @@ img{
   top: 1rem;
   right: 1rem;
   cursor: pointer;
+  z-index: 999;
 }
 
 .modal__title{
@@ -184,6 +201,7 @@ img{
   /*=== Effect 3 ===*/
   /* transform: rotateX(0) scale(1) translateY(0); */
 }
+
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
