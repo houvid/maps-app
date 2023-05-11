@@ -1,12 +1,15 @@
 import { MapProvider, PlacesProvider } from './context'
 import { HomeScreen } from './screens'
+import { ModalProvider } from './context/modal/ModalProvider'
 
 export const MapsApps = () => {
   return (
-    <PlacesProvider>
-      <MapProvider>
-        <HomeScreen />
-      </MapProvider>
-    </PlacesProvider>
+    <ModalProvider>
+      <PlacesProvider>
+        <MapProvider>
+          <HomeScreen />
+        </MapProvider>
+      </PlacesProvider>
+    </ModalProvider>
   )
 }

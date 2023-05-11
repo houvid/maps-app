@@ -10,6 +10,7 @@ import { PlacesContext } from '../'
 import { directionsApi } from '../../apis'
 import { DirectionsResponse } from '../../interfaces/directions'
 import { Feature } from '../../interfaces/places'
+import { ModalContext } from '../modal/ModalContext'
 
 export interface MapState {
     isMapReady: boolean;
@@ -31,6 +32,7 @@ const INITIAL_STATE: MapState = {
 
 export const MapProvider = ({ children }: Props) => {
   const { places, userLocation } = useContext(PlacesContext)
+  const { SetStateModal } = useContext(ModalContext)
   const [state, dispatch] = useReducer(mapReducer, INITIAL_STATE)
 
   useEffect(() => {
@@ -53,6 +55,7 @@ export const MapProvider = ({ children }: Props) => {
     dispatch({ type: 'setMarkers', payload: newMarkers })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [places])
+
   const getRoute = (place: Feature) => {
     if (!userLocation) return
     const [lng, lat]: any = place.geometry?.coordinates
@@ -60,6 +63,12 @@ export const MapProvider = ({ children }: Props) => {
     const botonCerrar = document.querySelector('.mapboxgl-popup-close-button') as HTMLElement
     botonCerrar?.click()
   }
+  function openDetails (state:boolean) {
+    const botonCerrar = document.querySelector('.mapboxgl-popup-close-button') as HTMLElement
+    botonCerrar?.click()
+    SetStateModal(state)
+  }
+
   const setMap = (map: Map) => {
     const customMarker = document.createElement('div')
     customMarker.style.backgroundImage = 'url(https://cdn-icons-png.flaticon.com/512/5632/5632722.png)'
@@ -109,10 +118,18 @@ export const MapProvider = ({ children }: Props) => {
     btn.onclick = () => getRoute(place)
     btn.textContent = 'Direcciones'
 
+    const btnModal = document.createElement('button')
+    btnModal.id = 'btnModal'
+    btnModal.className = 'btn btn-primary'
+    btnModal.textContent = 'Detalles'
+    btnModal.style.position = 'absolute'
+    btnModal.onclick = () => openDetails(true)
+
     container.appendChild(name)
     container.appendChild(image)
     container.appendChild(description)
     container.appendChild(btn)
+    container.appendChild(btnModal)
 
     return container
   }
@@ -140,7 +157,7 @@ export const MapProvider = ({ children }: Props) => {
     }
 
     state.map?.fitBounds(bounds,
-      { padding: 50 }
+      { padding: 80 }
     )
 
     // Polyline
@@ -180,8 +197,9 @@ export const MapProvider = ({ children }: Props) => {
 
       },
       paint: {
-        'line-color': 'black',
-        'line-width': 6
+        'line-color': '#4ecca3',
+        'line-width': 6,
+        'line-blur': 1
       }
     })
   }
