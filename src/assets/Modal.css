@@ -129,19 +129,21 @@ img{
 }
 .slider {
   width:100%;
+  border-radius: 1rem 1rem 1rem 1rem  ;
   margin-top: 0;
   position:relative;
   display: flex;
   overflow: scroll;
   scroll-snap-type: x mandatory;
+  margin-bottom: 0;
 }
 .slider img {
   width: 100%;
-left: 0;
-position: sticky;
-object-fit: cover;
-border-radius: 5px;
-scroll-snap-align: center;
+  left: 0;
+  position: sticky;
+  object-fit: cover;
+  border-radius: 5px;
+  scroll-snap-align: center;
 
 }
 
@@ -210,7 +212,8 @@ li {
 .contenedor {
   width: 100%;
   max-width: 120em;
-  padding: 1em;
+  padding: 0.1em;
+  padding-top: 0;
   color: var(--negro);
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
@@ -265,8 +268,8 @@ li {
 
 .contenedor .bloque {
   color: var(--negro);
-  margin: 1em;
-  padding: 1em;
+  margin: 0em;
+  padding: 0em;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   background-color: var(--blanco);
