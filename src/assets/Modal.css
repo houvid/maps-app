@@ -222,6 +222,7 @@ li {
 .contenedor .ul {
   width: 100%;
   left: 0;
+  padding-left: 0rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

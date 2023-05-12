@@ -23,9 +23,9 @@ export const ModalDetalles = () => {
         </div>
         <div className='contenedor'>
           <ul className='ul'>
-            <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}>Descripcion</li>
+            <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}>Info</li>
             <li className={toggleState === 1 ? 'li activo' : 'li'} onClick={() => toggleTab(1)}>Horarios</li>
-            <li className={toggleState === 2 ? 'li activo' : 'li'} onClick={() => toggleTab(2)}>Recomendaciones</li>
+            <li className={toggleState === 2 ? 'li activo' : 'li'} onClick={() => toggleTab(2)}>Recomendamos</li>
           </ul>
           <div className='subcontenedor'>
             <div className={toggleState === 0 ? 'bloque activo' : 'bloque'}>
@@ -40,7 +40,7 @@ export const ModalDetalles = () => {
               </p>
               .
             </div>
-            <div className={toggleState === 2 ? 'bloque activo' : 'bloque'}>Sígueme en TikTok</div>
+            <div className={toggleState === 2 ? 'bloque activo' : 'bloque'}>por ahora nada xd</div>
           </div>
         </div>
 
