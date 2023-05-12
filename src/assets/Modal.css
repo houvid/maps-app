@@ -276,6 +276,7 @@ li {
   -webkit-box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
           box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
   opacity: 0;
+  display: none;
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
   -webkit-transition: all 0.5s ease;
@@ -284,6 +285,7 @@ li {
 
 .contenedor .bloque.activo {
   top:0;
+  display: inline-block;
   opacity: 1;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
