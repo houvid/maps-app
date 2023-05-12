@@ -142,6 +142,7 @@ position: sticky;
 object-fit: cover;
 border-radius: 5px;
 scroll-snap-align: center;
+
 }
 
 .modal__close{
@@ -202,6 +203,87 @@ scroll-snap-align: center;
   /* transform: rotateX(0) scale(1) translateY(0); */
 }
 
+ /* Tabs modal */
+li {
+  list-style-type: none;
+}
+.contenedor {
+  width: 100%;
+  max-width: 120em;
+  padding: 1em;
+  color: var(--negro);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  background-color: var(--blanco);
+  -webkit-box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+          box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+}
+
+.contenedor .ul {
+  width: 100%;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contenedor .li {
+  width: 100%;
+  padding: 1em;
+  color: var(--negro);
+  border-radius: 1rem 1rem 0 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  background-color: var(--blanco);
+  -webkit-box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+          box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.contenedor .li.activo {
+  background-color: #5b4ce6;
+  color: white;
+}
+
+.contenedor .subcontenedor {
+  min-height: 10vh;
+  position: relative;
+}
+
+.contenedor .bloque {
+  color: var(--negro);
+  margin: 1em;
+  padding: 1em;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  background-color: var(--blanco);
+  -webkit-box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+          box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  opacity: 0;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.contenedor .bloque.activo {
+  top:0;
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */

@@ -175,7 +175,7 @@ export const MapProvider = ({ children }: Props) => {
         features: [
           {
             type: 'Feature',
-            properties: {},
+            properties: { 'marker-color': '#5b4ce6' },
             geometry: {
               type: 'LineString',
               coordinates: coords

@@ -18,13 +18,14 @@ export const BtnMyLocation = () => {
 
   return (
     <button
-      className='btn btn-link'
+      className='btn'
       onClick={onClick}
       style={{
         position: 'fixed',
         top: '30px',
         right: '30px',
-        zIndex: 999
+        zIndex: 999,
+        color: '#5b4ce6'
 
       }}
     >
