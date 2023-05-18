@@ -9,7 +9,7 @@ export const ModalDetalles = () => {
   }
   console.log(place)
   return (
-    <div className='  '>
+    <div className='contenedorPrincipalModal'>
       <div className='modal__content'>
 
         <div className='modal__close close-modal' title='Close' onClick={() => SetStateModal(false)}>

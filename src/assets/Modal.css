@@ -62,6 +62,7 @@ img{
 .container{
   margin-left: 1rem;
   margin-right: 1rem;
+  
 }
 
 .modal{
@@ -84,7 +85,6 @@ img{
 }
 
 .modal__container{
-  position: absolute;
   top: 0;
   left: 0;
   background-color: hsla(var(--hue), 18%, 75%, .8);
@@ -101,17 +101,19 @@ img{
 }
 
 .modal__content{
+  float: right;
   position: relative;
   background-color: var(--container-color);
   text-align: center;
   padding: 0rem 0rem 2rem;
   border-radius: 1rem 1rem 0 0;
   bottom: 0;
+  top: 0;
   height: 100%;
   transition: all 1s;
 
   /*=== Effect 1 ===*/
-  transform: translateY(30%);
+  transform: translateY(70%);
 
   /*=== Effect 2 ===*/
   /* transform: scale(.5) translateY(10%); */
@@ -159,6 +161,9 @@ img{
   cursor: pointer;
   z-index: 999;
 }
+.modal__close:hover{
+  color: var(--first-color-alt);
+}
 
 .modal__title{
   font-size: var(--big-font-size);
@@ -195,14 +200,9 @@ img{
 
 
 .show-modal .modal__content{
-  /*=== Effect 1 ===*/
   transform: translateY(0);
 
-  /*=== Effect 2 ===*/
-  /* transform: scale(1) translateY(0); */
 
-  /*=== Effect 3 ===*/
-  /* transform: rotateX(0) scale(1) translateY(0); */
 }
 
  /* Tabs modal */
@@ -268,6 +268,7 @@ li {
 
 .contenedor .bloque {
   color: var(--negro);
+  height: 500px;
   margin: 0em;
   padding: 0em;
   -webkit-transition: all 0.4s ease;
@@ -290,6 +291,9 @@ li {
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
 }
+.contenedorPrincipalModal {
+  padding-top: 0;
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
@@ -298,7 +302,7 @@ li {
     margin: auto;
     width: 380px;
     border-radius: 1.25rem;
-    height: '75%';
+    height: '85%';
     top: 0;
     transition: all 1s;
     transform: translateY(40%);

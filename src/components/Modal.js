@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import Portal from './Portal'
 export class Modal extends Component {
   render () {
@@ -25,18 +25,19 @@ const styles = {
     buttom: '0',
     backgroundcolor: 'hsla(var(--hue), 18%, 75%, .8)',
     width: '100%',
-    height: '100%',
     display: 'grid',
     alignitems: 'flex-end',
     transition: 'all .3s',
-    zindex: 'var(--z-modal)'
+    zindex: 'var(--z-modal)',
+    float: 'right'
   },
   modal: {
     height: '100vh',
     display: 'grid',
     placeitems: 'center',
     marginleft: '1rem',
-    marginright: '1rem'
+    marginright: '1rem',
+    float: 'right'
   },
   closeBtn: {
     position: 'absolute',
@@ -44,8 +45,8 @@ const styles = {
     right: 0
   },
   '@media (max-width: 767px)': {
-    wrapper: {
-      height: '75%',
+    modal: {
+      height: '85%',
       bottom: 0,
       top: 'auto'
     }
