@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react'
-import { BtnMyLocation, MapView, ReactLogo, SearchBar } from '../components'
+import { BtnMyLocation, MapView, MapViewLeaf, ReactLogo, SearchBar } from '../components'
 import { Modal } from '../components/Modal'
 import { ModalContext } from '../context/modal/ModalContext'
 import { ModalDetalles } from '../components/modalDetalles'
@@ -16,7 +16,7 @@ export const HomeScreen = () => {
   }
   return (
     <div>
-      <MapView />
+      <MapViewLeaf />
       <BtnMyLocation />
       <ReactLogo />
       <SearchBar />
