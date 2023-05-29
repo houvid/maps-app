@@ -1,6 +1,6 @@
 import React from 'react'
 import { Marker, Popup } from 'react-leaflet'
-import { iconLocation } from './IconLocation'
+import { iconLocation } from '../IconLocation'
 export const Markers = () => {
   console.log(iconLocation)
   return (

@@ -46,15 +46,13 @@ export const PlacesProvider = ({ children }: Props) => {
         proximity: state.userLocation.join(',')
       }
     })
-    SetPlacesInit()
+    // SetPlacesInit()
     // dispatch({ type: 'setPlaces', payload: resp.data.features })
     return resp.data.features
   }
 
   const SetPlacesInit = async ():Promise<Feature[]> => {
-    if (!state.userLocation) throw new Error('No tenemos ubicacion del usuario')
-    // dispatch({ type: 'setLoadingPlaces' })
-
+    dispatch({ type: 'setLoadingPlaces' })
     const resp = await getFeatures()
     dispatch({ type: 'setPlaces', payload: resp })
     return resp

@@ -19,12 +19,12 @@ export const MapView = () => {
         zoom: 14 // starting zoom
       })
       // const mapWithClusters = Clusters(map)
-      setMap(map)
-      SetPlacesInit()
+      // setMap(map)
+      // SetPlacesInit()
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoading])
+  }, [])
 
   if (isLoading) {
     return (<Loading />)
