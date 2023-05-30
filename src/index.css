@@ -48,12 +48,7 @@ code {
   border-radius: 10px;
 }
 
-.custom-popup {
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
+
 
 .popup-title {
   font-size: 16px;
