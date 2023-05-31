@@ -48,7 +48,9 @@ code {
   border-radius: 10px;
 }
 
-
+.leaflet-routing-container {
+  display: none;
+}
 
 .popup-title {
   font-size: 16px;

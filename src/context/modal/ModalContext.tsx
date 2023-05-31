@@ -6,6 +6,7 @@ export interface ModalContextProps {
     place: Feature
     SetStateModal: (state: boolean) => Promise<any>;
     SetPlace: (place: Feature) => Promise<Feature>
+    SetPlaceRoute: (placeRoute: Feature) => Promise<Feature>
 
 }
 

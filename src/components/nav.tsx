@@ -1,4 +1,3 @@
-import { SelectMunicipios } from './'
 import { FaRegTimesCircle, FaSearch } from 'react-icons/fa'
 
 export const Nav = () => {
@@ -27,7 +26,6 @@ export const Nav = () => {
         </div>
         <div className='offcanvas-body panel__header'>
           <h3> Selecciona un municipio</h3>
-          <SelectMunicipios />
         </div>
       </div>
     </div>

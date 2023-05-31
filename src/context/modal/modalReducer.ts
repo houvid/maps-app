@@ -4,6 +4,7 @@ import { Feature } from '../../interfaces/placesFireBase'
 
 type ModalAction =
     | { type: 'setStateModal', payload: boolean }
+    | { type: 'setPlaceRoute', payload: Feature }
     | { type: 'setPlace', payload: Feature }
 
 export const modalReducer = (state: ModalState, action: ModalAction): ModalState => {
@@ -12,6 +13,12 @@ export const modalReducer = (state: ModalState, action: ModalAction): ModalState
       return {
         ...state,
         stateModal: action.payload
+      }
+
+    case 'setPlaceRoute':
+      return {
+        ...state,
+        placeRoute: action.payload
       }
     case 'setPlace':
       return {

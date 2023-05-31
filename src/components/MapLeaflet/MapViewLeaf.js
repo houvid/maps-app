@@ -1,19 +1,22 @@
 import { React, useContext, useEffect, useState } from 'react'
 import { PlacesContext, ModalContext } from '../../context'
 import { Markers } from './Markers'
-import { iconLocation, iconMarkerGreen } from '../IconLocation'
-import 'leaflet/dist/leaflet.css'
-import { Modal, Button } from 'react-bootstrap'
+import { iconMarkerGreen } from '../IconLocation'
+import { Routing } from './Routing'
 
+import 'leaflet/dist/leaflet.css'
+import { Modal } from 'react-bootstrap'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import 'leaflet-routing-machine'
 import '../../assets/leaflet.css'
 export const MapViewLeaf = () => {
   const { isLoading, userLocation, places, isLoadingPlaces, SetPlacesInit } = useContext(PlacesContext)
-  const { SetStateModal, SetPlace, place } = useContext(ModalContext)
+  const { SetPlace, SetPlaceRoute, place, placeRoute } = useContext(ModalContext)
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [toggleState, setToggleState] = useState(0)
   useEffect(() => {
     SetPlacesInit()
+    console.log(place)
   }, [])
   if (isLoading || !userLocation || isLoadingPlaces) {
     // Renderiza un indicador de carga o cualquier otro contenido mientras se obtienen los datos de ubicación
@@ -29,11 +32,8 @@ export const MapViewLeaf = () => {
   const toggleTab = (index) => {
     setToggleState(index)
   }
-  const openDetails = (state, place) => {
-    const botonCerrar = document.querySelector('.leaflet-popup-close-button')
-    botonCerrar?.click()
-    SetPlace(place)
-    SetStateModal(state)
+  const setPlaceToRoute = (place) => {
+    SetPlaceRoute(place)
   }
   return (
     <MapContainer center={userLocation} zoom={13} scrollWheelZoom>
@@ -50,6 +50,7 @@ export const MapViewLeaf = () => {
               <p>{place.properties.name}</p>
               <p>{place.properties.descripcion}</p>
               <button className='btn btn-primary' onClick={() => openModal(place)}> Ver mas detalles</button>
+              <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir</button>
             </div>
           </Popup>
         </Marker>
@@ -94,6 +95,7 @@ export const MapViewLeaf = () => {
           </Modal.Footer>
         </Modal>
       </section>
+      {Object.keys(placeRoute).length > 0 && <Routing />}
     </MapContainer>
   )
 }
