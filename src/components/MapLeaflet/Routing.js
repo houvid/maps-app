@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useRef } from 'react'
+import { useEffect, useContext, useRef } from 'react'
 import { PlacesContext, ModalContext } from '../../context'
 import { useMap } from 'react-leaflet'
 import L from 'leaflet'
@@ -13,27 +13,21 @@ export const Routing = () => {
     if (!placeRoute) {
       console.log('No place', placeRoute)
     } else {
-      const customIcon = L.icon({
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/5632/5632722.png',
-        iconSize: [32, 32],
-        iconAnchor: [16, 32]
-      })
-
       const routingControl = routingControlRef.current = L.Routing.control({
         waypoints: [
           L.latLng(userLocation),
           L.latLng(placeRoute.geometry.coordinates[1], placeRoute.geometry.coordinates[0])
         ],
-        waypointIcon: customIcon
+        createMarker: () => null,
+        lineOptions: {
+          styles: [{ color: '#828ff8', opacity: 0.8, weight: 5, dashArray: '5, 10' }] // Cambiar el color de la polyline aquí
+        }
       }).addTo(map)
       routingControlRef.current = routingControl
-      console.log(routingControl)
+      const waypoints = routingControl.getWaypoints()
+      console.log(waypoints[0])
 
-      const onRoutesFound = (event) => {
-        const routes = event.routes
-        // Aquí puedes acceder a los datos de la ruta, como la distancia, la duración, las instrucciones, etc.
-        console.log(routes)
-      }
+      console.log(routingControl)
       return () => {
         if (routingControlRef.current) {
           routingControlRef.current.getPlan().setWaypoints([])
@@ -41,6 +35,7 @@ export const Routing = () => {
         }
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map, placeRoute])
 
   return null

@@ -47,7 +47,9 @@ code {
   padding: 5px;
   border-radius: 10px;
 }
-
+.leaflet-venue-icon {
+  display: none;
+}
 .leaflet-routing-container {
   display: none;
 }

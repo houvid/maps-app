@@ -255,8 +255,6 @@ li {
   background-color: var(--blanco);
   -webkit-box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
           box-shadow: 0.3em 0.3em 0.6em var(--sombra-ppal), -0.3em -0.3em 0.6em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
   cursor: pointer;
 }
 
@@ -284,8 +282,6 @@ li {
   display: none;
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 .contenedor .bloque.activo {
@@ -304,8 +300,24 @@ li {
   float: right;
 }
 .custom-popup {
-  max-width: 300px; /* Define el ancho máximo deseado */
-  max-height: 400px;
+  max-width: 300px; 
+  max-height: 200px;
+  font-family: 'Poppins', sans-serif;
+  
+}
+.custom-popup img {
+
+  margin-top: 0;
+  border-radius: 1rem 1rem 1rem 1rem ;
+  display: flex;
+  justify-content: center;
+
+}
+.leaflet-popup-close-button{
+  display: none;
+}
+.leaflet-popup-content-wrapper{
+  text-align: center;
 }
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
@@ -325,3 +337,4 @@ li {
     width: 100%;
   }
 }
+

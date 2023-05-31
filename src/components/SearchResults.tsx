@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { PlacesContext } from '../context'
 import { LoadingPlaces } from '.'
-import { Feature } from '../interfaces/places'
 
 export const SearchResuls = () => {
   const { places, isLoadingPlaces } = useContext(PlacesContext)

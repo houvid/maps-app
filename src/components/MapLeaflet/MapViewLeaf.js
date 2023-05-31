@@ -1,7 +1,7 @@
 import { React, useContext, useEffect, useState } from 'react'
 import { PlacesContext, ModalContext } from '../../context'
 import { Markers } from './Markers'
-import { iconMarkerGreen } from '../IconLocation'
+import { iconMarkerBlue } from '../IconLocation'
 import { Routing } from './Routing'
 
 import 'leaflet/dist/leaflet.css'
@@ -16,7 +16,7 @@ export const MapViewLeaf = () => {
   const [toggleState, setToggleState] = useState(0)
   useEffect(() => {
     SetPlacesInit()
-    console.log(place)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   if (isLoading || !userLocation || isLoadingPlaces) {
     // Renderiza un indicador de carga o cualquier otro contenido mientras se obtienen los datos de ubicación
@@ -43,13 +43,18 @@ export const MapViewLeaf = () => {
       />
       <Markers />
       {places.map((place, index) => (
-        <Marker key={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerGreen}>
+        <Marker key={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerBlue}>
           <Popup className='custom-popup'>
+            <div className='modal__close close-modal' title='Close' onClick={closeModal}>
+              <i className='bx bx-x' />
+            </div>
             <div>
-              <img src={place.properties?.urlImagen} alt='img' />
-              <p>{place.properties.name}</p>
-              <p>{place.properties.descripcion}</p>
-              <button className='btn btn-primary' onClick={() => openModal(place)}> Ver mas detalles</button>
+              <img src={place.properties?.urlImagen} alt='img' className='' />
+              <p className='title'>
+                <strong>{place.properties.name} </strong>
+              </p>
+              <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
+              <button className='btn btn-info' onClick={() => openModal(place)}> Ver mas detalles</button>
               <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir</button>
             </div>
           </Popup>

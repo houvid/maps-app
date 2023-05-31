@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import FormsFirebase from './screens/FormFirebase'
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import mapboxgl from '!mapbox-gl'
 import { AuthProvider } from './context/authContext'
 import { Administration } from './screens/Administration'
 import { FormNewFeature } from './screens/formNewFeature'
@@ -31,8 +30,6 @@ const router = createBrowserRouter([
   }
 ])
 // or "const mapboxgl = require('mapbox-gl');"
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiaG91dmlkIiwiYSI6ImNsZnBob2lkODBhMjIzeHBvZmlqd3E2ODgifQ.BAKHnn5wTYJUm01JLmgo3g'
 
 if (!navigator.geolocation) {
   alert('tu navegador no tiene opción d e geolocalización')
