@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react'
-import { BtnMyLocation, MapViewLeaf, ReactLogo, SearchBar } from '../components'
+import { BtnMyLocation, MapViewLeaf, ReactLogo } from '../components'
 import { Modal } from '../components/Modal'
 import { ModalContext } from '../context/modal/ModalContext'
 import { ModalDetalles } from '../components/modalDetalles'
