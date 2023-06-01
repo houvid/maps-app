@@ -21,7 +21,7 @@ export const MapViewLeaf = () => {
   }, [])
   if (isLoading || !userLocation || isLoadingPlaces) {
     // Renderiza un indicador de carga o cualquier otro contenido mientras se obtienen los datos de ubicación
-    return <div className='backLoader loading-map d-flex justify-content-center aling-items-center'><span className='loader' /></div>
+    return <div className='backLoader loading-map d-flex justify-content-center aling-items-center'> <p> GeoGuía</p><span className='loader'> </span></div>
   }
   const openModal = (place) => {
     setModalIsOpen(true)
@@ -45,8 +45,8 @@ export const MapViewLeaf = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">'
         url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
       />
-      <select value={filter} onChange={handleFilterChange} className='search-container'>
-        <option defaultValue=''>Todos</option>
+      <select value={filter} onChange={handleFilterChange} className=' form-select search-container '>
+        <option value=''>Todos</option>
         <option value='Interes Cultural'>Interes Cultural</option>
         {/* Agrega otras opciones de filtro según tus necesidades */}
       </select>
@@ -54,19 +54,17 @@ export const MapViewLeaf = () => {
       {places
         .filter(place => filter === '' || place.properties?.categoria === filter)
         .map((place, index) => {
+          console.log(places)
           return (
             <Marker key={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerBlue}>
               <Popup className='custom-popup'>
-                <div className='modal__close close-modal' title='Close' onClick={closeModal}>
-                  <i className='bx bx-x' />
-                </div>
                 <div>
                   <img src={place.properties?.urlImagen} alt='img' className='' />
                   <p className='title'>
                     <strong>{place.properties.name} </strong>
                   </p>
                   <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
-                  <button className='btn btn-info' onClick={() => openModal(place)}> Ver mas detalles</button>
+                  <button className='btn' onClick={() => openModal(place)}> Ver mas detalles</button>
                   <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir</button>
                 </div>
               </Popup>

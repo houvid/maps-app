@@ -314,7 +314,7 @@ li {
 
 }
 .leaflet-popup-close-button{
-  display: none;
+  width: 40px;
 }
 .leaflet-popup-content-wrapper{
   text-align: center;

@@ -17,7 +17,7 @@ export const BtnMyLocation = () => {
         position: 'fixed',
         top: '30px',
         right: '30px',
-        zIndex: 999,
+        zIndex: 998,
         color: '#5b4ce6'
 
       }}
