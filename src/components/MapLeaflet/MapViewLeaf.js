@@ -12,6 +12,7 @@ import '../../assets/leaflet.css'
 export const MapViewLeaf = () => {
   const { isLoading, userLocation, places, isLoadingPlaces, SetPlacesInit } = useContext(PlacesContext)
   const { SetPlace, SetPlaceRoute, place, placeRoute } = useContext(ModalContext)
+  const [filter, setFilter] = useState('')
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [toggleState, setToggleState] = useState(0)
   useEffect(() => {
@@ -35,31 +36,43 @@ export const MapViewLeaf = () => {
   const setPlaceToRoute = (place) => {
     SetPlaceRoute(place)
   }
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value)
+  }
   return (
     <MapContainer center={userLocation} zoom={13} scrollWheelZoom>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">'
         url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
       />
+      <select value={filter} onChange={handleFilterChange} className='search-container'>
+        <option value='' selected>Todos</option>
+        <option value='Interes Cultural'>Interes Cultural</option>
+        {/* Agrega otras opciones de filtro según tus necesidades */}
+      </select>
       <Markers />
-      {places.map((place, index) => (
-        <Marker key={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerBlue}>
-          <Popup className='custom-popup'>
-            <div className='modal__close close-modal' title='Close' onClick={closeModal}>
-              <i className='bx bx-x' />
-            </div>
-            <div>
-              <img src={place.properties?.urlImagen} alt='img' className='' />
-              <p className='title'>
-                <strong>{place.properties.name} </strong>
-              </p>
-              <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
-              <button className='btn btn-info' onClick={() => openModal(place)}> Ver mas detalles</button>
-              <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir</button>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      {places
+        .filter(place => filter === '' || place.properties?.categoria === filter)
+        .map((place, index) => {
+          return (
+            <Marker key={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerBlue}>
+              <Popup className='custom-popup'>
+                <div className='modal__close close-modal' title='Close' onClick={closeModal}>
+                  <i className='bx bx-x' />
+                </div>
+                <div>
+                  <img src={place.properties?.urlImagen} alt='img' className='' />
+                  <p className='title'>
+                    <strong>{place.properties.name} </strong>
+                  </p>
+                  <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
+                  <button className='btn btn-info' onClick={() => openModal(place)}> Ver mas detalles</button>
+                  <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir</button>
+                </div>
+              </Popup>
+            </Marker>
+          )
+        })}
       <section style={styles.modal}>
         <Modal show={modalIsOpen} onHide={closeModal} className='contenedorPrincipalModal' style={styles.modalContainer} dialogClassName='modal-right'>
           <div className='modal__close close-modal' title='Close' onClick={closeModal}>

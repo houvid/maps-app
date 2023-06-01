@@ -48,4 +48,5 @@ export interface Properties {
     name?: string;
     descripcion?: string;
     urlImagen?: string;
+    categoria?: string;
 }

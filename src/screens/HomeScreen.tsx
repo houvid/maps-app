@@ -19,7 +19,6 @@ export const HomeScreen = () => {
       <MapViewLeaf />
       <BtnMyLocation />
       <ReactLogo />
-      <SearchBar />
       <Modal active={active} toggle={toggle}>
         <ModalDetalles />
       </Modal>
