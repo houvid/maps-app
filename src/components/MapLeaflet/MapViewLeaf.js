@@ -21,7 +21,7 @@ export const MapViewLeaf = () => {
   }, [])
   if (isLoading || !userLocation || isLoadingPlaces) {
     // Renderiza un indicador de carga o cualquier otro contenido mientras se obtienen los datos de ubicación
-    return <div>Cargando...</div>
+    return <div className='backLoader loading-map d-flex justify-content-center aling-items-center'><span className='loader' /></div>
   }
   const openModal = (place) => {
     setModalIsOpen(true)
@@ -46,7 +46,7 @@ export const MapViewLeaf = () => {
         url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
       />
       <select value={filter} onChange={handleFilterChange} className='search-container'>
-        <option value='' selected>Todos</option>
+        <option defaultValue=''>Todos</option>
         <option value='Interes Cultural'>Interes Cultural</option>
         {/* Agrega otras opciones de filtro según tus necesidades */}
       </select>
