@@ -42,8 +42,8 @@ export const MapViewLeaf = () => {
   return (
     <MapContainer center={userLocation} zoom={13} scrollWheelZoom>
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">'
         url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
+        attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
       <select value={filter} onChange={handleFilterChange} className=' form-select search-container '>
         <option value=''>Todos</option>
