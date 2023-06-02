@@ -35,10 +35,13 @@ export const MapViewLeaf = () => {
   }
   const setPlaceToRoute = (place) => {
     SetPlaceRoute(place)
+    const botonCerrar = document.querySelector('.leaflet-popup-close-button')
+    botonCerrar?.click()
   }
   const handleFilterChange = (event) => {
     setFilter(event.target.value)
   }
+  const placesFiltered = places.filter(place => filter === '' || place.properties?.categoria === filter)
   return (
     <MapContainer center={userLocation} zoom={13} scrollWheelZoom>
       <TileLayer
@@ -48,15 +51,15 @@ export const MapViewLeaf = () => {
       <select value={filter} onChange={handleFilterChange} className=' form-select search-container '>
         <option value=''>Todos</option>
         <option value='Interes Cultural'>Interes Cultural</option>
+        <option value='museo'>Museos</option>
         {/* Agrega otras opciones de filtro según tus necesidades */}
       </select>
       <Markers />
-      {places
-        .filter(place => filter === '' || place.properties?.categoria === filter)
+      {
+      placesFiltered
         .map((place, index) => {
-          console.log(places)
           return (
-            <Marker key={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerBlue}>
+            <Marker key={index} id={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerBlue}>
               <Popup className='custom-popup'>
                 <div>
                   <img src={place.properties?.urlImagen} alt='img' className='' />
@@ -70,7 +73,8 @@ export const MapViewLeaf = () => {
               </Popup>
             </Marker>
           )
-        })}
+        })
+        }
       <section style={styles.modal}>
         <Modal show={modalIsOpen} onHide={closeModal} className='contenedorPrincipalModal' style={styles.modalContainer} dialogClassName='modal-right'>
           <div className='modal__close close-modal' title='Close' onClick={closeModal}>
