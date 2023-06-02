@@ -27,3 +27,13 @@ export const iconMarkerBlue = new Icon({
   iconSize: [35, 35],
   className: 'leaflet-venue-icon'
 })
+
+export const iconMarkerMuseo = new Icon({
+  iconUrl: 'locationMuseo.png',
+  iconAnchor: null,
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+  iconSize: [35, 35],
+  className: 'leaflet-venue-icon'
+})

@@ -1,7 +1,7 @@
 import { React, useContext, useEffect, useState } from 'react'
 import { PlacesContext, ModalContext } from '../../context'
 import { Markers } from './Markers'
-import { iconMarkerBlue } from '../IconLocation'
+import { iconMarkerBlue, iconMarkerMuseo } from '../IconLocation'
 import { Routing } from './Routing'
 
 import 'leaflet/dist/leaflet.css'
@@ -58,8 +58,11 @@ export const MapViewLeaf = () => {
       {
       placesFiltered
         .map((place, index) => {
+          const icon = place.properties?.categoria === 'museo' ? iconMarkerMuseo : iconMarkerBlue
+          console.log(icon)
+
           return (
-            <Marker key={index} id={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerBlue}>
+            <Marker key={index} id={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={icon}>
               <Popup className='custom-popup'>
                 <div>
                   <img src={place.properties?.urlImagen} alt='img' className='' />
