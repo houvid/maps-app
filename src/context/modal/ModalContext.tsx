@@ -3,7 +3,8 @@ import { Feature } from '../../interfaces/placesFireBase'
 
 export interface ModalContextProps {
     stateModal: boolean;
-    place: Feature
+    place: Feature;
+    placeRoute: Feature;
     SetStateModal: (state: boolean) => Promise<any>;
     SetPlace: (place: Feature) => Promise<Feature>
     SetPlaceRoute: (placeRoute: Feature) => Promise<Feature>

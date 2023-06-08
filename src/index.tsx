@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import './assets/login.css'
 import { MapsApps } from './MapsApp'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import FormsFirebase from './screens/FormFirebase'
