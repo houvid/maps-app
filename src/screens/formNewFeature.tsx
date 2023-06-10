@@ -72,8 +72,7 @@ export const FormNewFeature = () => {
 
     <div>
       <NavBar />
-      <h1>Nuevo Punto</h1>
-      <div className='container mt-5'>
+      <div className='container section'>
         <form onSubmit={handleSubmit}>
           <div className='form-group'>
             <label htmlFor='name'>Nombre:</label>

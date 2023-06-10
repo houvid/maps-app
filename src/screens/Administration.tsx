@@ -13,9 +13,10 @@ export const Administration = () => {
   }
   return (
 
-    <div>
-      <NavBar />
-      <h1>administration  {userEmail}</h1>
+    <div><NavBar />
+      <div className='container section'>
+        <h1>administration  {userEmail}</h1>
+      </div>
     </div>
   )
 }

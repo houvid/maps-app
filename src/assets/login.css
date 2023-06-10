@@ -56,6 +56,7 @@ img {
   display: grid;
   align-items: center;
   color: aliceblue;
+  background-color: rgb(19, 34, 48);
 }
 .login__img {
   position: absolute;
@@ -78,6 +79,7 @@ img {
   font-size: var(--h1-font-size);
   font-weight: var(--font-medium);
   margin-bottom: 2rem;
+  color: aliceblue;
 }
 .login__content, .login__box {
   display: grid;

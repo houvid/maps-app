@@ -27,7 +27,6 @@ function FormsFirebase () {
       {/* =============== REMIXICONS =============== */}
       {/* =============== CSS =============== */}
       <div className='login'>
-        <img src={bgImage} alt='login' className='login__img' />
         <form action className='login__form'>
           <h1 className='login__title'>Bienvenido a GeoGuía</h1>
           <div className='login__content'>

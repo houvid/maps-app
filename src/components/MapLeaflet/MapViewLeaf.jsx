@@ -6,7 +6,7 @@ import { Routing } from './Routing'
 
 import 'leaflet/dist/leaflet.css'
 import { Modal } from 'react-bootstrap'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet'
 import 'leaflet-routing-machine'
 import '../../assets/leaflet.css'
 export const MapViewLeaf = () => {
@@ -43,17 +43,12 @@ export const MapViewLeaf = () => {
   }
   const placesFiltered = places.filter(place => filter === '' || place.properties?.categoria === filter)
   return (
-    <MapContainer center={userLocation} zoom={13} scrollWheelZoom>
+    <MapContainer center={userLocation} zoom={15} scrollWheelZoom zoomControl={false}>
       <TileLayer
         url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
-      <select value={filter} onChange={handleFilterChange} className=' form-select search-container '>
-        <option value=''>Todos</option>
-        <option value='Interes Cultural'>Interes Cultural</option>
-        <option value='museo'>Museos</option>
-        {/* Agrega otras opciones de filtro según tus necesidades */}
-      </select>
+      <ZoomControl position='bottomright' />
       <Markers />
       {
       placesFiltered

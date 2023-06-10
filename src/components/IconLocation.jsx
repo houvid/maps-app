@@ -19,21 +19,21 @@ export const iconMarkerGreen = new Icon({
 })
 
 export const iconMarkerBlue = new Icon({
-  iconUrl: 'locationBlue.png',
+  iconUrl: 'markers/1.png',
   iconAnchor: null,
   shadowUrl: null,
   shadowSize: null,
   shadowAnchor: null,
-  iconSize: [35, 35],
+  iconSize: [45, 60],
   className: 'leaflet-venue-icon'
 })
 
 export const iconMarkerMuseo = new Icon({
-  iconUrl: 'locationMuseo.png',
+  iconUrl: 'markers/3.png',
   iconAnchor: null,
   shadowUrl: null,
   shadowSize: null,
   shadowAnchor: null,
-  iconSize: [35, 35],
+  iconSize: [45, 60],
   className: 'leaflet-venue-icon'
 })

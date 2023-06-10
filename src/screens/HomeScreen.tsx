@@ -3,6 +3,7 @@ import { BtnMyLocation, MapViewLeaf, ReactLogo } from '../components'
 import { Modal } from '../components/Modal'
 import { ModalContext } from '../context/modal/ModalContext'
 import { ModalDetalles } from '../components/modalDetalles'
+import { BarMap } from '../components/BarMap'
 
 export const HomeScreen = () => {
   const { stateModal, SetStateModal } = useContext(ModalContext)
@@ -16,6 +17,7 @@ export const HomeScreen = () => {
   }
   return (
     <div>
+      <BarMap />
       <MapViewLeaf />
       <BtnMyLocation />
       <ReactLogo />
