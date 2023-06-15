@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import { useAuth } from '../context/authContext'
 import { useNavigate } from 'react-router-dom'
-import bgImage from '../assets/bg.jpg'
 
 function FormsFirebase () {
   const auth = useAuth()
