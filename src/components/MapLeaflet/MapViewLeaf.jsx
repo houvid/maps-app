@@ -48,6 +48,11 @@ export const MapViewLeaf = () => {
         url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
+      <select value={filter} onChange={handleFilterChange} className='search-container'>
+        <option value='' selected>Todos</option>
+        <option value='Interes Cultural'>Interes Cultural</option>
+        {/* Agrega otras opciones de filtro según tus necesidades */}
+      </select>
       <ZoomControl position='bottomright' />
       <Markers />
       {

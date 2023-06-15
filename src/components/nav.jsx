@@ -1,5 +1,4 @@
-import { FaRegTimesCircle, FaSearch } from 'react-icons/fa'
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
 export const Nav = () => {
   const linkColor = document.querySelectorAll('.nav__link')
 

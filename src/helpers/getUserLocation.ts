@@ -5,7 +5,7 @@ export const getUserLocation = async (): Promise<[number, number]> => {
         resolve([coords.latitude, coords.longitude])
       },
       (err) => {
-        alert('No se pudo obtener la geolocalización' + err)
+        alert('¡Recuerda Activar la Geolocalización en la CONFIGURACION de tu teléfono!')
         console.log(err)
         // eslint-disable-next-line prefer-promise-reject-errors
         reject()
