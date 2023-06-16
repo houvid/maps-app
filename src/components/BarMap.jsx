@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import '../assets/bar.css'
 import { useNavigate } from 'react-router-dom'
-
+import { React, useContext } from 'react'
+import { PlacesContext } from '../context'
 export const BarMap = () => {
+  const { places } = useContext(PlacesContext)
   const navigate = useNavigate()
   const linkColor = document.querySelectorAll('.nav__link')
 
@@ -20,36 +22,48 @@ export const BarMap = () => {
       toggle.classList.toggle('rotate-icon')
     }
   }
+
   const goLink = (route) => {
     navigate(route)
   }
 
   return (
-    <div className='nav' id='nav'>
-      <nav className='nav__content' id='navbar'>
-        <div className='nav__toggle' id='nav-toggle' onClick={() => showMenu('nav-toggle', 'nav')}>
+
+    <div className='bar' id='bar'>
+      <nav className='bar__content' id='barbar'>
+        <div className='bar__toggle' id='bar-toggle' onClick={() => showMenu('bar-toggle', 'bar')}>
           <i className='bx bx-chevron-right' />
         </div>
-        <a href='/' className='nav__logo' target='_blank'>
+        <a href='/' className='bar__logo' target='_blank'>
           <i className='bx bxs-compass' />
-          <span className='nav__logo-name'>GeoGuía</span>
+          <span className='bar__logo-name'>GeoGuía</span>
         </a>
-        <div className='nav__list'>
-          <a href='#' className='nav__link active-link' onClick={() => goLink('/administration')}>
+        <div className='bar__list'>
+          <select defaultValue='' className='custom-select'>
+            <option value=''>Todos</option>
+            <option value='Interes Cultural'>Interes Cultural</option>
+            <option value='museo'>Museos</option>
+            {/* Agrega otras opciones de filtro según tus necesidades */}
+          </select>
+          {
+      places
+        .map((place, index) => {
+          return (
+            <div key={index}>
+              <a href='#' className='bar__link' onClick={() => goLink('/administration')}>
+                <i className='bx bx-grid-alt' />
+                <img src={place.properties?.urlImagen} alt='img' className='' style={{ width: '50px', height: '50px' }} />
+
+                <span className='bar__name'>{place.properties.name}</span>
+              </a>
+            </div>
+
+          )
+        })
+        }
+          <a href='#' className='bar__link active-link' onClick={() => goLink('/administration')}>
             <i className='bx bx-grid-alt' />
-            <span className='nav__name'>Inicio</span>
-          </a>
-          <a href='#' className='nav__link' onClick={() => goLink('/formNewFeature')}>
-            <i className='bx bx-location-plus' />
-            <span className='nav__name'>Nuevo Punto</span>
-          </a>
-          <a href='#' className='nav__link'>
-            <i className='bx bx-current-location' />
-            <span className='nav__name'>Puntos</span>
-          </a>
-          <a href='#' className='nav__link'>
-            <i className='bx bx-bar-chart-square' />
-            <span className='nav__name'>Estadisticas</span>
+            <span className='bar__name'>Inicioaaaaaaaa</span>
           </a>
         </div>
       </nav>

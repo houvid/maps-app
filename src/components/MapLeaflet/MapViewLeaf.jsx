@@ -66,13 +66,13 @@ export const MapViewLeaf = () => {
         url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
         attribution='&copy; <a href="https://carto.com/attributions">Carto</a>'
       />
-      <select defaultValue='' onChange={handleFilterChange} className='search-container'>
+      <select defaultValue='' onChange={handleFilterChange} className='' style={{ display: 'hidden' }}>
         <option value=''>Todos</option>
         <option value='Interes Cultural'>Interes Cultural</option>
         <option value='museo'>Museos</option>
         {/* Agrega otras opciones de filtro según tus necesidades */}
       </select>
-      <ZoomControl position='bottomright' />
+      <ZoomControl position='topright' />
       <Markers />
       {
       placesFiltered
