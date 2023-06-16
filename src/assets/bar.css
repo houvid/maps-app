@@ -56,6 +56,16 @@ a {
 .section {
   padding: 2rem 0;
 }
+.logo-geo{
+  width: 100%; /* Ancho máximo del contenedor */
+  max-width: 500px; /* Ancho máximo de la imagen */
+  margin: 0 auto;
+}
+
+.logo-geo img {
+  width: 35px; /* Asegura que la imagen ocupe todo el ancho disponible */
+  height: auto; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
+}
 /* Vista CEL */
 @media screen and (max-width: 767px) {
   .container {
@@ -64,13 +74,14 @@ a {
   }
   .bar {
     position: fixed;
-    left: 0;
+    left: 10px;
+    top: 10px;
     background-color: var(--container-color);
     box-shadow: 1px 0 4px hsla(228, 81%, 49%, .15);
-    width: 84px;
+    width: 65px;
     height: 12vh;
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 1rem;
+    border-radius: 30px;
     transition: .3s;
     z-index: 999;
   }
@@ -84,6 +95,7 @@ a {
   .bar__logo-name {
     color: var(--title-color);
     font-weight: 600;
+    padding-left: 2rem;
   }
   .bar__logo, .bar__link {
     align-items: center;
@@ -158,9 +170,9 @@ a {
     left: 0;
     background-color: var(--container-color);
     box-shadow: 1px 0 4px hsla(228, 81%, 49%, .15);
-    width: 84px;
-    height: 10vh;
-    padding: 2rem;
+    width: 180px;
+    height: 12vh;
+    padding: 1rem;
     border-radius: 10px;
     transition: .3s;
     z-index: 999;
@@ -175,6 +187,7 @@ a {
   .bar__logo-name {
     color: var(--title-color);
     font-weight: 600;
+    padding-left: 2rem;
   }
   .bar__logo, .bar__link {
     align-items: center;
@@ -212,7 +225,10 @@ a {
 .show-menu {
   width: 255px;
   height: 100vh;
-  
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 /* Rotate toggle icon */

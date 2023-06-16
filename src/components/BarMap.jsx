@@ -3,6 +3,7 @@ import '../assets/bar.css'
 import { useNavigate } from 'react-router-dom'
 import { React, useContext } from 'react'
 import { PlacesContext } from '../context'
+
 export const BarMap = () => {
   const { places } = useContext(PlacesContext)
   const navigate = useNavigate()
@@ -34,10 +35,10 @@ export const BarMap = () => {
         <div className='bar__toggle' id='bar-toggle' onClick={() => showMenu('bar-toggle', 'bar')}>
           <i className='bx bx-chevron-right' />
         </div>
-        <a href='/' className='bar__logo' target='_blank'>
-          <i className='bx bxs-compass' />
+        <div className='logo-geo' onClick={() => showMenu('bar-toggle', 'bar')}>
+          <img src='isotipo-1.png' alt='img' className='' />
           <span className='bar__logo-name'>GeoGuía</span>
-        </a>
+        </div>
         <div className='bar__list'>
           <select defaultValue='' className='custom-select bar__link'>
             <option value=''>Todos</option>
