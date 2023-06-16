@@ -9,7 +9,7 @@ export const iconLocation = new Icon({
   className: 'leaflet-venue-icon'
 })
 export const iconMarkerGreen = new Icon({
-  iconUrl: 'https://cdn-icons-png.flaticon.com/512/7946/7946073.png',
+  iconUrl: 'https://cdn-icons-png.flaticon.com/512/7946/7949073.png',
   iconAnchor: null,
   shadowUrl: null,
   shadowSize: null,
@@ -19,12 +19,12 @@ export const iconMarkerGreen = new Icon({
 })
 
 export const iconMarkerBlue = new Icon({
-  iconUrl: 'markers/1.png',
+  iconUrl: 'locationBlue.png',
   iconAnchor: null,
   shadowUrl: null,
   shadowSize: null,
   shadowAnchor: null,
-  iconSize: [45, 60],
+  iconSize: [35, 35],
   className: 'leaflet-venue-icon'
 })
 
@@ -34,6 +34,52 @@ export const iconMarkerMuseo = new Icon({
   shadowUrl: null,
   shadowSize: null,
   shadowAnchor: null,
-  iconSize: [45, 60],
+  iconSize: [45, 90],
+  className: 'leaflet-venue-icon'
+})
+
+export const iconMarkerCruces = new Icon({
+  iconUrl: 'markers/3.png',
+  iconAnchor: null,
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+  iconSize: [45, 90],
+  className: 'leaflet-venue-icon'
+})
+export const iconMarkerIndepende = new Icon({
+  iconUrl: 'markers/7.png',
+  iconAnchor: null,
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+  iconSize: [45, 90],
+  className: 'leaflet-venue-icon'
+})
+export const iconMarkerArqueologia = new Icon({
+  iconUrl: 'markers/6.png',
+  iconAnchor: null,
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+  iconSize: [45, 90],
+  className: 'leaflet-venue-icon'
+})
+export const iconMarkerCapilla = new Icon({
+  iconUrl: 'markers/2.png',
+  iconAnchor: null,
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+  iconSize: [45, 90],
+  className: 'leaflet-venue-icon'
+})
+export const iconMarkerArbelaez = new Icon({
+  iconUrl: 'markers/4.png',
+  iconAnchor: null,
+  shadowUrl: null,
+  shadowSize: null,
+  shadowAnchor: null,
+  iconSize: [45, 90],
   className: 'leaflet-venue-icon'
 })

@@ -1,7 +1,7 @@
 import { React, useContext, useEffect, useState } from 'react'
 import { PlacesContext, ModalContext } from '../../context'
 import { Markers } from './Markers'
-import { iconMarkerBlue, iconMarkerMuseo } from '../IconLocation'
+import { iconMarkerMuseo, iconMarkerArbelaez, iconMarkerCapilla, iconMarkerCruces, iconMarkerArqueologia, iconMarkerIndepende } from '../IconLocation'
 import { Routing } from './Routing'
 
 import 'leaflet/dist/leaflet.css'
@@ -22,6 +22,24 @@ export const MapViewLeaf = () => {
   if (isLoading || !userLocation || isLoadingPlaces) {
     // Renderiza un indicador de carga o cualquier otro contenido mientras se obtienen los datos de ubicación
     return <div className='backLoader loading-map d-flex justify-content-center aling-items-center'> <p> GeoGuía</p><span className='loader'> </span></div>
+  }
+  const homologarIcon = (placeName) => {
+    switch (placeName) {
+      case 'Museo':
+        return iconMarkerMuseo
+      case 'FÁBRICA DE GUITARRAS LOS ARBELÁEZ':
+        return iconMarkerArbelaez
+      case 'CAPILLA DE JESÚS NAZARENO':
+        return iconMarkerCapilla
+      case 'COLECCIÓN DE CRUCES, CRISTOS Y CRUCIFIJOS,':
+        return iconMarkerCruces
+      case 'SALA DE ARQUEOLOGÍA':
+        return iconMarkerArqueologia
+      case 'SALA DE HISTORIA E INDEPENDENCIA':
+        return iconMarkerIndepende
+      default:
+        return iconMarkerArbelaez
+    }
   }
   const openModal = (place) => {
     setModalIsOpen(true)
@@ -45,12 +63,13 @@ export const MapViewLeaf = () => {
   return (
     <MapContainer center={userLocation} zoom={15} scrollWheelZoom zoomControl={false}>
       <TileLayer
-        url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
+        url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       />
-      <select value={filter} onChange={handleFilterChange} className='search-container'>
-        <option value='' selected>Todos</option>
+      <select defaultValue='' onChange={handleFilterChange} className='search-container'>
+        <option value=''>Todos</option>
         <option value='Interes Cultural'>Interes Cultural</option>
+        <option value='museo'>Museos</option>
         {/* Agrega otras opciones de filtro según tus necesidades */}
       </select>
       <ZoomControl position='bottomright' />
@@ -58,7 +77,7 @@ export const MapViewLeaf = () => {
       {
       placesFiltered
         .map((place, index) => {
-          const icon = place.properties?.categoria === 'museo' ? iconMarkerMuseo : iconMarkerBlue
+          const icon = homologarIcon(place.properties?.name)
           return (
             <Marker key={index} id={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={icon}>
               <Popup className='custom-popup'>

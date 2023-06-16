@@ -12,7 +12,8 @@ export const FormNewFeature = () => {
       urlImagen: ''
     },
     dataAdicional: {
-      descripcion: ''
+      descripcion: '',
+      categoria: ''
     },
     geometry: {
       type: 'Point',
@@ -45,7 +46,14 @@ export const FormNewFeature = () => {
     })
     console.log(formData)
   }
-
+  const handleInputChangeCategoria = (event: any) => {
+    const { name, value } = event.target
+    setFormData({
+      ...formData,
+      properties: { ...formData.properties, [name]: value }
+    })
+    console.log(formData)
+  }
   const handleCoordinatesChange = (event: any) => {
     const { name, value } = event.target
     const newCoordinates = formData.geometry.coordinates.slice()
@@ -97,6 +105,14 @@ export const FormNewFeature = () => {
             />
           </div>
           <div className='form-group'>
+            <label htmlFor='categoria'>Categoria:</label>
+            <select name='categoria' id='categoria' className='form-control' onChange={handleInputChangeCategoria}>
+              <option value='museo'> Museo</option>
+              <option value='Interes Cultural'> Interes Cultural</option>
+              <option value='Restaurante'> Restaurante</option>
+            </select>
+          </div>
+          <div className='form-group'>
             <label htmlFor='descripcion'>Descripcion:</label>
             <input
               type='text'
@@ -107,17 +123,6 @@ export const FormNewFeature = () => {
             />
           </div>
           <div className='form-group'>
-            <label htmlFor='lng'>Longitud:</label>
-            <input
-              type='text'
-              id='lng'
-              name='0'
-              className='form-control'
-              value={formData.geometry.coordinates[0]}
-              onChange={handleCoordinatesChange}
-            />
-          </div>
-          <div className='form-group'>
             <label htmlFor='lat'>Latitud:</label>
             <input
               type='text'
@@ -125,6 +130,17 @@ export const FormNewFeature = () => {
               name='1'
               className='form-control'
               value={formData.geometry.coordinates[1]}
+              onChange={handleCoordinatesChange}
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='lng'>Longitud:</label>
+            <input
+              type='text'
+              id='lng'
+              name='0'
+              className='form-control'
+              value={formData.geometry.coordinates[0]}
               onChange={handleCoordinatesChange}
             />
           </div>
