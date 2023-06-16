@@ -64,7 +64,6 @@ export const MapViewLeaf = () => {
     <MapContainer center={userLocation} zoom={15} scrollWheelZoom zoomControl={false}>
       <TileLayer
         url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-        attribution='&copy; <a href="https://carto.com/attributions">Carto</a>'
       />
       <select defaultValue='' onChange={handleFilterChange} className='' style={{ display: 'hidden' }}>
         <option value=''>Todos</option>

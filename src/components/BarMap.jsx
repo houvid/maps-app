@@ -39,7 +39,11 @@ export const BarMap = () => {
           <span className='bar__logo-name'>GeoGuía</span>
         </a>
         <div className='bar__list'>
-          <select defaultValue='' className='custom-select'>
+          <a href='#' className='bar__link'>
+            <i className='bx bx-grid-alt' />
+            <i className='bx bx-grid-alt' />
+          </a>
+          <select defaultValue='' className='custom-select bar__link'>
             <option value=''>Todos</option>
             <option value='Interes Cultural'>Interes Cultural</option>
             <option value='museo'>Museos</option>
@@ -61,10 +65,6 @@ export const BarMap = () => {
           )
         })
         }
-          <a href='#' className='bar__link active-link' onClick={() => goLink('/administration')}>
-            <i className='bx bx-grid-alt' />
-            <span className='bar__name'>Inicioaaaaaaaa</span>
-          </a>
         </div>
       </nav>
     </div>
