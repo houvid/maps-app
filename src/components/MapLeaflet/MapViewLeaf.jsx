@@ -63,8 +63,8 @@ export const MapViewLeaf = () => {
   return (
     <MapContainer center={userLocation} zoom={15} scrollWheelZoom zoomControl={false}>
       <TileLayer
-        url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-        attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+        attribution='&copy; <a href="https://carto.com/attributions">Carto</a>'
       />
       <select defaultValue='' onChange={handleFilterChange} className='search-container'>
         <option value=''>Todos</option>
