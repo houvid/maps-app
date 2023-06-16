@@ -39,10 +39,6 @@ export const BarMap = () => {
           <span className='bar__logo-name'>GeoGuía</span>
         </a>
         <div className='bar__list'>
-          <a href='#' className='bar__link'>
-            <i className='bx bx-grid-alt' />
-            <i className='bx bx-grid-alt' />
-          </a>
           <select defaultValue='' className='custom-select bar__link'>
             <option value=''>Todos</option>
             <option value='Interes Cultural'>Interes Cultural</option>
