@@ -1,28 +1,41 @@
-import { useContext } from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useContext, useReducer } from 'react'
 import { PlacesContext } from '../context'
 import { FaLocationArrow } from 'react-icons/fa'
-
+import { placesReducer } from '../context/places/placesReducer'
+import { PlacesState } from '../context/places/PlacesProvider'
+const INITIAL_STATE: PlacesState = {
+  isLoading: true,
+  userLocation: undefined,
+  isLoadingPlaces: false,
+  places: [],
+  placesFiltered: []
+}
 export const BtnMyLocation = () => {
-  const { userLocation } = useContext(PlacesContext)
+  const { places, placesFiltered } = useContext(PlacesContext)
+  const [state, dispatch] = useReducer(placesReducer, INITIAL_STATE)
 
-  const onClick = () => {
-    if (!userLocation) throw new Error('No hay ubicación de usuario')
+  const onClick = (filter: string) => {
+    const placesFilter = places.filter(place => filter === '' || place.properties?.categoria === filter)
+    console.log(placesFilter)
+    dispatch({ type: 'setPlacesFiltered', payload: placesFilter })
+    console.log(placesFiltered)
   }
-
   return (
     <button
       className='btn'
-      onClick={onClick}
+      onClick={() => onClick('Interes Cultural')}
       style={{
         position: 'fixed',
         top: '30px',
         right: '30px',
         zIndex: 998,
-        color: '#5b4ce6'
+        color: '#5b4ce6',
+        display: 'none'
 
       }}
     >
-      <FaLocationArrow />
+      <FaLocationArrow /> Museos
     </button>
   )
 }

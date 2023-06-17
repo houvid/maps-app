@@ -24,12 +24,14 @@
   }
 }
 
+
 /*=============== BASE ===============*/
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 
 body {
   position: relative;
@@ -92,10 +94,11 @@ a {
     font-size: 1.25rem;
     color: var(--first-color);
   }
-  .bar__logo-name {
+  .bar__logo-name { 
+    line-height: 0.1; 
     color: var(--title-color);
     font-weight: 600;
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
   .bar__logo, .bar__link {
     align-items: center;
@@ -185,6 +188,7 @@ a {
     color: var(--first-color);
   }
   .bar__logo-name {
+    line-height: 0.5; 
     color: var(--title-color);
     font-weight: 600;
     padding-left: 2rem;

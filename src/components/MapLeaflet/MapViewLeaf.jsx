@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 import { React, useContext, useEffect, useState } from 'react'
 import { PlacesContext, ModalContext } from '../../context'
-import { Markers } from './Markers'
-import { iconMarkerMuseo, iconMarkerArbelaez, iconMarkerCapilla, iconMarkerCruces, iconMarkerArqueologia, iconMarkerIndepende } from '../IconLocation'
+import { MarkerLocation } from './MarkerLocation'
+import { MarkersPlaces } from './MarkersPlaces'
 import { Routing } from './Routing'
 
 import 'leaflet/dist/leaflet.css'
 import { Modal } from 'react-bootstrap'
-import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet'
+import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet'
 import 'leaflet-routing-machine'
 import '../../assets/leaflet.css'
 export const MapViewLeaf = () => {
-  const { isLoading, userLocation, places, isLoadingPlaces, SetPlacesInit } = useContext(PlacesContext)
+  const { isLoading, userLocation, isLoadingPlaces, SetPlacesInit } = useContext(PlacesContext)
   const { SetPlace, SetPlaceRoute, place, placeRoute } = useContext(ModalContext)
   const [filter, setFilter] = useState('')
   const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -21,25 +22,7 @@ export const MapViewLeaf = () => {
   }, [])
   if (isLoading || !userLocation || isLoadingPlaces) {
     // Renderiza un indicador de carga o cualquier otro contenido mientras se obtienen los datos de ubicación
-    return <div className='backLoader loading-map d-flex justify-content-center aling-items-center'> <p> GeoGuía</p><span className='loader'> </span></div>
-  }
-  const homologarIcon = (placeName) => {
-    switch (placeName) {
-      case 'Museo':
-        return iconMarkerMuseo
-      case 'FÁBRICA DE GUITARRAS LOS ARBELÁEZ':
-        return iconMarkerArbelaez
-      case 'CAPILLA DE JESÚS NAZARENO':
-        return iconMarkerCapilla
-      case 'COLECCIÓN DE CRUCES, CRISTOS Y CRUCIFIJOS,':
-        return iconMarkerCruces
-      case 'SALA DE ARQUEOLOGÍA':
-        return iconMarkerArqueologia
-      case 'SALA DE HISTORIA E INDEPENDENCIA':
-        return iconMarkerIndepende
-      default:
-        return iconMarkerArbelaez
-    }
+    return <div className='backLoader loading-map d-flex justify-content-center aling-items-center'><img src='logo-2 Blanco.png' alt='img' style={{ height: '170px', padding: '50px' }} /><span className='loader'> </span></div>
   }
   const openModal = (place) => {
     setModalIsOpen(true)
@@ -59,7 +42,6 @@ export const MapViewLeaf = () => {
   const handleFilterChange = (event) => {
     setFilter(event.target.value)
   }
-  const placesFiltered = places.filter(place => filter === '' || place.properties?.categoria === filter)
   return (
     <MapContainer center={userLocation} zoom={15} scrollWheelZoom zoomControl={false}>
       <TileLayer
@@ -72,28 +54,8 @@ export const MapViewLeaf = () => {
         {/* Agrega otras opciones de filtro según tus necesidades */}
       </select>
       <ZoomControl position='topright' />
-      <Markers />
-      {
-      placesFiltered
-        .map((place, index) => {
-          const icon = homologarIcon(place.properties?.name)
-          return (
-            <Marker key={index} id={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={icon}>
-              <Popup className='custom-popup'>
-                <div>
-                  <img src={place.properties?.urlImagen} alt='img' className='' />
-                  <p className='title'>
-                    <strong>{place.properties.name} </strong>
-                  </p>
-                  <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
-                  <button className='btn' onClick={() => openModal(place)}> Ver mas detalles</button>
-                  <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir</button>
-                </div>
-              </Popup>
-            </Marker>
-          )
-        })
-        }
+      <MarkerLocation />
+      <MarkersPlaces openModal={openModal} setPlaceToRoute={setPlaceToRoute} />
       <section style={styles.modal}>
         <Modal show={modalIsOpen} onHide={closeModal} className='contenedorPrincipalModal' style={styles.modalContainer} dialogClassName='modal-right'>
           <div className='modal__close close-modal' title='Close' onClick={closeModal}>

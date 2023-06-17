@@ -1,12 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import '../assets/bar.css'
-import { useNavigate } from 'react-router-dom'
 import { React, useContext } from 'react'
 import { PlacesContext } from '../context'
 
 export const BarMap = () => {
-  const { places } = useContext(PlacesContext)
-  const navigate = useNavigate()
+  const { placesFiltered } = useContext(PlacesContext)
   const linkColor = document.querySelectorAll('.nav__link')
 
   function colorLink () {
@@ -23,11 +21,6 @@ export const BarMap = () => {
       toggle.classList.toggle('rotate-icon')
     }
   }
-
-  const goLink = (route) => {
-    navigate(route)
-  }
-
   return (
 
     <div className='bar' id='bar'>
@@ -47,16 +40,13 @@ export const BarMap = () => {
             {/* Agrega otras opciones de filtro según tus necesidades */}
           </select>
           {
-      places
+      placesFiltered
         .map((place, index) => {
           return (
-            <div key={index}>
-              <a href='#' className='bar__link' onClick={() => goLink('/administration')}>
-                <i className='bx bx-grid-alt' />
-                <img src={place.properties?.urlImagen} alt='img' className='' style={{ width: '50px', height: '50px' }} />
+            <div key={index} className='bar__link'>
+              <img src={place.properties?.urlImagen} alt='img' className='' style={{ borderRadius: '10px', height: '90px', width: 'auto', maxWidth: '70px', display: 'block' }} />
+              <span className='bar__name'>{place.properties.name.charAt(0).toUpperCase() + place.properties.name.slice(1).toLowerCase()}</span>
 
-                <span className='bar__name'>{place.properties.name}</span>
-              </a>
             </div>
 
           )

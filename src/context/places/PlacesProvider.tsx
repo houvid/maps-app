@@ -11,6 +11,7 @@ export interface PlacesState {
 
     isLoadingPlaces?: boolean;
     places: Feature[];
+    placesFiltered: Feature[];
 }
 
 export interface Props {
@@ -21,7 +22,8 @@ const INITIAL_STATE: PlacesState = {
   isLoading: true,
   userLocation: undefined,
   isLoadingPlaces: false,
-  places: []
+  places: [],
+  placesFiltered: []
 }
 
 export const PlacesProvider = ({ children }: Props) => {
@@ -35,9 +37,9 @@ export const PlacesProvider = ({ children }: Props) => {
     dispatch({ type: 'setLoadingPlaces' })
     const resp = await getFeatures()
     dispatch({ type: 'setPlaces', payload: resp })
+    dispatch({ type: 'setPlacesFiltered', payload: resp })
     return resp
   }
-
   return (
     <PlacesContext.Provider value={{
       ...state,

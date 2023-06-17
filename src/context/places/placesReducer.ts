@@ -6,6 +6,7 @@ type PlacesAction =
 | { type: 'setUserLocation', payload: [number, number]}
 | { type: 'setLoadingPlaces'}
 | { type: 'setPlaces', payload: Feature[] }
+| { type: 'setPlacesFiltered', payload: Feature[] }
 
 export const placesReducer = (state: PlacesState, action: PlacesAction): PlacesState => {
   switch (action.type) {
@@ -26,6 +27,12 @@ export const placesReducer = (state: PlacesState, action: PlacesAction): PlacesS
         ...state,
         isLoadingPlaces: false,
         places: action.payload
+      }
+    case 'setPlacesFiltered':
+      return {
+        ...state,
+        isLoadingPlaces: false,
+        placesFiltered: action.payload
       }
 
     default:
