@@ -10,6 +10,7 @@ import FormsFirebase from './screens/FormFirebase'
 import { AuthProvider } from './context/authContext'
 import { Administration } from './screens/Administration'
 import { FormNewFeature } from './screens/formNewFeature'
+import Charts from './screens/Charts'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: '/formNewFeature',
     element: <FormNewFeature />
+  },
+  {
+    path: '/charts',
+    element: <Charts />
   }
 ])
 // or "const mapboxgl = require('mapbox-gl');"

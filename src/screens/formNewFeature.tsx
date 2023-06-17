@@ -80,6 +80,7 @@ export const FormNewFeature = () => {
 
     <div>
       <NavBar />
+      <h1 className='text-center'>Nuevo Registro</h1>
       <div className='container section'>
         <form onSubmit={handleSubmit}>
           <div className='form-group'>

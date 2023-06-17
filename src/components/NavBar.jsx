@@ -31,7 +31,7 @@ export const NavBar = () => {
           <i className='bx bx-chevron-right' />
         </div>
         <a href='/' className='nav__logo' target='_blank'>
-          <i className='bx bxs-compass' />
+          <img src='isotipo-1.png' alt='img' className='' />
           <span className='nav__logo-name'>GeoGuía</span>
         </a>
         <div className='nav__list'>
@@ -47,7 +47,7 @@ export const NavBar = () => {
             <i class='bx bx-current-location' />
             <span className='nav__name'>Puntos</span>
           </a>
-          <a href='#' className='nav__link'>
+          <a href='#' className='nav__link' onClick={() => goLink('/charts')}>
             <i className='bx bx-bar-chart-square' />
             <span className='nav__name'>Estadisticas</span>
           </a>

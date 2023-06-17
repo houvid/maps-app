@@ -15,7 +15,11 @@ export const Administration = () => {
 
     <div><NavBar />
       <div className='container section'>
-        <h1>administration  {userEmail}</h1>
+        <h1 className='text-center'>¡Bienvenido al panel de administración!</h1>
+        <h2 className='text-center'> Nos alegra verte de nuevo</h2>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img src='Admin-amico.svg' alt='img' style={{ height: '600px' }} />
+        </div>
       </div>
     </div>
   )
