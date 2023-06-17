@@ -44,7 +44,7 @@ export const BarMap = () => {
         .map((place, index) => {
           return (
             <div key={index} className='bar__link'>
-              <img src={place.properties?.urlImagen} alt='img' className='' style={{ borderRadius: '10px', height: '90px', width: 'auto', maxWidth: '70px', display: 'block' }} />
+              <img src={place.properties?.urlImagen} alt='img' className='' style={{ borderRadius: '10px', height: '90px', width: 'auto', maxWidth: '70px', display: 'block', objectFit: 'cover' }} />
               <span className='bar__name'>{place.properties.name.charAt(0).toUpperCase() + place.properties.name.slice(1).toLowerCase()}</span>
 
             </div>

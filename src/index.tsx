@@ -11,6 +11,7 @@ import { AuthProvider } from './context/authContext'
 import { Administration } from './screens/Administration'
 import { FormNewFeature } from './screens/formNewFeature'
 import Charts from './screens/Charts'
+import { Features } from './screens/Features'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/charts',
     element: <Charts />
+  },
+  {
+    path: '/features',
+    element: <Features />
   }
 ])
 // or "const mapboxgl = require('mapbox-gl');"
