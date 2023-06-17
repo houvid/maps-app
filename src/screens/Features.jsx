@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useAuth } from '../context/authContext'
 import { NavBar } from '../components/NavBar'
 import { useContext, useEffect } from 'react'
