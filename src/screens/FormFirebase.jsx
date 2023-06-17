@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react'
 import { useAuth } from '../context/authContext'
@@ -46,11 +47,12 @@ function FormsFirebase () {
             </div>
           </div>
           <div className='login__check'>
-            <div className='login__check-group'>
+            {/* <div className='login__check-group'>
               <input type='checkbox' className='login__check-input' />
               <label htmlFor className='login__check-label'>Remember me</label>
             </div>
             <a href='#' className='login__forgot' onClick={(e) => handleLogout(e)}>Forgot Password?</a>
+          */}
           </div>
           <button className='login__button' onClick={(e) => handleLogin(e)}>Login</button>
         </form>
