@@ -1,8 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import { BtnMyLocation, MapViewLeaf, ReactLogo } from '../components'
-import { Modal } from '../components/Modal'
 import { ModalContext } from '../context/modal/ModalContext'
-import { ModalDetalles } from '../components/modalDetalles'
 import { BarMap } from '../components/BarMap'
 
 export const HomeScreen = () => {
@@ -21,9 +19,6 @@ export const HomeScreen = () => {
       <MapViewLeaf />
       <BtnMyLocation />
       <ReactLogo />
-      <Modal active={active} toggle={toggle}>
-        <ModalDetalles />
-      </Modal>
     </div>
   )
 }
