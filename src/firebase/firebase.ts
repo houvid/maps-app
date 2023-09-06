@@ -2,6 +2,8 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs, addDoc, doc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { v4 } from 'uuid'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASEAPIKEY,
@@ -17,6 +19,7 @@ export const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
 export const auth = getAuth(app)
+export const storage = getStorage(app)
 
 export async function getFeatures () {
   const featuresCollection = collection(db, 'features')
@@ -34,4 +37,10 @@ export async function addFeature (feature: any) {
   } catch (e) {
     console.error('Error al agregar el Feature: ', e)
   }
+}
+export async function uploadImage (file: any) {
+  const storageRef = ref(storage, 'lugares/' + v4())
+  await uploadBytes(storageRef, file)
+  const url = await getDownloadURL(storageRef)
+  return url
 }

@@ -2,14 +2,19 @@
 import '../assets/bar.css'
 import { React, useContext } from 'react'
 import { PlacesContext } from '../context'
-
+import { ModalContext } from '../context/modal/ModalContext'
 export const BarMap = () => {
   const { placesFiltered } = useContext(PlacesContext)
+  const { SetStateModalEvent, SetPlace } = useContext(ModalContext)
   const linkColor = document.querySelectorAll('.nav__link')
 
   function colorLink () {
     linkColor.forEach(l => l.classList.remove('active-link'))
     this.classList.add('active-link')
+  }
+  const openModal = (place) => {
+    SetPlace(place)
+    SetStateModalEvent(true)
   }
 
   linkColor.forEach(l => l.addEventListener('click', colorLink))
@@ -45,7 +50,21 @@ export const BarMap = () => {
           return (
             <div key={index} className='bar__link'>
               <img src={place.properties?.urlImagen} alt='img' className='' style={{ borderRadius: '10px', height: '90px', width: 'auto', maxWidth: '70px', display: 'block', objectFit: 'cover' }} />
-              <span className='bar__name'>{place.properties.name.charAt(0).toUpperCase() + place.properties.name.slice(1).toLowerCase()}</span>
+              <span className='bar__name'>
+                {/* {place.properties.name.charAt(0).toUpperCase() + place.properties.name.slice(1).toLowerCase()} */}
+                {place.properties && place.properties.Eventos && (
+                  <div>
+                    {place.properties.Eventos.map((evento, index) => (
+                      <p key={index} className='modal__description'>
+                        {evento.eventName}
+                        <button className='modal__button-link close-modal' onClick={() => openModal(place)}>
+                          aaaa
+                        </button>
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </span>
 
             </div>
 

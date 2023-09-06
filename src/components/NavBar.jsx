@@ -44,7 +44,7 @@ export const NavBar = () => {
             <span className='nav__name'>Nuevo Punto</span>
           </a>
           <a href='#' className='nav__link' onClick={() => goLink('/features')}>
-            <i class='bx bx-current-location' />
+            <i className='bx bx-current-location' />
             <span className='nav__name'>Puntos</span>
           </a>
           <a href='#' className='nav__link' onClick={() => goLink('/charts')}>

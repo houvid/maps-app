@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../context/authContext'
 import { NavBar } from '../components/NavBar'
-import { addFeature } from '../firebase/firebase'
+import { addFeature, uploadImage } from '../firebase/firebase'
 
 export const FormNewFeature = () => {
   const auth = useAuth()
@@ -21,8 +21,9 @@ export const FormNewFeature = () => {
     },
     type: 'Feature'
   })
+  const [file, setFile] = useState(null)
 
-  const handleInputChangeName = (event: any) => {
+  const handleInputChangeName = (event) => {
     const { name, value } = event.target
     setFormData({
       ...formData,
@@ -30,7 +31,7 @@ export const FormNewFeature = () => {
     })
     console.log(formData)
   }
-  const handleInputChangeUrlImagen = (event: any) => {
+  const handleInputChangeUrlImagen = (event) => {
     const { name, value } = event.target
     setFormData({
       ...formData,
@@ -38,7 +39,7 @@ export const FormNewFeature = () => {
     })
     console.log(formData)
   }
-  const handleInputChangeDescripcion = (event: any) => {
+  const handleInputChangeDescripcion = (event) => {
     const { name, value } = event.target
     setFormData({
       ...formData,
@@ -46,7 +47,7 @@ export const FormNewFeature = () => {
     })
     console.log(formData)
   }
-  const handleInputChangeCategoria = (event: any) => {
+  const handleInputChangeCategoria = (event) => {
     const { name, value } = event.target
     setFormData({
       ...formData,
@@ -54,7 +55,7 @@ export const FormNewFeature = () => {
     })
     console.log(formData)
   }
-  const handleCoordinatesChange = (event: any) => {
+  const handleCoordinatesChange = (event) => {
     const { name, value } = event.target
     const newCoordinates = formData.geometry.coordinates.slice()
     newCoordinates[name] = parseFloat(value)
@@ -65,12 +66,23 @@ export const FormNewFeature = () => {
     console.log(formData)
   }
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     console.log(formData)
     addFeature(formData)
     // Aquí puedes enviar los  datos del formulario a un servidor
     // TODO: esperar respuesta, toast y borrar contenido del formulario
+  }
+  const subirArchivo = async () => {
+    console.log('entro')
+    try {
+      const result = await uploadImage(file)
+      formData.properties.urlImagen = result
+      console.log(formData)
+      console.log(result)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   if (!userEmail) {
@@ -104,6 +116,24 @@ export const FormNewFeature = () => {
               value={formData.properties.urlImagen}
               onChange={handleInputChangeUrlImagen}
             />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='name'>Imagen: </label>
+            <input
+              type='file'
+              id='imagen'
+              name='imagen'
+              className='form-control'
+              onChange={e => {
+                const selectedFile = e.target.files?.[0]
+                if (selectedFile) {
+                  setFile(selectedFile)
+                }
+              }}
+            />
+            <span className='btn btn-primary' onClick={e => { e.preventDefault(); return subirArchivo() }}>
+              Subir
+            </span>
           </div>
           <div className='form-group'>
             <label htmlFor='categoria'>Categoria:</label>
