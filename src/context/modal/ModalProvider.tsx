@@ -5,6 +5,7 @@ import { modalReducer } from './modalReducer'
 
 export interface ModalState {
     stateModal: boolean;
+    stateModalEvent: boolean;
     placeRoute: Feature;
     place: Feature;
 }
@@ -15,6 +16,7 @@ export interface Props {
 
 const INITIAL_STATE: ModalState = {
   stateModal: false,
+  stateModalEvent: false,
   placeRoute: {},
   place: {}
 }
@@ -24,6 +26,9 @@ export const ModalProvider = ({ children }: Props) => {
 
   const SetStateModal = async (state: boolean):Promise<any> => {
     dispatch({ type: 'setStateModal', payload: state })
+  }
+  const SetStateModalEvent = async (state: boolean):Promise<any> => {
+    dispatch({ type: 'setStateModalEvent', payload: state })
   }
   const SetPlace = async (place: Feature):Promise<any> => {
     dispatch({ type: 'setPlace', payload: place })
@@ -38,6 +43,7 @@ export const ModalProvider = ({ children }: Props) => {
 
       // Methods
       SetStateModal,
+      SetStateModalEvent,
       SetPlaceRoute,
       SetPlace
 

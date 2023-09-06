@@ -7,6 +7,7 @@ import { Routing } from './Routing'
 
 import 'leaflet/dist/leaflet.css'
 import { ModalDetalles } from '../modalDetalles'
+import { ModalEventos } from '../modalEventos'
 import { Modal } from 'react-bootstrap'
 import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet'
 import 'leaflet-routing-machine'
@@ -56,6 +57,7 @@ export const MapViewLeaf = () => {
       <MarkersPlaces openModal={openModal} setPlaceToRoute={setPlaceToRoute} />
       <section style={styles.modal}>
         <ModalDetalles />
+        <ModalEventos />
       </section>
       {Object.keys(placeRoute).length > 0 && <Routing />}
     </MapContainer>

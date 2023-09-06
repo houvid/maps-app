@@ -2,22 +2,18 @@ import { useContext, useState } from 'react'
 import './../assets/Modal.css'
 import { ModalContext } from '../context/modal/ModalContext'
 import { Modal } from 'react-bootstrap'
-export const ModalDetalles = () => {
-  const { SetStateModal, SetStateModalEvent, place, stateModal } = useContext(ModalContext)
+export const ModalEventos = () => {
+  const { SetStateModalEvent, place, stateModalEvent } = useContext(ModalContext)
   const [toggleState, setToggleState] = useState(0)
   const toggleTab = (index: number) => {
     setToggleState(index)
   }
   const closeModal = () => {
-    SetStateModal(false)
-  }
-  const setStateEvento = () => {
-    SetStateModal(false)
-    SetStateModalEvent(true)
+    SetStateModalEvent(false)
   }
   console.log(place)
   return (
-    <Modal show={stateModal} onHide={closeModal} className='contenedorPrincipalModal' styles={styles.modalContainer} dialogClassName='modal-right'>
+    <Modal show={stateModalEvent} onHide={closeModal} className='contenedorPrincipalModal' styles={styles.modalContainer} dialogClassName='modal-right'>
       <div className='modal__close close-modal' title='Close' onClick={closeModal}>
         <i className='bx bx-x' />
       </div>
@@ -35,7 +31,7 @@ export const ModalDetalles = () => {
         </ul>
         <div className='subcontenedor'>
           <div className={toggleState === 0 ? 'bloque activo' : 'bloque'}>
-            <h1 className='modal__title'>{place.properties?.name}</h1>
+            <h1 className='modal__title'>{place.properties?.name} LOOOOOOOOOOOL</h1>
             <p className='modal__description'>{place.properties?.descripcion}</p>
           </div>
           <div className={toggleState === 1 ? 'bloque activo' : 'bloque'}>
@@ -44,9 +40,6 @@ export const ModalDetalles = () => {
                 {place.properties.Eventos.map((evento, index) => (
                   <p key={index} className='modal__description'>
                     {evento.eventName} {evento.description}
-                    <button className='modal__button-link close-modal' onClick={setStateEvento}>
-                      aaaa
-                    </button>
                   </p>
                 ))}
               </div>
