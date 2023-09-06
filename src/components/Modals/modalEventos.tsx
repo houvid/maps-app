@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
-import './../assets/Modal.css'
-import { ModalContext } from '../context/modal/ModalContext'
+import '../../assets/Modal.css'
+import { ModalContext } from '../../context/modal/ModalContext'
 import { Modal } from 'react-bootstrap'
 export const ModalEventos = () => {
   const { SetStateModalEvent, place, stateModalEvent } = useContext(ModalContext)
