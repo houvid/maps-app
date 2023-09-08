@@ -6,6 +6,7 @@ import { ModalContext } from '../context/modal/ModalContext'
 export const BarMap = () => {
   const { placesFiltered } = useContext(PlacesContext)
   const { SetStateModalEvent, SetPlace } = useContext(ModalContext)
+
   const linkColor = document.querySelectorAll('.nav__link')
 
   function colorLink () {
