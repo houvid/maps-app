@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import '../../assets/Modal.css'
 import { ModalContext } from '../../context/modal/ModalContext'
 import { Modal } from 'react-bootstrap'
-import { uploadImage } from '../../firebase/firebase'
+import { uploadImage, updateFeature } from '../../firebase/firebase'
 export const ModalAddEvent = () => {
   const { SetStateModalAddEvent, place, stateModalAddEvent } = useContext(ModalContext)
   const [toggleState, setToggleState] = useState(0)
@@ -53,6 +53,7 @@ export const ModalAddEvent = () => {
     const eventos = [...place.properties.Eventos]
     eventos.push(event)
     place.properties.Eventos = eventos
+    updateFeature(place.id, place)
     console.log(place)
   }
   console.log('palce: ')

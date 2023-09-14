@@ -25,6 +25,8 @@ export async function getFeatures () {
   const featuresCollection = collection(db, 'features')
   const featuresSnapshot = await getDocs(featuresCollection)
   const featuresList = featuresSnapshot.docs.map(doc => doc.data())
+  console.log('estamos en getFeatures')
+  console.log(featuresSnapshot)
   console.log(featuresList)
   return featuresList
 }
@@ -40,8 +42,9 @@ export async function addFeature (feature: any) {
 }
 export async function updateFeature (featureId: string | undefined, updatedFeatureData: any) {
   const featuresCollection = collection(db, 'features')
-  const featureRef = doc(featuresCollection, featureId)
-
+  const featureRef = doc(featuresCollection, 'oCnaxXIDXoA91fsPkh8i')
+  console.log(featureId)
+  console.log(featureRef)
   try {
     await updateDoc(featureRef, updatedFeatureData)
     console.log('Feature actualizado correctamente')
