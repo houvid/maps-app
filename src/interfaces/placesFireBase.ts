@@ -40,6 +40,16 @@ export interface Properties {
 }
 export interface Evento {
     date: Date;
-    description: string;
     eventName: string;
+    description: string;
+    horarioEvento: string;
+    municipio: string;
+    urlImagen?: string;
+    organizador?: string;
+    telefonoOrg?: string;
+    emailOrg?: string;
+    instagram?: string;
+    facebook?: string;
+    twitter?: string;
+    linkWeb?: string;
 }

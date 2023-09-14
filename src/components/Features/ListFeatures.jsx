@@ -4,11 +4,11 @@ import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PlacesProvider, PlacesContext } from '../../context'
 import { ModalContext } from '../../context/modal/ModalContext'
-import { ModalEventos } from '../Modals/modalEventos'
+import { ModalAddEvent } from '../Modals/modalAddEvent'
 
 export const ListFeatures = () => {
   const { isLoading, userLocation, isLoadingPlaces, SetPlacesInit, places } = useContext(PlacesContext)
-  const { SetStateModalEvent, SetPlace } = useContext(ModalContext)
+  const { SetStateModalEvent, SetStateModalAddEvent, SetPlace } = useContext(ModalContext)
   useEffect(() => {
     console.log(isLoading, userLocation, isLoadingPlaces)
     SetPlacesInit()
@@ -24,7 +24,7 @@ export const ListFeatures = () => {
   }
   const openModal = (place) => {
     SetPlace(place)
-    SetStateModalEvent(true)
+    SetStateModalAddEvent(true)
   }
   console.log(places)
   return (
@@ -61,7 +61,7 @@ export const ListFeatures = () => {
             </tbody>
           </table>
           <section style={styles.modal}>
-            <ModalEventos />
+            <ModalAddEvent />
           </section>
         </div>
       </div>

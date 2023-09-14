@@ -1,6 +1,6 @@
 
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, getDocs, addDoc, doc } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, addDoc, doc, updateDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { v4 } from 'uuid'
@@ -36,6 +36,17 @@ export async function addFeature (feature: any) {
     console.log('Feature agregado correctamente')
   } catch (e) {
     console.error('Error al agregar el Feature: ', e)
+  }
+}
+export async function updateFeature (featureId: string | undefined, updatedFeatureData: any) {
+  const featuresCollection = collection(db, 'features')
+  const featureRef = doc(featuresCollection, featureId)
+
+  try {
+    await updateDoc(featureRef, updatedFeatureData)
+    console.log('Feature actualizado correctamente')
+  } catch (e) {
+    console.error('Error al actualizar el Feature: ', e)
   }
 }
 export async function uploadImage (file: any) {

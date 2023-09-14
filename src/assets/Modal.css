@@ -264,8 +264,12 @@ li {
 }
 
 .contenedor .subcontenedor {
-  min-height: 10vh;
+  min-height: 9vh;
   position: relative;
+}
+.contentModal{
+  height: 50%;
+  align-items: center;
 }
 
 .contenedor .bloque {

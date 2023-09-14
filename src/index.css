@@ -79,6 +79,9 @@ code {
   margin-top: 30px;
 
 }
+.form-group {
+  width: 90%;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
