@@ -28,7 +28,6 @@ export const ModalAddEvent = () => {
   }
   const [file, setFile] = useState(null)
   const subirArchivo = async () => {
-    console.log('entro')
     try {
       const result = await uploadImage(file)
       console.log(result)
@@ -39,25 +38,17 @@ export const ModalAddEvent = () => {
   const closeModal = () => {
     SetStateModalAddEvent(false)
   }
-  // Manejar el cambio en el input 'name'
   const handleNameChange = (e) => {
     setEventName(e.target.value)
   }
-
-  // Manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Actualizar el valor de 'eventName' en place.properties.Eventos[0] con el valor ingresado
     event.eventName = eventName
-    console.log(event)
     const eventos = [...place.properties.Eventos]
     eventos.push(event)
     place.properties.Eventos = eventos
-    updateFeature(place.id, place)
-    console.log(place)
+    updateFeature(place.idCollection, place)
   }
-  console.log('palce: ')
-  console.log(place)
   return (
     <Modal show={stateModalAddEvent} onHide={closeModal} className='contenedorPrincipalModal' styles={styles.modalContainer} dialogClassName='modal-right'>
       <div className='modal__close close-modal' title='Close' onClick={closeModal}>

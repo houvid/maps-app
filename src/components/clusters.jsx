@@ -81,7 +81,6 @@ function Clusters (map) {
       )
     })
     map.on('click', 'unclustered-point', (e) => {
-      console.log(e.features[0])
       const coordinates = e.features[0].geometry.coordinates.slice()
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360

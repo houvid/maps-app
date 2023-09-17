@@ -11,7 +11,6 @@ export const ModalEventos = () => {
   const closeModal = () => {
     SetStateModalEvent(false)
   }
-  console.log(place)
   return (
     <Modal show={stateModalEvent} onHide={closeModal} className='contenedorPrincipalModal' styles={styles.modalContainer} dialogClassName='modal-right'>
       <div className='modal__close close-modal' title='Close' onClick={closeModal}>

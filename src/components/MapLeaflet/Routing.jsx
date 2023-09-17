@@ -26,8 +26,6 @@ export const Routing = () => {
       routingControlRef.current = routingControl
       const waypoints = routingControl.getWaypoints()
       console.log(waypoints[0])
-
-      console.log(routingControl)
       return () => {
         if (routingControlRef.current) {
           routingControlRef.current.getPlan().setWaypoints([])

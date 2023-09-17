@@ -29,7 +29,6 @@ export const FormNewFeature = () => {
       ...formData,
       properties: { ...formData.properties, [name]: value }
     })
-    console.log(formData)
   }
   const handleInputChangeUrlImagen = (event) => {
     const { name, value } = event.target
@@ -37,7 +36,6 @@ export const FormNewFeature = () => {
       ...formData,
       properties: { ...formData.properties, [name]: value }
     })
-    console.log(formData)
   }
   const handleInputChangeDescripcion = (event) => {
     const { name, value } = event.target
@@ -45,7 +43,6 @@ export const FormNewFeature = () => {
       ...formData,
       properties: { ...formData.properties, [name]: value }
     })
-    console.log(formData)
   }
   const handleInputChangeCategoria = (event) => {
     const { name, value } = event.target
@@ -53,7 +50,6 @@ export const FormNewFeature = () => {
       ...formData,
       properties: { ...formData.properties, [name]: value }
     })
-    console.log(formData)
   }
   const handleCoordinatesChange = (event) => {
     const { name, value } = event.target
@@ -63,22 +59,18 @@ export const FormNewFeature = () => {
       ...formData,
       geometry: { ...formData.geometry, coordinates: newCoordinates }
     })
-    console.log(formData)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(formData)
     addFeature(formData)
     // Aquí puedes enviar los  datos del formulario a un servidor
     // TODO: esperar respuesta, toast y borrar contenido del formulario
   }
   const subirArchivo = async () => {
-    console.log('entro')
     try {
       const result = await uploadImage(file)
       formData.properties.urlImagen = result
-      console.log(formData)
       console.log(result)
     } catch (error) {
       console.log(error)

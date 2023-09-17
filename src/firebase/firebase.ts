@@ -24,10 +24,11 @@ export const storage = getStorage(app)
 export async function getFeatures () {
   const featuresCollection = collection(db, 'features')
   const featuresSnapshot = await getDocs(featuresCollection)
-  const featuresList = featuresSnapshot.docs.map(doc => doc.data())
-  console.log('estamos en getFeatures')
-  console.log(featuresSnapshot)
-  console.log(featuresList)
+  const featuresList = featuresSnapshot.docs.map(doc => {
+    const data = doc.data()
+    const idCollection = doc.id
+    return { idCollection, ...data }
+  })
   return featuresList
 }
 export async function addFeature (feature: any) {
@@ -42,9 +43,7 @@ export async function addFeature (feature: any) {
 }
 export async function updateFeature (featureId: string | undefined, updatedFeatureData: any) {
   const featuresCollection = collection(db, 'features')
-  const featureRef = doc(featuresCollection, 'oCnaxXIDXoA91fsPkh8i')
-  console.log(featureId)
-  console.log(featureRef)
+  const featureRef = doc(featuresCollection, featureId)
   try {
     await updateDoc(featureRef, updatedFeatureData)
     console.log('Feature actualizado correctamente')

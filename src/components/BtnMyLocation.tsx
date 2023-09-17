@@ -17,9 +17,7 @@ export const BtnMyLocation = () => {
 
   const onClick = (filter: string) => {
     const placesFilter = places.filter(place => filter === '' || place.properties?.categoria === filter)
-    console.log(placesFilter)
     dispatch({ type: 'setPlacesFiltered', payload: placesFilter })
-    console.log(placesFiltered)
   }
   return (
     <button

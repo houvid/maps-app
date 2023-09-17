@@ -6,6 +6,7 @@ export interface PlacesResponse {
 }
 
 export interface Feature {
+    idCollection?: string;
     id?: string;
     type?: string;
     place_type?: string[];

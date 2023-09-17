@@ -1,4 +1,5 @@
 export interface Feature {
+    idCollection?: string;
     properties?: Properties;
     text_es?: string;
     id?: string;

@@ -10,7 +10,6 @@ export const ListFeatures = () => {
   const { isLoading, userLocation, isLoadingPlaces, SetPlacesInit, places } = useContext(PlacesContext)
   const { SetStateModalEvent, SetStateModalAddEvent, SetPlace } = useContext(ModalContext)
   useEffect(() => {
-    console.log(isLoading, userLocation, isLoadingPlaces)
     SetPlacesInit()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -26,7 +25,6 @@ export const ListFeatures = () => {
     SetPlace(place)
     SetStateModalAddEvent(true)
   }
-  console.log(places)
   return (
     <div>
       <div className='container section'>
