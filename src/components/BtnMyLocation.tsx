@@ -9,7 +9,8 @@ const INITIAL_STATE: PlacesState = {
   userLocation: undefined,
   isLoadingPlaces: false,
   places: [],
-  placesFiltered: []
+  placesFiltered: [],
+  eventos: []
 }
 export const BtnMyLocation = () => {
   const { places, placesFiltered } = useContext(PlacesContext)

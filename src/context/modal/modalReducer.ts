@@ -1,6 +1,6 @@
 import { ModalState } from './ModalProvider'
 
-import { Feature } from '../../interfaces/placesFireBase'
+import { Feature, Evento } from '../../interfaces/placesFireBase'
 
 type ModalAction =
     | { type: 'setStateModal', payload: boolean }
@@ -8,6 +8,7 @@ type ModalAction =
     | { type: 'setStateModalAddEvent', payload: boolean }
     | { type: 'setPlaceRoute', payload: Feature }
     | { type: 'setPlace', payload: Feature }
+    | { type: 'setEvento', payload: Evento }
 
 export const modalReducer = (state: ModalState, action: ModalAction): ModalState => {
   switch (action.type) {
@@ -35,6 +36,11 @@ export const modalReducer = (state: ModalState, action: ModalAction): ModalState
       return {
         ...state,
         place: action.payload
+      }
+    case 'setEvento':
+      return {
+        ...state,
+        evento: action.payload
       }
 
     default:

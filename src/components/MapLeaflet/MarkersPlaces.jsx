@@ -1,7 +1,7 @@
 import { React, useContext, useEffect } from 'react'
 import { Marker, Popup } from 'react-leaflet'
 import { PlacesContext } from '../../context'
-import { iconMarkerMuseo, iconMarkerArbelaez, iconMarkerCapilla, iconMarkerCruces, iconMarkerArqueologia, iconMarkerIndepende } from '../IconLocation'
+import { iconMarkerMuseo, iconMarkerArbelaez, iconMarkerBlue, iconMarkerCapilla, iconMarkerCruces, iconMarkerArqueologia, iconMarkerIndepende } from '../IconLocation'
 
 export const MarkersPlaces = ({ openModal, setPlaceToRoute }) => {
   const { placesFiltered } = useContext(PlacesContext)
@@ -24,7 +24,7 @@ export const MarkersPlaces = ({ openModal, setPlaceToRoute }) => {
       case 'SALA DE HISTORIA E INDEPENDENCIA':
         return iconMarkerIndepende
       default:
-        return iconMarkerArbelaez
+        return iconMarkerBlue
     }
   }
 

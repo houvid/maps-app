@@ -268,8 +268,10 @@ li {
   position: relative;
 }
 .contentModal{
-  height: 50%;
+  height: 80%;
   align-items: center;
+  padding-left: 10%;
+  padding-bottom: 10%;
 }
 
 .contenedor .bloque {
@@ -316,6 +318,9 @@ li {
   display: flex;
   justify-content: center;
 
+}
+.text-center{
+  padding-top:10px;
 }
 .leaflet-popup-close-button{
   width: 40px;

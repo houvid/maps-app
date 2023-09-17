@@ -1,12 +1,13 @@
 import { PlacesState } from './PlacesProvider'
 
-import { Feature } from '../../interfaces/places'
+import { Evento, Feature } from '../../interfaces/places'
 
 type PlacesAction =
 | { type: 'setUserLocation', payload: [number, number]}
 | { type: 'setLoadingPlaces'}
 | { type: 'setPlaces', payload: Feature[] }
 | { type: 'setPlacesFiltered', payload: Feature[] }
+| { type: 'setEventos', payload: Evento[] }
 
 export const placesReducer = (state: PlacesState, action: PlacesAction): PlacesState => {
   switch (action.type) {
@@ -33,6 +34,11 @@ export const placesReducer = (state: PlacesState, action: PlacesAction): PlacesS
         ...state,
         isLoadingPlaces: false,
         placesFiltered: action.payload
+      }
+    case 'setEventos':
+      return {
+        ...state,
+        eventos: action.payload
       }
 
     default:

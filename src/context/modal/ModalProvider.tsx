@@ -1,5 +1,5 @@
 import { useReducer } from 'react'
-import { Feature } from '../../interfaces/placesFireBase'
+import { Evento, Feature } from '../../interfaces/placesFireBase'
 import { ModalContext } from './ModalContext'
 import { modalReducer } from './modalReducer'
 
@@ -9,6 +9,7 @@ export interface ModalState {
     stateModalAddEvent: boolean;
     placeRoute: Feature;
     place: Feature;
+    evento: Evento;
 }
 
 export interface Props {
@@ -20,7 +21,8 @@ const INITIAL_STATE: ModalState = {
   stateModalEvent: false,
   stateModalAddEvent: false,
   placeRoute: {},
-  place: {}
+  place: {},
+  evento: {}
 }
 
 export const ModalProvider = ({ children }: Props) => {
@@ -38,6 +40,9 @@ export const ModalProvider = ({ children }: Props) => {
   const SetPlace = async (place: Feature):Promise<any> => {
     dispatch({ type: 'setPlace', payload: place })
   }
+  const SetEvento = async (evento: Evento):Promise<any> => {
+    dispatch({ type: 'setEvento', payload: evento })
+  }
   const SetPlaceRoute = async (placeRoute: Feature):Promise<any> => {
     dispatch({ type: 'setPlaceRoute', payload: placeRoute })
   }
@@ -51,7 +56,8 @@ export const ModalProvider = ({ children }: Props) => {
       SetStateModalEvent,
       SetStateModalAddEvent,
       SetPlaceRoute,
-      SetPlace
+      SetPlace,
+      SetEvento
 
     }}
     >

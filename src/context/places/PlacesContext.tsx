@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { Feature } from '../../interfaces/places'
+import { Evento, Feature } from '../../interfaces/places'
 
 export interface PlacesContextProps {
     isLoading: boolean;
@@ -7,7 +7,9 @@ export interface PlacesContextProps {
     isLoadingPlaces?: boolean;
     places: Feature[];
     placesFiltered: Feature[];
+    eventos: Evento[];
     SetPlacesInit: () => Promise<Feature[]>
+    SetEventos: (eventos: Evento[]) => Promise<Evento[]>
 }
 
 export const PlacesContext = createContext<PlacesContextProps>({} as PlacesContextProps)

@@ -1,6 +1,6 @@
 import { useReducer, useEffect } from 'react'
 import { getUserLocation } from '../../helpers'
-import { Feature } from '../../interfaces/places'
+import { Evento, Feature } from '../../interfaces/places'
 import { PlacesContext } from './PlacesContext'
 import { placesReducer } from './placesReducer'
 import { getFeatures } from '../../firebase/firebase'
@@ -8,10 +8,10 @@ import { getFeatures } from '../../firebase/firebase'
 export interface PlacesState {
     isLoading: boolean;
     userLocation?: [number, number];
-
     isLoadingPlaces?: boolean;
     places: Feature[];
     placesFiltered: Feature[];
+    eventos: Evento[];
 }
 
 export interface Props {
@@ -23,7 +23,8 @@ const INITIAL_STATE: PlacesState = {
   userLocation: undefined,
   isLoadingPlaces: false,
   places: [],
-  placesFiltered: []
+  placesFiltered: [],
+  eventos: []
 }
 
 export const PlacesProvider = ({ children }: Props) => {
@@ -38,14 +39,35 @@ export const PlacesProvider = ({ children }: Props) => {
     const resp = await getFeatures()
     dispatch({ type: 'setPlaces', payload: resp })
     dispatch({ type: 'setPlacesFiltered', payload: resp })
+    const eventos = await buildEvents(resp)
+    SetEventos(eventos)
     return resp
+  }
+  async function buildEvents (resp: Feature[]) {
+    const eventos: Evento[] = []
+
+    resp.forEach(feature => {
+      if (feature.properties && feature.properties.Eventos) {
+        feature.properties.Eventos.forEach(evento => {
+          if (evento != null) {
+            eventos.push(evento as Evento)
+          }
+        })
+      }
+    })
+
+    return eventos
+  }
+  const SetEventos = async (eventos: Evento[]):Promise<any> => {
+    dispatch({ type: 'setEventos', payload: eventos })
   }
   return (
     <PlacesContext.Provider value={{
       ...state,
 
       // Methods
-      SetPlacesInit
+      SetPlacesInit,
+      SetEventos
 
     }}
     >
