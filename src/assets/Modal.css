@@ -268,8 +268,10 @@ li {
   position: relative;
 }
 .contentModal{
-  height: 50%;
+  height: 80%;
   align-items: center;
+  padding-left: 10%;
+  padding-bottom: 10%;
 }
 
 .contenedor .bloque {

@@ -22,14 +22,15 @@ export const ModalAddEvent = () => {
     linkWeb: ''
   })
   const [eventName, setEventName] = useState('') // Nuevo estado para el nombre del evento
-
+  console.log(place)
   const toggleTab = (index) => {
     setToggleState(index)
   }
   const [file, setFile] = useState(null)
   const subirArchivo = async () => {
     try {
-      const result = await uploadImage(file)
+      const result = await uploadImage(file, 'eventos')
+      setEvent({ ...event, urlImagen: result })
       console.log(result)
     } catch (error) {
       console.log(error)
@@ -78,6 +79,17 @@ export const ModalAddEvent = () => {
                   />
                 </div>
                 <div className='form-group'>
+                  <label htmlFor='description'>Descripcion:</label>
+                  <input
+                    type='text'
+                    id='description'
+                    name='description'
+                    className='form-control'
+                    value={event.description}
+                    onChange={(e) => setEvent({ ...event, description: e.target.value })}
+                  />
+                </div>
+                <div className='form-group'>
                   <label htmlFor='name'>Link Imagen:</label>
                   <input
                     type='text'
@@ -105,20 +117,122 @@ export const ModalAddEvent = () => {
                   </span>
                 </div>
                 <div className='form-group'>
-                  <label htmlFor='categoria'>Categoria:</label>
-                  <select name='categoria' id='categoria' className='form-control'>
-                    <option value='museo'> Museo</option>
-                    <option value='Interes Cultural'> Interes Cultural</option>
-                    <option value='Restaurante'> Restaurante</option>
-                  </select>
+                  <label htmlFor='date'>Fecha:</label>
+                  <input
+                    type='date'
+                    id='date'
+                    name='date'
+                    className='form-control'
+                    value={event.date}
+                    onChange={(e) => setEvent({ ...event, date: e.target.value })}
+                  />
                 </div>
+
                 <div className='form-group'>
-                  <label htmlFor='descripcion'>Descripcion:</label>
+                  <label htmlFor='horarioEvento'>Horario del Evento:</label>
                   <input
                     type='text'
-                    id='descripcion'
-                    name='descripcion'
+                    id='horarioEvento'
+                    name='horarioEvento'
                     className='form-control'
+                    value={event.horarioEvento}
+                    onChange={(e) => setEvent({ ...event, horarioEvento: e.target.value })}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='municipio'>Municipio:</label>
+                  <input
+                    type='text'
+                    id='municipio'
+                    name='municipio'
+                    className='form-control'
+                    value={event.municipio}
+                    onChange={(e) => setEvent({ ...event, municipio: e.target.value })}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='organizador'>Organizador:</label>
+                  <input
+                    type='text'
+                    id='organizador'
+                    name='organizador'
+                    className='form-control'
+                    value={event.organizador}
+                    onChange={(e) => setEvent({ ...event, organizador: e.target.value })}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='telefonoOrg'>Teléfono del Organizador:</label>
+                  <input
+                    type='text'
+                    id='telefonoOrg'
+                    name='telefonoOrg'
+                    className='form-control'
+                    value={event.telefonoOrg}
+                    onChange={(e) => setEvent({ ...event, telefonoOrg: e.target.value })}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='emailOrg'>Email del Organizador:</label>
+                  <input
+                    type='email'
+                    id='emailOrg'
+                    name='emailOrg'
+                    className='form-control'
+                    value={event.emailOrg}
+                    onChange={(e) => setEvent({ ...event, emailOrg: e.target.value })}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='instagram'>Instagram:</label>
+                  <input
+                    type='text'
+                    id='instagram'
+                    name='instagram'
+                    className='form-control'
+                    value={event.instagram}
+                    onChange={(e) => setEvent({ ...event, instagram: e.target.value })}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='facebook'>Facebook:</label>
+                  <input
+                    type='text'
+                    id='facebook'
+                    name='facebook'
+                    className='form-control'
+                    value={event.facebook}
+                    onChange={(e) => setEvent({ ...event, facebook: e.target.value })}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='twitter'>Twitter:</label>
+                  <input
+                    type='text'
+                    id='twitter'
+                    name='twitter'
+                    className='form-control'
+                    value={event.twitter}
+                    onChange={(e) => setEvent({ ...event, twitter: e.target.value })}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <label htmlFor='linkWeb'>Enlace Web:</label>
+                  <input
+                    type='text'
+                    id='linkWeb'
+                    name='linkWeb'
+                    className='form-control'
+                    value={event.linkWeb}
+                    onChange={(e) => setEvent({ ...event, linkWeb: e.target.value })}
                   />
                 </div>
 
@@ -163,6 +277,7 @@ const styles = {
     alignitems: 'flex-end',
     transition: 'all .3s',
     zindex: 'var(--z-modal)',
+    height: '85%',
     float: 'right'
   },
   closeBtn: {

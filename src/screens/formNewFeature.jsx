@@ -69,7 +69,7 @@ export const FormNewFeature = () => {
   }
   const subirArchivo = async () => {
     try {
-      const result = await uploadImage(file)
+      const result = await uploadImage(file, 'lugares')
       formData.properties.urlImagen = result
       console.log(result)
     } catch (error) {

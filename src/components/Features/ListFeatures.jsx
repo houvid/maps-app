@@ -13,6 +13,7 @@ export const ListFeatures = () => {
     SetPlacesInit()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
   if (isLoading || !userLocation || isLoadingPlaces) {
     return (
       <div className='backLoader loading-map d-flex justify-content-center aling-items-center'>
@@ -21,15 +22,17 @@ export const ListFeatures = () => {
       </div>
     )
   }
+
   const openModal = (place) => {
     SetPlace(place)
     SetStateModalAddEvent(true)
   }
+
   return (
     <div>
       <div className='container section'>
         <h2 className='text-center'>(MODULO EN CONSTRUCCIÓN) ¡Estos son los registros que tenemos actualmente!</h2>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ overflowX: 'auto' }}> {/* Agregar un contenedor con desplazamiento horizontal */}
           <table className='table'>
             <thead>
               <tr>
@@ -58,14 +61,15 @@ export const ListFeatures = () => {
               ))}
             </tbody>
           </table>
-          <section style={styles.modal}>
-            <ModalAddEvent />
-          </section>
         </div>
+        <section style={styles.modal}>
+          <ModalAddEvent />
+        </section>
       </div>
     </div>
   )
 }
+
 const styles = {
   modalContainer: {
     borderRadius: '1rem 1rem 0 0',

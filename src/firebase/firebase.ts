@@ -51,8 +51,8 @@ export async function updateFeature (featureId: string | undefined, updatedFeatu
     console.error('Error al actualizar el Feature: ', e)
   }
 }
-export async function uploadImage (file: any) {
-  const storageRef = ref(storage, 'lugares/' + v4())
+export async function uploadImage (file: any, folder: string) {
+  const storageRef = ref(storage, folder + '/' + v4())
   await uploadBytes(storageRef, file)
   const url = await getDownloadURL(storageRef)
   return url

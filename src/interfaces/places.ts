@@ -50,4 +50,20 @@ export interface Properties {
     descripcion?: string;
     urlImagen?: string;
     categoria?: string;
+    Eventos?: Evento[];
+}
+export interface Evento {
+    date?: Date;
+    eventName?: string;
+    description?: string;
+    horarioEvento?: string;
+    municipio?: string;
+    urlImagen?: string;
+    organizador?: string;
+    telefonoOrg?: string;
+    emailOrg?: string;
+    instagram?: string;
+    facebook?: string;
+    twitter?: string;
+    linkWeb?: string;
 }

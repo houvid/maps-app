@@ -40,11 +40,11 @@ export interface Properties {
     Eventos?: Evento[];
 }
 export interface Evento {
-    date: Date;
-    eventName: string;
-    description: string;
-    horarioEvento: string;
-    municipio: string;
+    date?: Date;
+    eventName?: string;
+    description?: string;
+    horarioEvento?: string;
+    municipio?: string;
     urlImagen?: string;
     organizador?: string;
     telefonoOrg?: string;

@@ -5,7 +5,7 @@ import { PlacesContext } from '../context'
 import { ModalContext } from '../context/modal/ModalContext'
 export const BarMap = () => {
   const { placesFiltered } = useContext(PlacesContext)
-  const { SetStateModalEvent, SetPlace } = useContext(ModalContext)
+  const { SetStateModalEvent, SetEvento } = useContext(ModalContext)
 
   const linkColor = document.querySelectorAll('.nav__link')
 
@@ -13,8 +13,8 @@ export const BarMap = () => {
     linkColor.forEach(l => l.classList.remove('active-link'))
     this.classList.add('active-link')
   }
-  const openModal = (place) => {
-    SetPlace(place)
+  const openModal = (evento) => {
+    SetEvento(evento)
     SetStateModalEvent(true)
   }
 
@@ -49,8 +49,7 @@ export const BarMap = () => {
       placesFiltered
         .map((place, index) => {
           return (
-            <div key={index} className='bar__link'>
-              <img src={place.properties?.urlImagen} alt='img' className='' style={{ borderRadius: '10px', height: '90px', width: 'auto', maxWidth: '70px', display: 'block', objectFit: 'cover' }} />
+            <div key={index} className=''>
               <span className='bar__name'>
                 {/* {place.properties.name.charAt(0).toUpperCase() + place.properties.name.slice(1).toLowerCase()} */}
                 {place.properties && place.properties.Eventos && (
@@ -58,8 +57,9 @@ export const BarMap = () => {
                     {place.properties.Eventos.map((evento, index) => (
                       <p key={index} className='modal__description'>
                         {evento.eventName}
-                        <button className='modal__button-link close-modal' onClick={() => openModal(place)}>
-                          aaaa
+                        <strong> Lugar: </strong> {place.properties.name}
+                        <button className='modal__button-link close-modal' onClick={() => openModal(evento)}>
+                          ver
                         </button>
                       </p>
                     ))}
