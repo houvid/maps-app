@@ -41,12 +41,6 @@ export const placesReducer = (state: PlacesState, action: PlacesAction): PlacesS
         isLoadingPlaces: false,
         placesFiltered: action.payload
       }
-    case 'setEventos':
-      return {
-        ...state,
-        eventos: action.payload
-      }
-
     default:
       return state
   }
