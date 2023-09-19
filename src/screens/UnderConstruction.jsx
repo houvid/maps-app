@@ -1,5 +1,4 @@
-import React from 'react'
-
+/* eslint-disable jsx-a11y/alt-text */
 export const UnderConstruction = () => {
   return (
     <div className='construction-container'>
@@ -12,7 +11,7 @@ export const UnderConstruction = () => {
       <div className='textos'>
         <h1>Agenda en Construcción</h1>
         <p>Si quieres que tu evento esté en esta agenda dejanos tus datos
-          <a href='https://forms.gle/LvVzNNdGNu7NMhiN6' target='_blank'> aquí</a>
+          <a href='https://forms.gle/LvVzNNdGNu7NMhiN6' target='_blank' rel='noreferrer'> aquí</a>
         </p>
       </div>
 

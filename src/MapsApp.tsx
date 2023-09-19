@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PlacesProvider } from './context'
 import { HomeScreen } from './screens'
 import { ModalProvider } from './context/modal/ModalProvider'
