@@ -6,6 +6,7 @@ export interface PlacesContextProps {
     userLocation?: [number, number];
     isLoadingPlaces?: boolean;
     places: Feature[];
+    eventos: Evento[];
     placesFiltered: Feature[];
     eventos: Evento[];
     SetPlacesInit: () => Promise<Feature[]>

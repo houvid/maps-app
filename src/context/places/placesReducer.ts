@@ -6,6 +6,7 @@ type PlacesAction =
 | { type: 'setUserLocation', payload: [number, number]}
 | { type: 'setLoadingPlaces'}
 | { type: 'setPlaces', payload: Feature[] }
+| { type: 'setEventos', payload: Evento[] }
 | { type: 'setPlacesFiltered', payload: Feature[] }
 | { type: 'setEventos', payload: Evento[] }
 
@@ -28,6 +29,11 @@ export const placesReducer = (state: PlacesState, action: PlacesAction): PlacesS
         ...state,
         isLoadingPlaces: false,
         places: action.payload
+      }
+    case 'setEventos':
+      return {
+        ...state,
+        eventos: action.payload
       }
     case 'setPlacesFiltered':
       return {

@@ -10,6 +10,7 @@ export interface PlacesState {
     userLocation?: [number, number];
     isLoadingPlaces?: boolean;
     places: Feature[];
+    eventos: Evento[];
     placesFiltered: Feature[];
     eventos: Evento[];
 }
@@ -61,6 +62,24 @@ export const PlacesProvider = ({ children }: Props) => {
   const SetEventos = async (eventos: Evento[]):Promise<any> => {
     dispatch({ type: 'setEventos', payload: eventos })
   }
+  async function buildEvents (resp: Feature[]) {
+    const eventos: Evento[] = []
+
+    resp.forEach(feature => {
+      if (feature.properties && feature.properties.Eventos) {
+        feature.properties.Eventos.forEach(evento => {
+          if (evento != null) {
+            eventos.push(evento as Evento)
+          }
+        })
+      }
+    })
+
+    return eventos
+  }
+  const SetEventos = async (eventos: Evento[]):Promise<any> => {
+    dispatch({ type: 'setEventos', payload: eventos })
+  }
   return (
     <PlacesContext.Provider value={{
       ...state,
@@ -68,7 +87,6 @@ export const PlacesProvider = ({ children }: Props) => {
       // Methods
       SetPlacesInit,
       SetEventos
-
     }}
     >
       {children}
