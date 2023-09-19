@@ -3,7 +3,7 @@ import '../assets/bar.css'
 import { React, useContext } from 'react'
 import { PlacesContext } from '../context'
 import { ModalContext } from '../context/modal/ModalContext'
-import { FaExternalLinkAlt, FaRegEye } from 'react-icons/fa'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 export const BarMap = () => {
   const { eventos } = useContext(PlacesContext)
   const { SetStateModalEvent, SetEvento } = useContext(ModalContext)
