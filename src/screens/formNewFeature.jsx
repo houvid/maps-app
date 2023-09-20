@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useAuth } from '../context/authContext'
 import { NavBar } from '../components/NavBar'
 import { addFeature, uploadImage } from '../firebase/firebase'
+import Toast from 'react-bootstrap/Toast'
+import ToastContainer from 'react-bootstrap/ToastContainer'
 
 export const FormNewFeature = () => {
   const auth = useAuth()
@@ -9,7 +11,8 @@ export const FormNewFeature = () => {
   const [formData, setFormData] = useState({
     properties: {
       name: '',
-      urlImagen: ''
+      urlImagen: '',
+      Eventos: ''
     },
     dataAdicional: {
       descripcion: '',
@@ -21,6 +24,7 @@ export const FormNewFeature = () => {
     },
     type: 'Feature'
   })
+  const [show, setShow] = useState(false)
   const [file, setFile] = useState(null)
 
   const handleInputChangeName = (event) => {
@@ -61,10 +65,32 @@ export const FormNewFeature = () => {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    addFeature(formData)
-    // Aquí puedes enviar los  datos del formulario a un servidor
+    const responseAdd = await addFeature(formData)
+    if (responseAdd === 'ok') {
+      setShow(true)
+      setFormData({
+        properties: {
+          name: '',
+          urlImagen: '',
+          Eventos: ''
+        },
+        dataAdicional: {
+          descripcion: '',
+          categoria: ''
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: [0, 0]
+        },
+        type: 'Feature'
+      })
+      setFile(null)
+    } else {
+      console.log('error')
+    }
+
     // TODO: esperar respuesta, toast y borrar contenido del formulario
   }
   const subirArchivo = async () => {
@@ -84,6 +110,25 @@ export const FormNewFeature = () => {
 
     <div>
       <NavBar />
+      <ToastContainer
+        bg='success'
+        className='p-3'
+        position='top-end'
+        style={{ zIndex: 1 }}
+      >
+        <Toast onClose={() => setShow(false)} show={show} delay={7000} autohide>
+          <Toast.Header style={{ backgroundColor: '#79c15a', color: '#fff' }}>
+            <img
+              src='holder.js/20x20?text=%20'
+              className='rounded me-2 success'
+              alt=''
+            />
+            <strong className='me-auto'>¡Registro Exitoso!</strong>
+            <small>0 secs ago</small>
+          </Toast.Header>
+          <Toast.Body>Woohoo, acabas de realizar un registro de un nuevo punto dentro del mapa!</Toast.Body>
+        </Toast>
+      </ToastContainer>
       <h1 className='text-center'>Nuevo Registro</h1>
       <div className='container section'>
         <form onSubmit={handleSubmit}>
@@ -125,6 +170,9 @@ export const FormNewFeature = () => {
             />
             <span className='btn btn-primary' onClick={e => { e.preventDefault(); return subirArchivo() }}>
               Subir
+            </span>
+            <span className='btn btn-primary' onClick={e => { e.preventDefault(); return setShow(true) }}>
+              pruebatoast
             </span>
           </div>
           <div className='form-group'>

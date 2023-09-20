@@ -29,7 +29,7 @@ export const BtnMyLocation = () => {
         top: '30px',
         right: '30px',
         zIndex: 998,
-        color: '#5b4ce6',
+        color: '#2667ff',
         display: 'none'
 
       }}

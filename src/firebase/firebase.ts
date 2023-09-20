@@ -36,7 +36,7 @@ export async function addFeature (feature: any) {
   const newFeatureRef = doc(featuresCollection)
   try {
     await addDoc(featuresCollection, { ...feature, id: newFeatureRef.id })
-    console.log('Feature agregado correctamente')
+    return 'ok'
   } catch (e) {
     console.error('Error al agregar el Feature: ', e)
   }
