@@ -227,7 +227,7 @@ a {
 
 /* Show menu */
 .show-menu {
-  width: 255px;
+  width: 455px;
   height: 100vh;
   left: 0;
   top: 0;
@@ -244,7 +244,7 @@ a {
   display: flex;
 }
 .bar_button {
-  margin-top: 5px;
+  margin-top: 20px;
   margin-left: 15px ;
   border-radius: 40px;
 }

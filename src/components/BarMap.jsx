@@ -4,6 +4,12 @@ import { React, useContext } from 'react'
 import { PlacesContext } from '../context'
 import { ModalContext } from '../context/modal/ModalContext'
 import { FaExternalLinkAlt } from 'react-icons/fa'
+import Button from '@mui/material/Button'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
+import { CardActionArea } from '@mui/material'
 export const BarMap = () => {
   const { eventos } = useContext(PlacesContext)
   const { SetStateModalEvent, SetEvento } = useContext(ModalContext)
@@ -46,6 +52,7 @@ export const BarMap = () => {
             <option value='museo'>Museos</option>
             {/* Agrega otras opciones de filtro según tus necesidades */}
           </select>
+
           {
       eventos
         // eslint-disable-next-line array-callback-return
@@ -53,21 +60,28 @@ export const BarMap = () => {
           // eslint-disable-next-line eqeqeq
           if (evento == '') { /* empty */ } else {
             return (
-              <div key={index} className='bar_container'>
-                <div className='bar__img'>
-                  <img src={evento.urlImagen} alt='img' style={{ borderRadius: '10px', marginTop: '10px', height: '90px', width: 'auto', maxWidth: '70px', display: 'block', objectFit: 'cover' }} />
-                  <button className='btn btn-light bar_button ' onClick={() => openModal(evento)}>
-                    <FaExternalLinkAlt />
-                  </button>
-                </div>
-                <div className='bar_descripcion'>
-                  <span className='bar__name'> {evento.eventName.charAt(0).toUpperCase() + evento.eventName.slice(1).toLowerCase()}</span>
-                  <br />
-                  <strong>Lugar:</strong> <br /> Teatro principal
-                  <br />
-                  <strong>Fecha:</strong><br /> {evento.date}
-                </div>
+              <div key={index}>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardActionArea onClick={() => openModal(evento)}>
+                    <CardMedia
+                      component='img'
+                      image={evento.urlImagen}
+                      style={{ height: 'auto', width: '100%', maxWidth: '300px', maxHeiht: '100px', display: 'block', objectFit: 'cover' }}
+                    />
+                    <CardContent>
+                      <Typography color='text.secondary' style={{ padding: '1px' }}>
+                        <h5> <strong>{evento.eventName.charAt(0).toUpperCase() + evento.eventName.slice(1).toLowerCase()}</strong> </h5>
+                      </Typography>
+                      <Typography variant='' color='text.secondary'>
+                        <strong>Lugar:</strong> Teatro principal
+                        <br />
+                        <strong>Fecha:</strong> {evento.date}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
               </div>
+
             )
           }
         })
