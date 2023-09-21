@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { React, useContext, useEffect, useState } from 'react'
+import { React, useContext, useEffect, useState, useRef } from 'react'
 import { PlacesContext, ModalContext } from '../../context'
 import { MarkerLocation } from './MarkerLocation'
 import { MarkersPlaces } from './MarkersPlaces'
@@ -8,13 +8,13 @@ import { Routing } from './Routing'
 import 'leaflet/dist/leaflet.css'
 import { ModalDetalles } from '../Modals/modalDetalles'
 import { ModalEventos } from '../Modals/modalEventos'
-import { Modal } from 'react-bootstrap'
-import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet'
+import { MapContainer, TileLayer, ZoomControl, Popup } from 'react-leaflet'
 import 'leaflet-routing-machine'
 import '../../assets/leaflet.css'
-export const MapViewLeaf = () => {
+export const MapViewLeaf = ({ mapRef }) => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
   const { isLoading, userLocation, isLoadingPlaces, SetPlacesInit } = useContext(PlacesContext)
-  const { SetPlace, SetPlaceRoute, place, placeRoute, SetStateModal } = useContext(ModalContext)
+  const { SetPlace, SetPlaceRoute, placeRoute, SetStateModal } = useContext(ModalContext)
   const [filter, setFilter] = useState('')
   useEffect(() => {
     SetPlacesInit()
@@ -42,7 +42,7 @@ export const MapViewLeaf = () => {
     setFilter(event.target.value)
   }
   return (
-    <MapContainer center={userLocation} zoom={15} scrollWheelZoom zoomControl={false}>
+    <MapContainer center={userLocation} zoom={15} scrollWheelZoom zoomControl={false} ref={mapRef}>
       <TileLayer
         url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
       />
@@ -52,8 +52,8 @@ export const MapViewLeaf = () => {
         <option value='museo'>Museos</option>
         {/* Agrega otras opciones de filtro según tus necesidades */}
       </select>
+      <MarkerLocation onClick={() => setIsPopupOpen(false)} />
       <ZoomControl position='topright' />
-      <MarkerLocation />
       <MarkersPlaces openModal={openModal} setPlaceToRoute={setPlaceToRoute} />
       <section style={styles.modal}>
         <ModalDetalles />

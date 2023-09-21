@@ -11,7 +11,8 @@ export const ModalAddEvent = () => {
     eventName: '',
     description: '',
     horarioEvento: '',
-    municipio: '',
+    municipio: place.properties?.municipio,
+    coordinates: [],
     urlImagen: '',
     organizador: '',
     telefonoOrg: '',
@@ -41,6 +42,7 @@ export const ModalAddEvent = () => {
   }
   const handleNameChange = (e) => {
     setEventName(e.target.value)
+    setEvent({ ...event, coordinates: [place.geometry?.coordinates[1], place.geometry?.coordinates[0]] })
   }
   const handleSubmit = (e) => {
     e.preventDefault()

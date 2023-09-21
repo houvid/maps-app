@@ -37,6 +37,7 @@ export interface Properties {
     descripcion?: string;
     urlImagen?: string;
     categoria?: string;
+    municipio?: string;
     Eventos?: Evento[];
 }
 export interface Evento {
@@ -44,6 +45,8 @@ export interface Evento {
     eventName?: string;
     description?: string;
     horarioEvento?: string;
+    placeName?: string;
+    coordinates?: number[];
     municipio?: string;
     urlImagen?: string;
     organizador?: string;
