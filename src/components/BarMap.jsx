@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable eqeqeq */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import '../assets/bar.css'
 import { React, useContext, useState, useEffect } from 'react'
@@ -17,7 +19,6 @@ export const BarMap = ({ mapRef }) => {
   const [variantChip, setVariantChip] = useState('outlined')
   useEffect(() => {
     setEventosFiltered(eventos)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     setFechaActual(obtenerFechaActualEnFormato())
   }, [eventos])
   const obtenerFechaActualEnFormato = () => {
@@ -62,7 +63,6 @@ export const BarMap = ({ mapRef }) => {
   const handleClick = () => {
     if (variantChip === 'outlined') {
       setVariantChip('filled')
-      // eslint-disable-next-line eqeqeq
       eventosFiltered = eventos.filter(evento => {
         console.log(evento.date > fechaActual)
         return evento.date == fechaActual
@@ -94,7 +94,6 @@ export const BarMap = ({ mapRef }) => {
           <Chip className='chipBar' label='¡Eventos hoy!' color='primary' variant={variantChip} onClick={handleClick} size='small' />
           {
       eventosFiltered
-        // eslint-disable-next-line array-callback-return
         .map((evento, index) => {
           if ((evento == '') || (evento.date < fechaActual)) { /* empty */ } else {
             return (
