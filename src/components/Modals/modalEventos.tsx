@@ -4,7 +4,7 @@ import { ModalContext } from '../../context/modal/ModalContext'
 import { Modal } from 'react-bootstrap'
 export const ModalEventos = () => {
   const { SetStateModalEvent, evento, stateModalEvent } = useContext(ModalContext)
-  const [toggleState, setToggleState] = useState(0)
+  const [toggleState, setToggleState] = useState(1)
   const toggleTab = (index: number) => {
     setToggleState(index)
   }
@@ -22,8 +22,8 @@ export const ModalEventos = () => {
       </div>
       <div className='contenedor'>
         <ul className='ul'>
+          <li className={toggleState === 1 ? 'li activo' : 'li'} onClick={() => toggleTab(1)}><p className='text-center'>  Programación </p> </li>
           <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}> <p className='text-center'> Info </p></li>
-          <li className={toggleState === 1 ? 'li activo' : 'li'} onClick={() => toggleTab(1)}><p className='text-center'>  Horario </p> </li>
           <li className={toggleState === 2 ? 'li activo' : 'li'} onClick={() => toggleTab(2)}><p className='text-center'>  contacto </p></li>
         </ul>
         <div className='subcontenedor'>
@@ -31,6 +31,7 @@ export const ModalEventos = () => {
             <h1 className='modal__title'>{evento.eventName} </h1>
             <p className='modal__description'>{evento.description}</p>
           </div>
+          {/* // progranmación */}
           <div className={toggleState === 1 ? 'bloque activo' : 'bloque'}>
             <h1 className='modal__title'>{evento.horarioEvento} </h1>
           </div>

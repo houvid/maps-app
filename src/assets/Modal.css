@@ -330,10 +330,15 @@ li {
   width: 40px;
 }
 div.leaflet-popup-content-wrapper{
-  text-align: center;
   margin: 0;
   padding-left: 0;
   box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+}
+.boton-pop{
+  text-align: center;
+  margin-left: 15px;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 /*=============== BREAKPOINTS ===============*/

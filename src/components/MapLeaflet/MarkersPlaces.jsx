@@ -42,8 +42,8 @@ export const MarkersPlaces = ({ openModal, setPlaceToRoute, openModalEvento }) =
                   <img src={evento.urlImagen} alt='img' className='' />
                   <h5 className='popup-title'>{evento.eventName} </h5>
                   <p className='popup-text'>{place.properties.descripcion.slice(0, 160)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
-                  <button className='btn' onClick={() => openModalEvento(evento)}> Ver mas detalles</button>
-                  <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir <FaArrowRight /></button>
+                  <button className=' boton-pop' onClick={() => openModalEvento(evento)}> Ver mas detalles</button>
+                  <button className='btn btn-primary boton-pop' onClick={() => setPlaceToRoute(place)}> Ir <FaArrowRight /></button>
                 </div>
               </Popup>
             </Marker>
@@ -51,15 +51,15 @@ export const MarkersPlaces = ({ openModal, setPlaceToRoute, openModalEvento }) =
         } else {
           return (
             <Marker key={index} id={idMarker} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={icon}>
-              <Popup className='custom-popup'>
+              <Popup className='custom-popup leaflet-popup-content-wrapper'>
                 <div>
                   <img src={place.properties?.urlImagen} alt='img' className='' />
-                  <p className='title'>
+                  <h5 className='popup-title'>
                     <strong>{place.properties.name} </strong>
-                  </p>
+                  </h5>
                   <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
-                  <button className='btn' onClick={() => openModal(place)}> Ver mas detalles</button>
-                  <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir <FaArrowRight /> </button>
+                  <button className=' boton-pop' onClick={() => openModal(place)}> Ver mas detalles</button>
+                  <button className='btn btn-primary boton-pop' onClick={() => setPlaceToRoute(place)}> Ir <FaArrowRight /></button>
                 </div>
               </Popup>
             </Marker>
