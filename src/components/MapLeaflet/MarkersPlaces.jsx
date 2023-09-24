@@ -1,14 +1,14 @@
 import { React, useContext, useEffect } from 'react'
 import { Marker, Popup } from 'react-leaflet'
-import { PlacesContext } from '../../context'
-import { iconMarkerMuseo, iconMarkerArbelaez, iconMarkerBlue, iconMarkerCapilla, iconMarkerCruces, iconMarkerArqueologia, iconMarkerIndepende } from '../IconLocation'
-
-export const MarkersPlaces = ({ openModal, setPlaceToRoute }) => {
-  const { placesFiltered } = useContext(PlacesContext)
-
+import { PlacesContext, ModalContext } from '../../context'
+import { iconMarkerMuseo, iconMarkerArbelaez, iconMarkerBlue, iconMarkerCapilla, iconMarkerCruces, iconMarkerArqueologia, iconMarkerIndepende, iconMarkerGreen } from '../IconLocation'
+import { FaArrowRight } from 'react-icons/fa'
+export const MarkersPlaces = ({ openModal, setPlaceToRoute, openModalEvento }) => {
+  const { places } = useContext(PlacesContext)
+  const { evento } = useContext(ModalContext)
   useEffect(() => {
 
-  }, [placesFiltered])
+  }, [places])
   const homologarIcon = (placeName) => {
     switch (placeName) {
       case 'Museo':
@@ -29,24 +29,42 @@ export const MarkersPlaces = ({ openModal, setPlaceToRoute }) => {
   }
 
   return (
-    placesFiltered
+    places
       .map((place, index) => {
         const icon = homologarIcon(place.properties?.name)
-        return (
-          <Marker key={index} id={index} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={icon}>
-            <Popup className='custom-popup'>
-              <div>
-                <img src={place.properties?.urlImagen} alt='img' className='' />
-                <p className='title'>
-                  <strong>{place.properties.name} </strong>
-                </p>
-                <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
-                <button className='btn' onClick={() => openModal(place)}> Ver mas detalles</button>
-                <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir</button>
-              </div>
-            </Popup>
-          </Marker>
-        )
+        const idMarker = index + 'marker'
+        console.log('length' + places.length)
+        if (places.length === 1) {
+          return (
+            <Marker key={index} id={idMarker} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={iconMarkerGreen}>
+              <Popup className='custom-popup leaflet-popup-content-wrapper'>
+                <div>
+                  <img src={evento.urlImagen} alt='img' className='' />
+                  <h5 className='popup-title'>{evento.eventName} </h5>
+                  <p className='popup-text'>{place.properties.descripcion.slice(0, 160)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
+                  <button className='btn' onClick={() => openModalEvento(evento)}> Ver mas detalles</button>
+                  <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir <FaArrowRight /></button>
+                </div>
+              </Popup>
+            </Marker>
+          )
+        } else {
+          return (
+            <Marker key={index} id={idMarker} position={[place.geometry.coordinates[1], place.geometry.coordinates[0]]} icon={icon}>
+              <Popup className='custom-popup'>
+                <div>
+                  <img src={place.properties?.urlImagen} alt='img' className='' />
+                  <p className='title'>
+                    <strong>{place.properties.name} </strong>
+                  </p>
+                  <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
+                  <button className='btn' onClick={() => openModal(place)}> Ver mas detalles</button>
+                  <button className='btn btn-primary' onClick={() => setPlaceToRoute(place)}> Ir <FaArrowRight /> </button>
+                </div>
+              </Popup>
+            </Marker>
+          )
+        }
       })
   )
 }

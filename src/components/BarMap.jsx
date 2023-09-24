@@ -12,8 +12,8 @@ import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
 import Chip from '@mui/material/Chip'
 export const BarMap = ({ mapRef }) => {
-  const { eventos } = useContext(PlacesContext)
-  const { SetStateModalEvent, SetEvento } = useContext(ModalContext)
+  const { eventos, SetPlaces, placesFiltered } = useContext(PlacesContext)
+  const { SetEvento } = useContext(ModalContext)
   let [eventosFiltered, setEventosFiltered] = useState(eventos)
   const [fechaActual, setFechaActual] = useState('')
   const [variantChip, setVariantChip] = useState('outlined')
@@ -32,7 +32,15 @@ export const BarMap = ({ mapRef }) => {
   }
   const openModal = (evento) => {
     SetEvento(evento)
-    SetStateModalEvent(true)
+    const placesFiltrado = placesFiltered.filter(place => {
+      const filtrado = place.geometry.coordinates[0] == evento.coordinates[1]
+      console.log('place ' + place.geometry.coordinates[0])
+      console.log('evento ' + evento.coordinates[1])
+      console.log(filtrado)
+      return filtrado
+    })
+    console.log(placesFiltrado)
+    SetPlaces(placesFiltrado)
     flyToUserLocation(evento.coordinates)
   }
   const flyToUserLocation = (coordinates) => {
@@ -70,6 +78,7 @@ export const BarMap = ({ mapRef }) => {
       setEventosFiltered(eventosFiltered)
     } else {
       setEventosFiltered(eventos)
+      SetPlaces(placesFiltered)
       setVariantChip('outlined')
     }
     console.info('You clicked the Chip.')
@@ -136,6 +145,28 @@ export const BarMap = ({ mapRef }) => {
               )
             : null
         }
+          <div>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component='img'
+                  style={{ height: 'auto', width: '100%', maxWidth: '300px', maxHeiht: '100px', display: 'block', objectFit: 'cover' }}
+                />
+                <CardContent>
+                  <Typography color='text.secondary' style={{ padding: '1px' }}>
+                    <strong> </strong>
+                  </Typography>
+                  <Typography variant='' color='text.secondary'>
+                    <strong> </strong>
+                    <br />
+                    <br />
+                    <br />
+                    <strong> </strong>
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </div>
         </div>
       </nav>
     </div>

@@ -8,8 +8,9 @@ export interface PlacesContextProps {
     places: Feature[];
     placesFiltered: Feature[];
     eventos: Evento[];
-    SetPlacesInit: () => Promise<Feature[]>
-    SetEventos: (eventos: Evento[]) => Promise<Evento[]>
+    SetPlacesInit: () => Promise<Feature[]>;
+    SetPlaces: (places: Feature[]) => Promise<Feature[]>;
+    SetEventos: (eventos: Evento[]) => Promise<Evento[]>;
 }
 
 export const PlacesContext = createContext<PlacesContextProps>({} as PlacesContextProps)

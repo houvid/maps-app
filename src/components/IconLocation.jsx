@@ -9,12 +9,12 @@ export const iconLocation = new Icon({
   className: 'leaflet-venue-icon'
 })
 export const iconMarkerGreen = new Icon({
-  iconUrl: 'https://cdn-icons-png.flaticon.com/512/7946/7949073.png',
+  iconUrl: 'https://cdn-icons-png.flaticon.com/512/9101/9101314.png',
   iconAnchor: null,
   shadowUrl: null,
   shadowSize: null,
   shadowAnchor: null,
-  iconSize: [35, 35],
+  iconSize: [50, 50],
   className: 'leaflet-venue-icon'
 })
 

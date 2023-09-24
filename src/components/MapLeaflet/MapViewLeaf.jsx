@@ -14,7 +14,7 @@ import '../../assets/leaflet.css'
 export const MapViewLeaf = ({ mapRef }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
   const { isLoading, userLocation, isLoadingPlaces, SetPlacesInit } = useContext(PlacesContext)
-  const { SetPlace, SetPlaceRoute, placeRoute, SetStateModal } = useContext(ModalContext)
+  const { SetPlace, SetPlaceRoute, placeRoute, SetStateModal, SetEvento, SetStateModalEvent } = useContext(ModalContext)
   const [filter, setFilter] = useState('')
   useEffect(() => {
     SetPlacesInit()
@@ -32,6 +32,10 @@ export const MapViewLeaf = ({ mapRef }) => {
   const openModal = (place) => {
     SetPlace(place)
     SetStateModal(true)
+  }
+  const openModalEvento = (evento) => {
+    SetEvento(evento)
+    SetStateModalEvent(true)
   }
   const setPlaceToRoute = (place) => {
     SetPlaceRoute(place)
@@ -54,7 +58,7 @@ export const MapViewLeaf = ({ mapRef }) => {
       </select>
       <MarkerLocation onClick={() => setIsPopupOpen(false)} />
       <ZoomControl position='topright' />
-      <MarkersPlaces openModal={openModal} setPlaceToRoute={setPlaceToRoute} />
+      <MarkersPlaces openModal={openModal} setPlaceToRoute={setPlaceToRoute} openModalEvento={openModalEvento} />
       <section style={styles.modal}>
         <ModalDetalles />
         <ModalEventos />

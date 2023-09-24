@@ -43,9 +43,12 @@ export const PlacesProvider = ({ children }: Props) => {
     SetEventos(eventos)
     return resp
   }
+  const SetPlaces = async (places: Feature[]):Promise<Feature[]> => {
+    dispatch({ type: 'setPlaces', payload: places })
+    return places
+  }
   async function buildEvents (resp: Feature[]) {
     const eventos: Evento[] = []
-
     resp.forEach(feature => {
       if (feature.properties && feature.properties.Eventos) {
         feature.properties.Eventos.forEach(evento => {
@@ -67,6 +70,7 @@ export const PlacesProvider = ({ children }: Props) => {
 
       // Methods
       SetPlacesInit,
+      SetPlaces,
       SetEventos
     }}
     >
