@@ -68,6 +68,9 @@ a {
   width: 35px; /* Asegura que la imagen ocupe todo el ancho disponible */
   height: auto; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
 }
+.chipBar{
+  width: 100px;
+}
 /* Vista CEL */
 @media screen and (max-width: 767px) {
   .container {

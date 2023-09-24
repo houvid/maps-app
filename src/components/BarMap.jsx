@@ -13,12 +13,12 @@ export const BarMap = ({ mapRef }) => {
   const { eventos } = useContext(PlacesContext)
   const { SetStateModalEvent, SetEvento } = useContext(ModalContext)
   let [eventosFiltered, setEventosFiltered] = useState(eventos)
+  const [fechaActual, setFechaActual] = useState('')
   const [variantChip, setVariantChip] = useState('outlined')
-  const linkColor = document.querySelectorAll('.nav__link')
-  let fechaActual = ''
   useEffect(() => {
     setEventosFiltered(eventos)
-    fechaActual = obtenerFechaActualEnFormato()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setFechaActual(obtenerFechaActualEnFormato())
   }, [eventos])
   const obtenerFechaActualEnFormato = () => {
     const fecha = new Date()
@@ -62,7 +62,11 @@ export const BarMap = ({ mapRef }) => {
   const handleClick = () => {
     if (variantChip === 'outlined') {
       setVariantChip('filled')
-      eventosFiltered = eventos.filter(evento => evento.date == fechaActual)
+      // eslint-disable-next-line eqeqeq
+      eventosFiltered = eventos.filter(evento => {
+        console.log(evento.date > fechaActual)
+        return evento.date == fechaActual
+      })
       setEventosFiltered(eventosFiltered)
     } else {
       setEventosFiltered(eventos)
@@ -87,13 +91,12 @@ export const BarMap = ({ mapRef }) => {
             <option value='MARINILLA'>MARINILLA</option>
             <option value='LA CEJA'>LA CEJA</option>
           </select>
-          <Chip className='bar__link' label='¡Eventos hoy!' color='primary' variant={variantChip} onClick={handleClick} size='small' />
+          <Chip className='chipBar' label='¡Eventos hoy!' color='primary' variant={variantChip} onClick={handleClick} size='small' />
           {
       eventosFiltered
         // eslint-disable-next-line array-callback-return
         .map((evento, index) => {
-          // eslint-disable-next-line eqeqeq
-          if (evento == '') { /* empty */ } else {
+          if ((evento == '') || (evento.date < fechaActual)) { /* empty */ } else {
             return (
               <div key={index}>
                 <Card sx={{ maxWidth: 345 }}>
@@ -105,12 +108,16 @@ export const BarMap = ({ mapRef }) => {
                     />
                     <CardContent>
                       <Typography color='text.secondary' style={{ padding: '1px' }}>
-                        <strong>{evento.eventName.charAt(0).toUpperCase() + evento.eventName.slice(1).toLowerCase()}</strong>
+                        <strong> {evento.eventName ? evento.eventName.charAt(0).toUpperCase() + evento.eventName.slice(1).toLowerCase() : ''}</strong>
                       </Typography>
                       <Typography variant='' color='text.secondary'>
                         <strong>Lugar:</strong> Teatro principal
                         <br />
-                        <strong>Fecha:</strong> {evento.date}
+                        <strong>Fecha:</strong> {evento.date == fechaActual
+                          ? (
+                            <Chip label='¡Evento hoy!' color='success' size='small' />
+                            )
+                          : evento.date}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -120,6 +127,15 @@ export const BarMap = ({ mapRef }) => {
             )
           }
         })
+      }
+          {
+          eventosFiltered.length === 0
+            ? (
+              <div>
+                <h1>No hay eventos para mostrar</h1>
+              </div>
+              )
+            : null
         }
         </div>
       </nav>
