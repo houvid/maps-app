@@ -82,7 +82,7 @@ export const BarMap = ({ mapRef }) => {
           <i className='bx bx-chevron-right' />
         </div>
         <div className='logo-geo' onClick={() => showMenu('bar-toggle', 'bar')}>
-          <img src='isotipo-1.png' alt='img' className='' onClick={flyToUserLocation} />
+          <img src='isotipo-1.png' alt='img' className='' />
           <span className='bar__logo-name'>GeoGuía</span>
         </div>
         <div className='bar__list'>
@@ -91,7 +91,7 @@ export const BarMap = ({ mapRef }) => {
             <option value='MARINILLA'>MARINILLA</option>
             <option value='LA CEJA'>LA CEJA</option>
           </select>
-          <Chip className='chipBar' label='¡Eventos hoy!' color='primary' variant={variantChip} onClick={handleClick} size='small' />
+          <Chip className='chipBar' label='¡Hoy!' color='primary' variant={variantChip} onClick={handleClick} />
           {
       eventosFiltered
         .map((evento, index) => {

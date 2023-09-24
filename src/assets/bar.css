@@ -69,7 +69,7 @@ a {
   height: auto; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
 }
 .chipBar{
-  width: 100px;
+  width: 50%;
 }
 /* Vista CEL */
 @media screen and (max-width: 767px) {
@@ -89,6 +89,8 @@ a {
     border-radius: 30px;
     transition: .3s;
     z-index: 999;
+    
+    color: #fff;
   }
   .bar__logo {
     display: flex;
@@ -98,8 +100,8 @@ a {
     color: var(--first-color);
   }
   .bar__logo-name { 
-    line-height: 0.1; 
-    color: var(--title-color);
+    line-height: 0.1;
+    color: var(#fff);
     font-weight: 600;
     padding-left: 1rem;
   }
@@ -185,6 +187,7 @@ a {
   }
   .bar__logo {
     display: flex;
+    transition: .3s;
   }
   .bar__logo i {
     font-size: 1.25rem;
@@ -195,8 +198,10 @@ a {
     color: var(--title-color);
     font-weight: 600;
     padding-left: 2rem;
+    transition: .4s;
   }
   .bar__logo, .bar__link {
+    transition: .4s;
     align-items: center;
     column-gap: 1rem;
   }
@@ -218,13 +223,13 @@ a {
     background-color: var(--title-color);
     color: #fff;
     border-radius: 50%;
-    font-size: 1.20rem;
     display: grid;
     place-items: center;
     top: 2rem;
     right: -10px;
     cursor: pointer;
     transition: .4s;
+    
   }
 }
 
@@ -232,10 +237,8 @@ a {
 .show-menu {
   width: 455px;
   height: 100vh;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-  padding: 1rem;
+  color: hsl(228, 12%, 15%);
+  --title-color: hsl(228, 12%, 15%);
 }
 .bar_descripcion{
   width: 60%;
