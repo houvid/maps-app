@@ -2,8 +2,15 @@ import { useContext, useState } from 'react'
 import '../../assets/Modal.css'
 import { ModalContext } from '../../context/modal/ModalContext'
 import { Modal } from 'react-bootstrap'
+import { FaStopwatch, FaInfoCircle, FaIdCard, FaArrowRight } from 'react-icons/fa'
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Stack'
+import { styled } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
 export const ModalDetalles = () => {
-  const { SetStateModal, SetStateModalEvent, place, stateModal } = useContext(ModalContext)
+  const { SetStateModal, SetStateModalEvent, place, stateModal, SetEvento, evento } = useContext(ModalContext)
   const [toggleState, setToggleState] = useState(0)
   const toggleTab = (index: number) => {
     setToggleState(index)
@@ -15,6 +22,18 @@ export const ModalDetalles = () => {
     SetStateModal(false)
     SetStateModalEvent(true)
   }
+  const openModalEvento = (evento: any) => {
+    SetEvento(evento)
+    SetStateModalEvent(true)
+  }
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    width: 430
+  }))
   return (
     <Modal show={stateModal} onHide={closeModal} className='contenedorPrincipalModal' styles={styles.modalContainer} dialogClassName='modal-right'>
       <div className='modal__close close-modal' title='Close' onClick={closeModal}>
@@ -26,27 +45,37 @@ export const ModalDetalles = () => {
         <img src={place.properties?.urlImagen} alt='' className='modal__img' />
         <img src={place.properties?.urlImagen} alt='' className='modal__img' />
       </div>
+      <span className='modal__title'>{place.properties?.name}</span>
       <div className='contenedor'>
         <ul className='ul'>
-          <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}> <p className='text-center'> Info </p></li>
-          <li className={toggleState === 1 ? 'li activo' : 'li'} onClick={() => toggleTab(1)}><p className='text-center'>  Eventos </p> </li>
-          <li className={toggleState === 2 ? 'li activo' : 'li'} onClick={() => toggleTab(2)}><p className='text-center'>  Recomendamos </p></li>
+          <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}> <p className='text-center'><FaInfoCircle /><br /> Información </p></li>
+          <li className={toggleState === 1 ? 'li activo' : 'li'} onClick={() => toggleTab(1)}><p className='text-center'><FaStopwatch /> <br />  Eventos </p> </li>
+          <li className={toggleState === 2 ? 'li activo' : 'li'} onClick={() => toggleTab(2)}><p className='text-center'><FaIdCard /> <br />  Recomendaciones </p></li>
         </ul>
         <div className='subcontenedor'>
           <div className={toggleState === 0 ? 'bloque activo' : 'bloque'}>
-            <h1 className='modal__title'>{place.properties?.name}</h1>
             <p className='modal__description'>{place.properties?.descripcion}</p>
           </div>
+          {/* EVENTOS */}
           <div className={toggleState === 1 ? 'bloque activo' : 'bloque'}>
             {place.properties && place.properties.Eventos && (
               <div>
                 {place.properties.Eventos.map((evento, index) => (
-                  <p key={index} className='modal__description'>
-                    {evento.eventName} {evento.description}
-                    <button className='modal__button-link close-modal' onClick={setStateEvento}>
-                      aaaa
-                    </button>
-                  </p>
+                  <Box key={index} sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }}>
+                    <Item
+                      sx={{
+                        my: 1,
+                        mx: 'auto',
+                        p: 2
+                      }}
+                    >
+                      <Stack spacing={2} direction='row' alignItems='center'>
+                        <Typography noWrap>{evento.eventName}</Typography>
+                        <Typography noWrap>{evento.date?.toString()}</Typography>
+                        <Avatar style={{ backgroundColor: '#286cff', paddingRight: '0.1rem' }} onClick={() => openModalEvento(evento)}><FaArrowRight /></Avatar>
+                      </Stack>
+                    </Item>
+                  </Box>
                 ))}
               </div>
             )}

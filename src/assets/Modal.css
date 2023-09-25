@@ -171,9 +171,8 @@ img{
   font-size: var(--big-font-size);
   color: var(--title-color);
   font-weight: 500;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .modal__description{
@@ -228,8 +227,11 @@ li {
 
 .contenedor .ul {
   width: 100%;
-  left: 0;
-  padding-left: 0rem;
+  left: 0rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 0rem;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -247,9 +249,12 @@ li {
 
 .contenedor .li {
   width: 100%;
-  padding: 0.2em;
+  border-bottom: solid;
+  border-color: #fff;
+  padding: 0px;
+  margin:0.2em;
   color: var(--negro);
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 0rem;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   background-color: var(--blanco);
@@ -259,8 +264,9 @@ li {
 }
 
 .contenedor .li.activo {
-  background-color: #2667ff;
-  color: white;
+  border-bottom: solid;
+  border-color: #2667ff;
+  color: #2667ff;
 }
 
 .contenedor .subcontenedor {
@@ -269,7 +275,7 @@ li {
 }
 .contentModal{
   height: 80%;
-  align-items: center;
+  align-items: left;
   padding-left: 10%;
   padding-bottom: 10%;
 }
@@ -325,6 +331,8 @@ li {
 }
 .text-center{
   padding-top:10px;
+  padding-left: 0;
+  text-align: left;
 }
 .leaflet-popup-close-button{
   width: 40px;
@@ -336,9 +344,9 @@ div.leaflet-popup-content-wrapper{
 }
 .boton-pop{
   text-align: center;
-  margin-left: 15px;
   padding: 20px;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 /*=============== BREAKPOINTS ===============*/

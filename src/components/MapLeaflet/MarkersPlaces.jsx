@@ -41,9 +41,9 @@ export const MarkersPlaces = ({ openModal, setPlaceToRoute, openModalEvento }) =
                 <div>
                   <img src={evento.urlImagen} alt='img' className='' />
                   <h5 className='popup-title'>{evento.eventName} </h5>
-                  <p className='popup-text'>{place.properties.descripcion.slice(0, 160)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
-                  <button className=' boton-pop' onClick={() => openModalEvento(evento)}> Ver mas detalles</button>
-                  <button className='btn btn-primary boton-pop' onClick={() => setPlaceToRoute(place)}> Ir <FaArrowRight /></button>
+                  <p className='popup-text'>{evento.description.slice(0, 160)} <strong onClick={() => openModalEvento(evento)}>  Ver más...  </strong></p>
+                  <button className='btn boton-pop' onClick={() => openModalEvento(evento)} style={{ width: '70%', backgroundColor: '#e4e5eb' }}> Ver más detalles</button>
+                  <button className='btn btn-primary boton-pop' onClick={() => setPlaceToRoute(place)} style={{ width: '28%', marginLeft: '2%' }}> Ir <FaArrowRight /></button>
                 </div>
               </Popup>
             </Marker>
@@ -58,8 +58,8 @@ export const MarkersPlaces = ({ openModal, setPlaceToRoute, openModalEvento }) =
                     <strong>{place.properties.name} </strong>
                   </h5>
                   <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
-                  <button className=' boton-pop' onClick={() => openModal(place)}> Ver mas detalles</button>
-                  <button className='btn btn-primary boton-pop' onClick={() => setPlaceToRoute(place)}> Ir <FaArrowRight /></button>
+                  <button className='btn boton-pop' onClick={() => openModal(place)} style={{ width: '70%', backgroundColor: '#e4e5eb' }}> Ver mas detalles</button>
+                  <button className='btn btn-primary boton-pop' onClick={() => setPlaceToRoute(place)} style={{ width: '28%', marginLeft: '2%' }}> Ir <FaArrowRight /></button>
                 </div>
               </Popup>
             </Marker>

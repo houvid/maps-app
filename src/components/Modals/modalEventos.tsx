@@ -2,15 +2,24 @@ import { useContext, useState } from 'react'
 import '../../assets/Modal.css'
 import { ModalContext } from '../../context/modal/ModalContext'
 import { Modal } from 'react-bootstrap'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableRow from '@mui/material/TableRow'
+import Paper from '@mui/material/Paper'
+import { FaStopwatch, FaInfoCircle, FaIdCard } from 'react-icons/fa'
 export const ModalEventos = () => {
   const { SetStateModalEvent, evento, stateModalEvent } = useContext(ModalContext)
   const [toggleState, setToggleState] = useState(1)
+  const programacionEvento: any = evento.horarioEvento?.split(',')
   const toggleTab = (index: number) => {
     setToggleState(index)
   }
   const closeModal = () => {
     SetStateModalEvent(false)
   }
+
   return (
     <Modal show={stateModalEvent} onHide={closeModal} className='contenedorPrincipalModal' styles={styles.modalContainer} dialogClassName='modal-right'>
       <div className='modal__close close-modal' title='Close' onClick={closeModal}>
@@ -20,20 +29,46 @@ export const ModalEventos = () => {
         <img src={evento.urlImagen} alt='' className='modal__img' />
         <img src={evento.urlImagen} alt='' className='modal__img' />
       </div>
+      <h1 className='modal__title' style={{ textAlign: 'center' }}>{evento.eventName}</h1>
       <div className='contenedor'>
         <ul className='ul'>
-          <li className={toggleState === 1 ? 'li activo' : 'li'} onClick={() => toggleTab(1)}><p className='text-center'>  Programación </p> </li>
-          <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}> <p className='text-center'> Info </p></li>
-          <li className={toggleState === 2 ? 'li activo' : 'li'} onClick={() => toggleTab(2)}><p className='text-center'>  contacto </p></li>
+          <li className={toggleState === 1 ? 'li activo' : 'li'} onClick={() => toggleTab(1)}><p className='text-center'><FaStopwatch /> <br />Programación </p> </li>
+          <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}> <p className='text-center'><FaInfoCircle /><br /> Información </p></li>
+          <li className={toggleState === 2 ? 'li activo' : 'li'} onClick={() => toggleTab(2)}><p className='text-center'><FaIdCard /> <br />  Contacto </p></li>
         </ul>
         <div className='subcontenedor'>
           <div className={toggleState === 0 ? 'bloque activo' : 'bloque'}>
-            <h1 className='modal__title'>{evento.eventName} </h1>
             <p className='modal__description'>{evento.description}</p>
           </div>
           {/* // progranmación */}
           <div className={toggleState === 1 ? 'bloque activo' : 'bloque'}>
-            <h1 className='modal__title'>{evento.horarioEvento} </h1>
+            <TableContainer component={Paper} sx={{ minWidth: 495 }}>
+              <Table aria-label='simple table' style={{ alignContent: 'center', minWidth: '100%' }} sx={{ minWidth: '100%' }}>
+                <TableBody>
+                  {programacionEvento !== undefined && programacionEvento.length > 0
+                    ? (
+                        programacionEvento.map((row: any) => (
+                          <TableRow
+                            key={row}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                          >
+                            <TableCell align='center' component='th' scope='row'>
+                              {row}
+                            </TableCell>
+                          </TableRow>
+                        ))
+                      )
+                    : (
+                      <TableRow>
+                        <TableCell align='center'>
+                          No hay datos disponibles.
+                        </TableCell>
+                      </TableRow>
+                      )}
+                </TableBody>
+              </Table>
+            </TableContainer>
+
           </div>
           <div className={toggleState === 2 ? 'bloque activo' : 'bloque'}>
             <p className='modal__description'>
