@@ -138,12 +138,22 @@ code {
 }
 .stackEventos{
   width: 100% !important;
-  position: relative;
+  display: flex;
+  align-items: center; 
+  margin-bottom: 1rem;
 }
 .eventBox {
   width: 100% !important;
   box-shadow: 0;
   padding-left: 2rem;
+}
+.stackEventos .modal__description {
+  flex-grow: 1; /* Esto permite que el span ocupe todo el espacio disponible horizontalmente */
+}
+
+.stackEventos .avatar-container {
+  display: flex;
+  align-items: center; /* Alinear verticalmente el contenido del Avatar */
 }
 @keyframes animMarker {
   0% {
