@@ -10,17 +10,13 @@ import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 export const ModalDetalles = () => {
-  const { SetStateModal, SetStateModalEvent, place, stateModal, SetEvento, evento } = useContext(ModalContext)
+  const { SetStateModal, SetStateModalEvent, place, stateModal, SetEvento } = useContext(ModalContext)
   const [toggleState, setToggleState] = useState(0)
   const toggleTab = (index: number) => {
     setToggleState(index)
   }
   const closeModal = () => {
     SetStateModal(false)
-  }
-  const setStateEvento = () => {
-    SetStateModal(false)
-    SetStateModalEvent(true)
   }
   const openModalEvento = (evento: any) => {
     SetEvento(evento)
