@@ -2,9 +2,7 @@ import { useContext, useState } from 'react'
 import '../../assets/Modal.css'
 import { ModalContext } from '../../context/modal/ModalContext'
 import { Modal } from 'react-bootstrap'
-import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
-import { styled } from '@mui/material/styles'
 import { FaStopwatch, FaInfoCircle, FaIdCard } from 'react-icons/fa'
 export const ModalEventos = () => {
   const { SetStateModalEvent, evento, stateModalEvent } = useContext(ModalContext)
