@@ -27,8 +27,7 @@ export const ModalDetalles = () => {
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
-    width: 430
+    color: theme.palette.text.secondary
   }))
   return (
     <Modal show={stateModal} onHide={closeModal} className='contenedorPrincipalModal' styles={styles.modalContainer} dialogClassName='modal-right'>
@@ -57,7 +56,7 @@ export const ModalDetalles = () => {
             {place.properties && place.properties.Eventos && (
               <div>
                 {place.properties.Eventos.map((evento, index) => (
-                  <Box key={index} sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }}>
+                  <Box key={index} sx={{ flexGrow: 1, overflow: 'hidden', px: 3 }} className='stackEventos'>
                     <Item
                       sx={{
                         my: 1,

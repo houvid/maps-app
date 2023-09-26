@@ -132,7 +132,19 @@ code {
   background: rgba(0, 0, 0, 0.2);
   animation: animShadow 0.4s ease-in-out infinite alternate;
 }
-
+.stackEvento{
+  width: 100%;
+  position: absolute;
+}
+.stackEventos{
+  width: 100% !important;
+  position: relative;
+}
+.eventBox {
+  width: 100% !important;
+  box-shadow: 0;
+  padding-left: 2rem;
+}
 @keyframes animMarker {
   0% {
     transform: rotate(45deg) translate(5px, 5px);
