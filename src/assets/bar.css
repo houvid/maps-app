@@ -122,12 +122,12 @@ a {
   }
   .bar__toggle {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background-color: var(--title-color);
     color: #fff;
     border-radius: 50%;
-    font-size: 0.5rem;
+    font-size: 1.2rem;
     display: grid;
     place-items: center;
     top: 2rem;

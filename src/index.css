@@ -146,6 +146,7 @@ code {
   width: 100% !important;
   box-shadow: 0;
   padding-left: 2rem;
+  padding-right: 2rem;
 }
 .stackEventos .modal__description {
   flex-grow: 1; /* Esto permite que el span ocupe todo el espacio disponible horizontalmente */

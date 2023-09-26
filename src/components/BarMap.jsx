@@ -39,6 +39,7 @@ export const BarMap = ({ mapRef }) => {
       console.log(filtrado)
       return filtrado
     })
+    showMenu('bar-toggle', 'bar')
     console.log(placesFiltrado)
     SetPlaces(placesFiltrado)
     flyToUserLocation(evento.coordinates)
@@ -88,7 +89,7 @@ export const BarMap = ({ mapRef }) => {
     <div className='bar' id='bar'>
       <nav className='bar__content' id='barbar'>
         <div className='bar__toggle' id='bar-toggle' onClick={() => showMenu('bar-toggle', 'bar')}>
-          <i className='bx bx-chevron-right' />
+          <i className='bx bx-chevron-right' width='60' />
         </div>
         <div className='logo-geo' onClick={() => showMenu('bar-toggle', 'bar')}>
           <img src='isotipo-1.png' alt='img' className='' />
