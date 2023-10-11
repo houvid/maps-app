@@ -3,7 +3,7 @@ import '../../assets/Modal.css'
 import { ModalContext } from '../../context/modal/ModalContext'
 import { Modal } from 'react-bootstrap'
 import Box from '@mui/material/Box'
-import { FaStopwatch, FaInfoCircle, FaIdCard } from 'react-icons/fa'
+import { FaStopwatch, FaInfoCircle, FaIdCard, FaEnvelope, FaFacebookSquare, FaInstagram, FaTty, FaGlobe, FaRegHandPointRight } from 'react-icons/fa'
 export const ModalEventos = () => {
   const { SetStateModalEvent, evento, stateModalEvent } = useContext(ModalContext)
   const [toggleState, setToggleState] = useState(1)
@@ -33,7 +33,9 @@ export const ModalEventos = () => {
         </ul>
         <div className='subcontenedor'>
           <div className={toggleState === 0 ? 'bloque activo' : 'bloque'}>
-            <p className='modal__description'>{evento.description}</p>
+            <div key={evento.linkWeb} className='stackEventos'>
+              <span className='modal__description'>{evento.description} </span>
+            </div>
           </div>
           {/* // progranmación */}
           <div className={toggleState === 1 ? 'bloque activo' : 'bloque'}>
@@ -41,7 +43,7 @@ export const ModalEventos = () => {
               ? (
                   programacionEvento.map((row: any) => (
                     <div key={row} className='stackEventos'>
-                      <span className='modal__description'><FaIdCard style={{ margin: 15 }} />{row} </span>
+                      <span className='modal__description'><FaRegHandPointRight style={{ margin: 15 }} />{row} </span>
                     </div>
                   ))
                 )
@@ -53,10 +55,21 @@ export const ModalEventos = () => {
                 )}
           </div>
           <div className={toggleState === 2 ? 'bloque activo' : 'bloque'}>
-            <p className='modal__description'>
-              {evento.emailOrg}
-              {evento.facebook}
-            </p>
+            <div key={evento.emailOrg} className='stackEventos'>
+              <span className='modal__description'><FaEnvelope style={{ margin: 15 }} />{evento.emailOrg} </span>
+            </div>
+            <div key={evento.facebook} className='stackEventos'>
+              <span className='modal__description'><FaFacebookSquare style={{ margin: 15 }} />{evento.facebook} </span>
+            </div>
+            <div key={evento.instagram} className='stackEventos'>
+              <span className='modal__description'><FaInstagram style={{ margin: 15 }} />{evento.instagram} </span>
+            </div>
+            <div key={evento.telefonoOrg} className='stackEventos'>
+              <span className='modal__description'><FaTty style={{ margin: 15 }} />{evento.telefonoOrg} </span>
+            </div>
+            <div key={evento.linkWeb} className='stackEventos'>
+              <span className='modal__description'><FaGlobe style={{ margin: 15 }} />{evento.linkWeb} </span>
+            </div>
           </div>
         </div>
       </div>

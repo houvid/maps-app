@@ -12,6 +12,7 @@ export const ModalAddEvent = () => {
     description: '',
     horarioEvento: '',
     municipio: place.properties?.municipio,
+    lugar: '',
     coordinates: [],
     urlImagen: '',
     organizador: '',
@@ -43,6 +44,7 @@ export const ModalAddEvent = () => {
   const handleNameChange = (e) => {
     setEventName(e.target.value)
     setEvent({ ...event, coordinates: [place.geometry?.coordinates[1], place.geometry?.coordinates[0]] })
+    setEvent({ ...event, lugar: place.properties?.name })
   }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -59,14 +61,13 @@ export const ModalAddEvent = () => {
       </div>
       <div className='contenedor'>
         <ul className='ul'>
-          <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}> <p className='text-center'> Add </p></li>
+          <li className={toggleState === 0 ? 'li activo' : 'li'} onClick={() => toggleTab(0)}> <p className='text-center'> Agregar </p></li>
           <li className={toggleState === 1 ? 'li activo' : 'li'} onClick={() => toggleTab(1)}><p className='text-center'>  Eventos </p> </li>
           <li className={toggleState === 2 ? 'li activo' : 'li'} onClick={() => toggleTab(2)}><p className='text-center'>  Recomendamos </p></li>
         </ul>
         <div className='subcontenedor'>
           <div className={toggleState === 0 ? 'bloque activo' : 'bloque'}>
             <h1 className='modal__title'>{place.properties?.name}</h1>
-            <h2> Agregar nuevo evento </h2>
             <div className='contentModal'>
               <form onSubmit={handleSubmit}>
                 <div className='form-group'>

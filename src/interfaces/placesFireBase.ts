@@ -56,4 +56,5 @@ export interface Evento {
     facebook?: string;
     twitter?: string;
     linkWeb?: string;
+    lugar?: string;
 }

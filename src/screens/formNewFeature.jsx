@@ -171,9 +171,6 @@ export const FormNewFeature = () => {
             <span className='btn btn-primary' onClick={e => { e.preventDefault(); return subirArchivo() }}>
               Subir
             </span>
-            <span className='btn btn-primary' onClick={e => { e.preventDefault(); return setShow(true) }}>
-              pruebatoast
-            </span>
           </div>
           <div className='form-group'>
             <label htmlFor='categoria'>Categoria:</label>

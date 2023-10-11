@@ -120,7 +120,7 @@ export const BarMap = ({ mapRef }) => {
                         <strong> {evento.eventName ? evento.eventName.charAt(0).toUpperCase() + evento.eventName.slice(1).toLowerCase() : ''}</strong>
                       </Typography>
                       <Typography variant='' color='text.secondary'>
-                        <strong>Lugar:</strong> Teatro principal
+                        <strong>Lugar:</strong> {evento.lugar}
                         <br />
                         <strong>Fecha:</strong> {evento.date == fechaActual
                           ? (
