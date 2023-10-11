@@ -25,7 +25,7 @@ export const BarMap = ({ mapRef }) => {
     const fecha = new Date()
     const año = fecha.getFullYear()
     const mes = String(fecha.getMonth() + 1).padStart(2, '0') // Añade ceros a la izquierda si es necesario
-    const dia = String(fecha.getDate()).padStart(2, '0') // Añade ceros a la izquierda si es necesario
+    const dia = String(fecha.getDate()).padStart(2, '0')
     const fechaEnFormato = `${año}-${mes}-${dia}`
     console.log(fechaEnFormato)
     return fechaEnFormato
