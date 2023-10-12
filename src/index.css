@@ -156,6 +156,14 @@ code {
   display: flex;
   align-items: center; /* Alinear verticalmente el contenido del Avatar */
 }
+.MuiPaper-root{
+  background-color: #edf3f7 !important;
+  color: #22232B !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+.MuiButton-root{
+  font-family: 'Poppins', sans-serif !important;
+}
 @keyframes animMarker {
   0% {
     transform: rotate(45deg) translate(5px, 5px);

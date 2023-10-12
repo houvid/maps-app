@@ -75,7 +75,7 @@ export const ModalEventos = () => {
       </div>
       <Modal.Footer>
         <button className='modal__button-link close-modal' onClick={closeModal}>
-          Close
+          Cerrar
         </button>
       </Modal.Footer>
     </Modal>
