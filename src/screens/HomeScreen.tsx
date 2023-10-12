@@ -36,7 +36,7 @@ export const HomeScreen = () => {
           open={state.open}
           onClose={handleClose}
           TransitionComponent={state.Transition}
-          message='Únete a nuestra agenda'
+          message='Únete'
           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
           key={state.Transition.name}
           action={action}
