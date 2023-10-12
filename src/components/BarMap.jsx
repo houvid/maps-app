@@ -64,6 +64,12 @@ export const BarMap = ({ mapRef }) => {
   const showMenu = (toggleId, navbarId) => {
     const toggle = document.getElementById(toggleId)
     const navbar = document.getElementById(navbarId)
+    const barbar = document.getElementById('logo-geo')
+    barbar.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth'
+    })
+    console.log('scroll')
     if (toggle && navbar) {
       navbar.classList.toggle('show-menu')
       toggle.classList.toggle('rotate-icon')
@@ -91,7 +97,7 @@ export const BarMap = ({ mapRef }) => {
         <div className='bar__toggle' id='bar-toggle' onClick={() => showMenu('bar-toggle', 'bar')}>
           <i className='bx bx-chevron-right' width='60' />
         </div>
-        <div className='logo-geo' onClick={() => showMenu('bar-toggle', 'bar')}>
+        <div className='logo-geo' id='logo-geo' onClick={() => showMenu('bar-toggle', 'bar')}>
           <img src='isotipo-1.png' alt='img' className='' />
           <span className='bar__logo-name'>GeoGuía</span>
         </div>
@@ -100,6 +106,9 @@ export const BarMap = ({ mapRef }) => {
             <option value=''>Todos</option>
             <option value='MARINILLA'>MARINILLA</option>
             <option value='LA CEJA'>LA CEJA</option>
+            <option value='EL CARMEN'>EL CARMEN DE VIBORAL</option>
+            <option value='EL PEÑOL'>EL PEÑOL</option>
+            <option value='RIONEGRO'>RIONEGRO</option>
           </select>
           <Chip className='chipBar' label='¡Hoy!' color='primary' variant={variantChip} onClick={handleClick} />
           {
@@ -141,7 +150,7 @@ export const BarMap = ({ mapRef }) => {
           eventosFiltered.length === 0
             ? (
               <div>
-                <h1>No hay eventos para mostrar</h1>
+                <h2>Por ahora no tenemos agenda con estos parametros</h2>
               </div>
               )
             : null

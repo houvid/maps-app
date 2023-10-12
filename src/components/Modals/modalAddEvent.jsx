@@ -145,14 +145,29 @@ export const ModalAddEvent = () => {
 
                 <div className='form-group'>
                   <label htmlFor='municipio'>Municipio:</label>
-                  <input
+                  <select
+                    defaultValue=''
+                    className='custom-select bar__link form-control'
+                    id='municipio'
+                    name='municipio'
+                    value={event.municipio}
+                    onChange={(e) => setEvent({ ...event, municipio: e.target.value })}
+                  >
+                    <option value=''>Todos</option>
+                    <option value='MARINILLA'>MARINILLA</option>
+                    <option value='LA CEJA'>LA CEJA</option>
+                    <option value='EL CARMEN'>EL CARMEN DE VIBORAL</option>
+                    <option value='EL PEÑOL'>EL PEÑOL</option>
+                    <option value='RIONEGRO'>RIONEGRO</option>
+                  </select>
+                  {/* <input
                     type='text'
                     id='municipio'
                     name='municipio'
                     className='form-control'
                     value={event.municipio}
                     onChange={(e) => setEvent({ ...event, municipio: e.target.value })}
-                  />
+                  /> */}
                 </div>
 
                 <div className='form-group'>

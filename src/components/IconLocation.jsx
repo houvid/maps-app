@@ -9,7 +9,7 @@ export const iconLocation = new Icon({
   className: 'leaflet-venue-icon'
 })
 export const iconMarkerGreen = new Icon({
-  iconUrl: 'https://cdn-icons-png.flaticon.com/512/9101/9101314.png',
+  iconUrl: 'music-store.png',
   iconAnchor: null,
   shadowUrl: null,
   shadowSize: null,
@@ -19,12 +19,12 @@ export const iconMarkerGreen = new Icon({
 })
 
 export const iconMarkerBlue = new Icon({
-  iconUrl: 'locationBlue.png',
+  iconUrl: 'point.png',
   iconAnchor: null,
   shadowUrl: null,
   shadowSize: null,
   shadowAnchor: null,
-  iconSize: [35, 35],
+  iconSize: [40, 40],
   className: 'leaflet-venue-icon'
 })
 
