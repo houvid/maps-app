@@ -42,13 +42,13 @@ export const BarMap = ({ mapRef }) => {
     showMenu('bar-toggle', 'bar')
     console.log(placesFiltrado)
     SetPlaces(placesFiltrado)
-    flyToUserLocation(evento.coordinates)
+    flyToUserLocation(evento.coordinates, 18)
   }
-  const flyToUserLocation = (coordinates) => {
+  const flyToUserLocation = (coordinates, zoom) => {
     console.log(mapRef)
     console.log(coordinates)
     if (mapRef.current) {
-      mapRef.current.flyTo(coordinates, 18) // Cambia 15 al nivel de zoom deseado
+      mapRef.current.flyTo(coordinates, zoom) // Cambia 15 al nivel de zoom deseado
     }
   }
   const changeFilterMunicipio = (event) => {
@@ -58,6 +58,28 @@ export const BarMap = ({ mapRef }) => {
     } else {
       eventosFiltered = eventos.filter(evento => evento.municipio === selectedValue)
       setEventosFiltered(eventosFiltered)
+      switch (selectedValue) {
+        case 'MARINILLA':
+          flyToUserLocation([6.17382554743092, -75.33465274285228], 15)
+          break
+        case 'RIONEGRO':
+          flyToUserLocation([6.155522715779031, -75.3735477840812], 15)
+          break
+        case 'LA CEJA':
+          flyToUserLocation([6.031335433247932, -75.43162073585653], 15)
+          break
+        case 'EL PEÑOL':
+          flyToUserLocation([6.216673196136062, -75.24352972448737], 15)
+          break
+        case 'EL CARMEN':
+          flyToUserLocation([6.08379451501892, -75.33540014448175], 15)
+          break
+        case 'EL SANTUARIO':
+          flyToUserLocation([6.139423131774998, -75.26560039189918], 15)
+          break
+        default:
+          break
+      }
       console.log(eventosFiltered)
     }
   }
@@ -106,6 +128,7 @@ export const BarMap = ({ mapRef }) => {
             <option value=''>Todos</option>
             <option value='MARINILLA'>MARINILLA</option>
             <option value='LA CEJA'>LA CEJA</option>
+            <option value='EL SANTUARIO'>EL SANTUARIO</option>
             <option value='EL CARMEN'>EL CARMEN DE VIBORAL</option>
             <option value='EL PEÑOL'>EL PEÑOL</option>
             <option value='RIONEGRO'>RIONEGRO</option>
