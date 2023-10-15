@@ -4,6 +4,7 @@ import { PlacesContext, ModalContext } from '../../context'
 import { MarkerLocation } from './MarkerLocation'
 import { MarkersPlaces } from './MarkersPlaces'
 import { Routing } from './Routing'
+import { getUserLocation } from '../../helpers'
 
 import 'leaflet/dist/leaflet.css'
 import { ModalDetalles } from '../Modals/modalDetalles'
@@ -13,7 +14,7 @@ import 'leaflet-routing-machine'
 import '../../assets/leaflet.css'
 export const MapViewLeaf = ({ mapRef }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
-  const { isLoading, userLocation, isLoadingPlaces, SetPlacesInit } = useContext(PlacesContext)
+  const { isLoading, userLocation, isLoadingPlaces, SetPlacesInit, SetUserLocation } = useContext(PlacesContext)
   const { SetPlace, SetPlaceRoute, placeRoute, SetStateModal, SetEvento, SetStateModalEvent } = useContext(ModalContext)
   const [filter, setFilter] = useState('')
   useEffect(() => {
@@ -37,7 +38,9 @@ export const MapViewLeaf = ({ mapRef }) => {
     SetEvento(evento)
     SetStateModalEvent(true)
   }
-  const setPlaceToRoute = (place) => {
+  const setPlaceToRoute = async (place) => {
+    const lnLat = await getUserLocation()
+    SetUserLocation(lnLat)
     SetPlaceRoute(place)
     const botonCerrar = document.querySelector('.leaflet-popup-close-button')
     botonCerrar?.click()
@@ -46,7 +49,7 @@ export const MapViewLeaf = ({ mapRef }) => {
     setFilter(event.target.value)
   }
   return (
-    <MapContainer center={userLocation} zoom={15} scrollWheelZoom zoomControl={false} ref={mapRef}>
+    <MapContainer center={userLocation} zoom={12} scrollWheelZoom zoomControl={false} ref={mapRef}>
       <TileLayer
         url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
       />

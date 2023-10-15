@@ -31,7 +31,9 @@ export const PlacesProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(placesReducer, INITIAL_STATE)
 
   useEffect(() => {
-    getUserLocation().then(lnLat => dispatch({ type: 'setUserLocation', payload: lnLat }))
+    const lnLat: [number, number] = ([6.031335433247932, -75.43162073585653])
+    dispatch({ type: 'setUserLocation', payload: lnLat })
+    // getUserLocation().then(lnLat => dispatch({ type: 'setUserLocation', payload: lnLat }))
   }, [])
 
   const SetPlacesInit = async ():Promise<Feature[]> => {
@@ -46,6 +48,10 @@ export const PlacesProvider = ({ children }: Props) => {
   const SetPlaces = async (places: Feature[]):Promise<Feature[]> => {
     dispatch({ type: 'setPlaces', payload: places })
     return places
+  }
+  const SetUserLocation = (location: [number, number]) => {
+    dispatch({ type: 'setUserLocation', payload: location })
+    return location
   }
   async function buildEvents (resp: Feature[]) {
     const eventos: Evento[] = []
@@ -71,7 +77,8 @@ export const PlacesProvider = ({ children }: Props) => {
       // Methods
       SetPlacesInit,
       SetPlaces,
-      SetEventos
+      SetEventos,
+      SetUserLocation
     }}
     >
       {children}
