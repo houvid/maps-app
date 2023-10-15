@@ -1,5 +1,4 @@
 import { useReducer, useEffect } from 'react'
-import { getUserLocation } from '../../helpers'
 import { Evento, Feature } from '../../interfaces/places'
 import { PlacesContext } from './PlacesContext'
 import { placesReducer } from './placesReducer'
