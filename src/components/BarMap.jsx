@@ -11,12 +11,25 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
 import Chip from '@mui/material/Chip'
+import Autocomplete from '@mui/material/Autocomplete'
+import TextField from '@mui/material/TextField'
 export const BarMap = ({ mapRef }) => {
   const { eventos, SetPlaces, placesFiltered } = useContext(PlacesContext)
   const { SetEvento } = useContext(ModalContext)
   let [eventosFiltered, setEventosFiltered] = useState(eventos)
   const [fechaActual, setFechaActual] = useState('')
   const [variantChip, setVariantChip] = useState('outlined')
+  const [selectedMunicipio, setSelectedMunicipio] = useState({ label: 'Todos', value: '' })
+
+  const municipios = [
+    { label: 'Todos', value: '' },
+    { label: 'Marinilla', value: 'MARINILLA' },
+    { label: 'La Ceja', value: 'LA CEJA' },
+    { label: 'El Santuario', value: 'EL SANTUARIO' },
+    { label: 'El Carmen de Víboral', value: 'EL CARMEN' },
+    { label: 'El Peñol', value: 'EL PEÑOL' },
+    { label: 'Rionegro', value: 'RIONEGRO' }
+  ]
   useEffect(() => {
     setEventosFiltered(eventos)
     setFechaActual(obtenerFechaActualEnFormato())
@@ -51,8 +64,10 @@ export const BarMap = ({ mapRef }) => {
       mapRef.current.flyTo(coordinates, zoom) // Cambia 15 al nivel de zoom deseado
     }
   }
-  const changeFilterMunicipio = (event) => {
-    const selectedValue = event.target.value
+  const changeFilterMunicipio = (event, newValue) => {
+    setSelectedMunicipio(newValue)
+    const selectedValue = newValue ? newValue.value : ''
+
     if (selectedValue === '') {
       setEventosFiltered(eventos)
     } else {
@@ -124,15 +139,53 @@ export const BarMap = ({ mapRef }) => {
           <span className='bar__logo-name'>GeoGuía</span>
         </div>
         <div className='bar__list'>
-          <select defaultValue='' className='custom-select bar__link' onChange={changeFilterMunicipio}>
-            <option value=''>Todos</option>
-            <option value='MARINILLA'>MARINILLA</option>
-            <option value='LA CEJA'>LA CEJA</option>
-            <option value='EL SANTUARIO'>EL SANTUARIO</option>
-            <option value='EL CARMEN'>EL CARMEN DE VIBORAL</option>
-            <option value='EL PEÑOL'>EL PEÑOL</option>
-            <option value='RIONEGRO'>RIONEGRO</option>
-          </select>
+          <Autocomplete
+            value={selectedMunicipio}
+            onChange={changeFilterMunicipio}
+            options={municipios}
+            getOptionLabel={(option) => option.label}
+            isOptionEqualToValue={(option, value) => option.value === value.value}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                placeholder='Selecciona un municipio...'
+                variant='outlined'
+                size='small'
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '12px',
+                    backgroundColor: 'white',
+                    '& fieldset': {
+                      borderColor: '#e0e0e0'
+                    },
+                    '&:hover fieldset': {
+                      borderColor: '#2667FF'
+                    },
+                    '&.Mui-focused fieldset': {
+                      borderColor: '#2667FF'
+                    }
+                  },
+                  '& .MuiInputBase-input': {
+                    '&::placeholder': {
+                      color: '#999',
+                      opacity: 1
+                    }
+                  }
+                }}
+              />
+            )}
+            sx={{
+              width: '100%',
+              marginBottom: 2,
+              '& .MuiAutocomplete-popupIndicator': {
+                color: '#2667FF'
+              }
+            }}
+            clearOnEscape
+            clearText='Limpiar'
+            noOptionsText='No hay opciones'
+            openText='Abrir'
+          />
           <Chip className='chipBar' label='¡Hoy!' color='primary' variant={variantChip} onClick={handleClick} />
           {
       eventosFiltered
