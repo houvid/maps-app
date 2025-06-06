@@ -48,7 +48,12 @@
       "react/jsx-indent": "off",
       "react/jsx-indent-props": "off",
       "react/jsx-closing-bracket-location": "off",
-      "react/jsx-closing-tag-location": "off"
+      "react/jsx-closing-tag-location": "off",
+      "jsx-quotes": "off",
+      "space-before-function-paren": "off",
+      "multiline-ternary": "off",
+      "no-multiple-empty-lines": "off",
+      "import/no-duplicates": "off"
     }
   },
   "browserslist": {
