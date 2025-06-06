@@ -40,8 +40,7 @@ export const MarkersPlaces = ({ openModal, setPlaceToRoute, openModalEvento }) =
               <Popup className='custom-popup leaflet-popup-content-wrapper'>
                 <div>
                   <img src={evento.urlImagen} alt='img' className='' />
-                  <h5 className='popup-title'>{evento.eventName} </h5>
-                  <p className='popup-text'>{evento.description.slice(0, 160)} <strong onClick={() => openModalEvento(evento)}>  Ver más...  </strong></p>
+                  <h5 className='popup-title' style={{ margin: '12px 0', padding: '0 8px' }}>{evento.eventName} </h5>
                   <button className='btn boton-pop' onClick={() => openModalEvento(evento)} style={{ width: '70%', backgroundColor: '#e4e5eb' }}> Ver más detalles</button>
                   <button className='btn btn-primary boton-pop' onClick={() => setPlaceToRoute(place)} style={{ width: '28%', marginLeft: '2%' }}> Ir <FaArrowRight /></button>
                 </div>
@@ -54,10 +53,9 @@ export const MarkersPlaces = ({ openModal, setPlaceToRoute, openModalEvento }) =
               <Popup className='custom-popup leaflet-popup-content-wrapper'>
                 <div>
                   <img src={place.properties?.urlImagen} alt='img' className='' />
-                  <h5 className='popup-title'>
+                  <h5 className='popup-title' style={{ margin: '12px 0', padding: '0 8px' }}>
                     <strong>{place.properties.name} </strong>
                   </h5>
-                  <p>{place.properties.descripcion.slice(0, 60)} <strong onClick={() => openModal(place)}>  Ver más...  </strong></p>
                   <button className='btn boton-pop' onClick={() => openModal(place)} style={{ width: '70%', backgroundColor: '#e4e5eb' }}> Ver mas detalles</button>
                   <button className='btn btn-primary boton-pop' onClick={() => setPlaceToRoute(place)} style={{ width: '28%', marginLeft: '2%' }}> Ir <FaArrowRight /></button>
                 </div>

@@ -9,7 +9,7 @@ import { getUserLocation } from '../../helpers'
 import 'leaflet/dist/leaflet.css'
 import { ModalDetalles } from '../Modals/modalDetalles'
 import { ModalEventos } from '../Modals/modalEventos'
-import { MapContainer, TileLayer, ZoomControl, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Popup } from 'react-leaflet'
 import 'leaflet-routing-machine'
 import '../../assets/leaflet.css'
 export const MapViewLeaf = ({ mapRef }) => {
@@ -60,7 +60,6 @@ export const MapViewLeaf = ({ mapRef }) => {
         {/* Agrega otras opciones de filtro según tus necesidades */}
       </select>
       <MarkerLocation onClick={() => setIsPopupOpen(false)} />
-      <ZoomControl position='topright' />
       <MarkersPlaces openModal={openModal} setPlaceToRoute={setPlaceToRoute} openModalEvento={openModalEvento} />
       <section style={styles.modal}>
         <ModalDetalles />

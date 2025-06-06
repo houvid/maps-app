@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.17.1",
     "@mui/material": "^5.14.10",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -41,7 +42,14 @@
       "./node_modules/standard/eslintrc.json",
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-trailing-spaces": "off",
+      "react/jsx-indent": "off",
+      "react/jsx-indent-props": "off",
+      "react/jsx-closing-bracket-location": "off",
+      "react/jsx-closing-tag-location": "off"
+    }
   },
   "browserslist": {
     "production": [
