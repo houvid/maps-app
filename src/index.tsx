@@ -12,6 +12,9 @@ import { Administration } from './screens/Administration'
 import { FormNewFeature } from './screens/formNewFeature'
 import Charts from './screens/Charts'
 import { Features } from './screens/Features'
+import { ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+import customTheme from './theme/theme'
 
 const router = createBrowserRouter([
   {
@@ -52,8 +55,11 @@ const root = ReactDOM.createRoot(
 )
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeProvider theme={customTheme}>
+      <CssBaseline />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   </React.StrictMode>
 )

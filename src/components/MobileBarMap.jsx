@@ -12,7 +12,7 @@ import { MobileBottomNavigation } from './MobileBottomNavigation.jsx'
 import { MobileEventsList } from './MobileEventsList.jsx'
 import { MobileFilters } from './MobileFilters.jsx'
 
-export const MobileBarMap = ({ mapRef }) => {
+export const MobileBarMap = ({ mapRef, onViewChange }) => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -65,6 +65,13 @@ export const MobileBarMap = ({ mapRef }) => {
     })
     setEventosFiltered(filtered)
   }, [eventos, fechaActual])
+
+  // Notify parent component when view changes
+  useEffect(() => {
+    if (onViewChange) {
+      onViewChange(currentView)
+    }
+  }, [currentView, onViewChange])
 
   // Helper functions
   const flyToUserLocation = useCallback((coordinates, zoom = 15) => {
@@ -199,7 +206,8 @@ export const MobileBarMap = ({ mapRef }) => {
         right: 0,
         bottom: 0,
         pointerEvents: 'none', // Allow map interactions by default
-        zIndex: 1000
+        zIndex: 1000,
+        backgroundColor: 'transparent' // Asegurar que no haya fondo
       }}
     >
       {/* Floating Filters Overlay - Only visible when in events or filters view */}

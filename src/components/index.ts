@@ -14,6 +14,8 @@ export { Loading } from './Loading'
 
 export { MapViewLeaf } from './MapLeaflet/MapViewLeaf'
 
+export { EventCard } from './EventCard'
+
 // Mobile Components
 export { MobileBarMap } from './MobileBarMap.jsx'
 export { MobileBottomNavigation } from './MobileBottomNavigation.jsx'

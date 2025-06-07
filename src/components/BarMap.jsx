@@ -5,14 +5,13 @@ import '../assets/bar.css'
 import { React, useContext, useState, useEffect } from 'react'
 import { PlacesContext } from '../context'
 import { ModalContext } from '../context/modal/ModalContext'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Typography from '@mui/material/Typography'
-import { CardActionArea } from '@mui/material'
+import { EventCard } from './EventCard'
 import Chip from '@mui/material/Chip'
 import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+
 export const BarMap = ({ mapRef }) => {
   const { eventos, SetPlaces, placesFiltered } = useContext(PlacesContext)
   const { SetEvento } = useContext(ModalContext)
@@ -30,6 +29,7 @@ export const BarMap = ({ mapRef }) => {
     { label: 'El Peñol', value: 'EL PEÑOL' },
     { label: 'Rionegro', value: 'RIONEGRO' }
   ]
+  
   useEffect(() => {
     const fechaHoy = obtenerFechaActualEnFormato()
     setFechaActual(fechaHoy)
@@ -42,6 +42,7 @@ export const BarMap = ({ mapRef }) => {
     })
     setEventosFiltered(filtered)
   }, [eventos])
+
   const obtenerFechaActualEnFormato = () => {
     const fecha = new Date()
     const año = fecha.getFullYear()
@@ -51,6 +52,7 @@ export const BarMap = ({ mapRef }) => {
     console.log(fechaEnFormato)
     return fechaEnFormato
   }
+
   const openModal = (evento) => {
     SetEvento(evento)
     const placesFiltrado = placesFiltered.filter(place => {
@@ -65,6 +67,7 @@ export const BarMap = ({ mapRef }) => {
     SetPlaces(placesFiltrado)
     flyToUserLocation(evento.coordinates, 18)
   }
+
   const flyToUserLocation = (coordinates, zoom) => {
     console.log(mapRef)
     console.log(coordinates)
@@ -72,6 +75,7 @@ export const BarMap = ({ mapRef }) => {
       mapRef.current.flyTo(coordinates, zoom) // Cambia 15 al nivel de zoom deseado
     }
   }
+
   const changeFilterMunicipio = (event, newValue) => {
     setSelectedMunicipio(newValue)
     const selectedValue = newValue ? newValue.value : ''
@@ -114,6 +118,7 @@ export const BarMap = ({ mapRef }) => {
     }
     console.log(filtered)
   }
+
   const showMenu = (toggleId, navbarId) => {
     const toggle = document.getElementById(toggleId)
     const navbar = document.getElementById(navbarId)
@@ -128,6 +133,7 @@ export const BarMap = ({ mapRef }) => {
       toggle.classList.toggle('rotate-icon')
     }
   }
+
   const handleClick = () => {
     if (variantChip === 'outlined') {
       setVariantChip('filled')
@@ -151,8 +157,8 @@ export const BarMap = ({ mapRef }) => {
     }
     console.info('You clicked the Chip.')
   }
-  return (
 
+  return (
     <div className='bar' id='bar'>
       <nav className='bar__content' id='barbar'>
         <div className='bar__toggle' id='bar-toggle' onClick={() => showMenu('bar-toggle', 'bar')}>
@@ -210,73 +216,57 @@ export const BarMap = ({ mapRef }) => {
             noOptionsText='No hay opciones'
             openText='Abrir'
           />
-          <Chip className='chipBar' label='¡Hoy!' color='primary' variant={variantChip} onClick={handleClick} />
-          {
-      eventosFiltered
-        .map((evento, index) => {
-          if (evento == '') { /* empty */ } else {
-            return (
-              <div key={index}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardActionArea onClick={() => openModal(evento)}>
-                    <CardMedia
-                      component='img'
-                      image={evento.urlImagen}
-                      style={{ height: 'auto', width: '100%', maxWidth: '300px', maxHeiht: '100px', display: 'block', objectFit: 'cover' }}
-                    />
-                    <CardContent>
-                      <Typography color='text.secondary' style={{ padding: '1px' }}>
-                        <strong> {evento.eventName ? evento.eventName.charAt(0).toUpperCase() + evento.eventName.slice(1).toLowerCase() : ''}</strong>
-                      </Typography>
-                      <Typography variant='' color='text.secondary'>
-                        <strong>Lugar:</strong> {evento.lugar}
-                        <br />
-                        <strong>Fecha:</strong> {evento.date == fechaActual
-                          ? (
-                            <Chip label='¡Evento hoy!' color='success' size='small' />
-                            )
-                          : evento.date}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </div>
+          
+          <Chip 
+            className='chipBar' 
+            label='¡Hoy!' 
+            color='primary' 
+            variant={variantChip} 
+            onClick={handleClick}
+            sx={{ marginBottom: 2 }}
+          />
 
-            )
-          }
-        })
-      }
-          {
-          eventosFiltered.length === 0
-            ? (
-              <div>
-                <h2>Por ahora no tenemos agenda con estos parametros</h2>
-              </div>
-              )
-            : null
-        }
-          <div>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardActionArea>
-                <CardMedia
-                  component='img'
-                  style={{ height: 'auto', width: '100%', maxWidth: '300px', maxHeiht: '100px', display: 'block', objectFit: 'cover' }}
-                />
-                <CardContent>
-                  <Typography color='text.secondary' style={{ padding: '1px' }}>
-                    <strong> </strong>
-                  </Typography>
-                  <Typography variant='' color='text.secondary'>
-                    <strong> </strong>
-                    <br />
-                    <br />
-                    <br />
-                    <strong> </strong>
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </div>
+          {/* Events List */}
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            {eventosFiltered.length > 0 ? (
+              eventosFiltered.map((evento, index) => {
+                if (evento && evento.eventName) {
+                  const isToday = evento.date === fechaActual
+                  return (
+                    <EventCard
+                      key={index}
+                      evento={evento}
+                      onClick={() => openModal(evento)}
+                      isToday={isToday}
+                    />
+                  )
+                }
+                return null
+              })
+            ) : (
+              <Box 
+                sx={{ 
+                  textAlign: 'center', 
+                  py: 4,
+                  px: 2
+                }}
+              >
+                <Typography 
+                  variant="h6" 
+                  color="text.secondary"
+                  sx={{ mb: 1 }}
+                >
+                  No hay eventos disponibles
+                </Typography>
+                <Typography 
+                  variant="body2" 
+                  color="text.disabled"
+                >
+                  Por ahora no tenemos agenda con estos parámetros
+                </Typography>
+              </Box>
+            )}
+          </Box>
         </div>
       </nav>
     </div>

@@ -9,6 +9,7 @@ import { useMediaQuery, useTheme } from '@mui/material'
 export const HomeScreen = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const [currentMobileView, setCurrentMobileView] = useState(0) // 0: Map, 1: Events, 2: Filters
 
   const [state, setState] = useState({
     open: true,
@@ -26,15 +27,24 @@ export const HomeScreen = () => {
       Registra tu Evento
     </Button>
   )
+
+  // Función para manejar cambios de vista en móvil
+  const handleMobileViewChange = (view: number) => {
+    setCurrentMobileView(view)
+  }
+
   return (
     <div>
       {/* Mobile version */}
       {isMobile
-        ? <MobileBarMap mapRef={mapRef} />
+        ? <MobileBarMap mapRef={mapRef} onViewChange={handleMobileViewChange} />
         : <BarMap mapRef={mapRef} />}
 
       <MapViewLeaf mapRef={mapRef} />
-      <BtnMyLocation />
+      
+      {/* Solo mostrar BtnMyLocation en escritorio o cuando esté en vista de mapa en móvil */}
+      {(!isMobile || currentMobileView === 0) && <BtnMyLocation />}
+      
       <ReactLogo />
 
       {/* Only show original snackbar on desktop */}

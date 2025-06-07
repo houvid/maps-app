@@ -51,7 +51,8 @@ export const MobileBottomNavigation = ({
 
   return (
     <>
-      {/* FAB for adding events - Redesigned */}
+      {/* FAB for adding events - Temporarily removed */}
+      {/* 
       <Fab
         color='primary'
         aria-label='add event'
@@ -74,13 +75,14 @@ export const MobileBottomNavigation = ({
             transform: 'scale(0.95)'
           },
           boxShadow: '0 8px 20px rgba(38, 103, 255, 0.3)',
-          zIndex: 1200,
+          zIndex: 1140, // Menor que el SpeedDial (1150) pero mayor que la navegación (1100)
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           backdropFilter: 'blur(10px)'
         }}
       >
         <AddIcon sx={{ fontSize: '1.8rem', color: 'white' }} />
       </Fab>
+      */}
 
       {/* Bottom Navigation - Redesigned */}
       <Paper
@@ -92,22 +94,18 @@ export const MobileBottomNavigation = ({
           zIndex: 1100,
           borderRadius: '24px 24px 0 0',
           boxShadow: '0 -8px 32px rgba(0, 0, 0, 0.15)',
-          background: 'rgba(255, 255, 255, 0.95)',
+          background: 'rgba(255, 255, 255, 0.98) !important',
+          backgroundColor: 'rgba(255, 255, 255, 0.98) !important',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.2)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 8,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 40,
-            height: 4,
-            backgroundColor: 'rgba(0, 0, 0, 0.1)',
-            borderRadius: 2
+            display: 'none'
+          },
+          '&.MuiPaper-root': {
+            backgroundColor: 'rgba(255, 255, 255, 0.98) !important'
           }
         }}
         elevation={0}
@@ -121,6 +119,7 @@ export const MobileBottomNavigation = ({
             paddingBottom: 1,
             borderRadius: '24px 24px 0 0',
             backgroundColor: 'transparent',
+            background: 'transparent',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
