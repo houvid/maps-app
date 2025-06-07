@@ -57,8 +57,14 @@ export const MobileBarMap = ({ mapRef }) => {
 
   // Effects
   useEffect(() => {
-    setEventosFiltered(eventos)
-  }, [eventos])
+    // Apply default filter (today onwards) when events change
+    const filtered = eventos.filter(evento => {
+      const eventoDate = new Date(evento.date)
+      const today = new Date(fechaActual)
+      return eventoDate >= today
+    })
+    setEventosFiltered(filtered)
+  }, [eventos, fechaActual])
 
   // Helper functions
   const flyToUserLocation = useCallback((coordinates, zoom = 15) => {
@@ -73,12 +79,19 @@ export const MobileBarMap = ({ mapRef }) => {
     setTimeout(() => {
       let filtered = [...eventos]
 
+      // Always filter events from today onwards (default behavior)
+      filtered = filtered.filter(evento => {
+        const eventoDate = new Date(evento.date)
+        const today = new Date(fechaActual)
+        return eventoDate >= today
+      })
+
       // Filter by municipality
       if (selectedMunicipio.value) {
         filtered = filtered.filter(evento => evento.municipio === selectedMunicipio.value)
       }
 
-      // Filter by today only
+      // Filter by today only (additional filter)
       if (showTodayOnly) {
         filtered = filtered.filter(evento => evento.date === fechaActual)
       }
@@ -117,14 +130,21 @@ export const MobileBarMap = ({ mapRef }) => {
   const handleClearFilters = useCallback(() => {
     setSelectedMunicipio({ label: 'Todos', value: '' })
     setShowTodayOnly(false)
-    setEventosFiltered(eventos)
+    
+    // Apply default filter (today onwards) when clearing filters
+    const filtered = eventos.filter(evento => {
+      const eventoDate = new Date(evento.date)
+      const today = new Date(fechaActual)
+      return eventoDate >= today
+    })
+    setEventosFiltered(filtered)
 
     setSnackbar({
       open: true,
       message: 'Filtros limpiados',
       severity: 'info'
     })
-  }, [eventos])
+  }, [eventos, fechaActual])
 
   const handleEventClick = useCallback((evento) => {
     // Set the event in modal context

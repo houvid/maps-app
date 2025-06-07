@@ -16,7 +16,7 @@ import TextField from '@mui/material/TextField'
 export const BarMap = ({ mapRef }) => {
   const { eventos, SetPlaces, placesFiltered } = useContext(PlacesContext)
   const { SetEvento } = useContext(ModalContext)
-  let [eventosFiltered, setEventosFiltered] = useState(eventos)
+  const [eventosFiltered, setEventosFiltered] = useState(eventos)
   const [fechaActual, setFechaActual] = useState('')
   const [variantChip, setVariantChip] = useState('outlined')
   const [selectedMunicipio, setSelectedMunicipio] = useState({ label: 'Todos', value: '' })
@@ -31,8 +31,16 @@ export const BarMap = ({ mapRef }) => {
     { label: 'Rionegro', value: 'RIONEGRO' }
   ]
   useEffect(() => {
-    setEventosFiltered(eventos)
-    setFechaActual(obtenerFechaActualEnFormato())
+    const fechaHoy = obtenerFechaActualEnFormato()
+    setFechaActual(fechaHoy)
+    
+    // Apply default filter (today onwards) when events change
+    const filtered = eventos.filter(evento => {
+      const eventoDate = new Date(evento.date)
+      const today = new Date(fechaHoy)
+      return eventoDate >= today
+    })
+    setEventosFiltered(filtered)
   }, [eventos])
   const obtenerFechaActualEnFormato = () => {
     const fecha = new Date()
@@ -68,35 +76,43 @@ export const BarMap = ({ mapRef }) => {
     setSelectedMunicipio(newValue)
     const selectedValue = newValue ? newValue.value : ''
 
-    if (selectedValue === '') {
-      setEventosFiltered(eventos)
-    } else {
-      eventosFiltered = eventos.filter(evento => evento.municipio === selectedValue)
-      setEventosFiltered(eventosFiltered)
-      switch (selectedValue) {
-        case 'MARINILLA':
-          flyToUserLocation([6.17382554743092, -75.33465274285228], 15)
-          break
-        case 'RIONEGRO':
-          flyToUserLocation([6.155522715779031, -75.3735477840812], 15)
-          break
-        case 'LA CEJA':
-          flyToUserLocation([6.031335433247932, -75.43162073585653], 15)
-          break
-        case 'EL PEÑOL':
-          flyToUserLocation([6.216673196136062, -75.24352972448737], 15)
-          break
-        case 'EL CARMEN':
-          flyToUserLocation([6.08379451501892, -75.33540014448175], 15)
-          break
-        case 'EL SANTUARIO':
-          flyToUserLocation([6.139423131774998, -75.26560039189918], 15)
-          break
-        default:
-          break
-      }
-      console.log(eventosFiltered)
+    // Always filter events from today onwards first
+    let filtered = eventos.filter(evento => {
+      const eventoDate = new Date(evento.date)
+      const today = new Date(fechaActual)
+      return eventoDate >= today
+    })
+
+    // Then filter by municipality if selected
+    if (selectedValue !== '') {
+      filtered = filtered.filter(evento => evento.municipio === selectedValue)
     }
+    
+    setEventosFiltered(filtered)
+    
+    switch (selectedValue) {
+      case 'MARINILLA':
+        flyToUserLocation([6.17382554743092, -75.33465274285228], 15)
+        break
+      case 'RIONEGRO':
+        flyToUserLocation([6.155522715779031, -75.3735477840812], 15)
+        break
+      case 'LA CEJA':
+        flyToUserLocation([6.031335433247932, -75.43162073585653], 15)
+        break
+      case 'EL PEÑOL':
+        flyToUserLocation([6.216673196136062, -75.24352972448737], 15)
+        break
+      case 'EL CARMEN':
+        flyToUserLocation([6.08379451501892, -75.33540014448175], 15)
+        break
+      case 'EL SANTUARIO':
+        flyToUserLocation([6.139423131774998, -75.26560039189918], 15)
+        break
+      default:
+        break
+    }
+    console.log(filtered)
   }
   const showMenu = (toggleId, navbarId) => {
     const toggle = document.getElementById(toggleId)
@@ -115,13 +131,21 @@ export const BarMap = ({ mapRef }) => {
   const handleClick = () => {
     if (variantChip === 'outlined') {
       setVariantChip('filled')
-      eventosFiltered = eventos.filter(evento => {
-        console.log(evento.date > fechaActual)
-        return evento.date == fechaActual
+      // Filter only today's events (from events that are today onwards)
+      const todayFiltered = eventos.filter(evento => {
+        const eventoDate = new Date(evento.date)
+        const today = new Date(fechaActual)
+        return eventoDate >= today && evento.date === fechaActual
       })
-      setEventosFiltered(eventosFiltered)
+      setEventosFiltered(todayFiltered)
     } else {
-      setEventosFiltered(eventos)
+      // Reset to show all events from today onwards
+      const filtered = eventos.filter(evento => {
+        const eventoDate = new Date(evento.date)
+        const today = new Date(fechaActual)
+        return eventoDate >= today
+      })
+      setEventosFiltered(filtered)
       SetPlaces(placesFiltered)
       setVariantChip('outlined')
     }
@@ -190,7 +214,7 @@ export const BarMap = ({ mapRef }) => {
           {
       eventosFiltered
         .map((evento, index) => {
-          if ((evento == '') || (evento.date < fechaActual)) { /* empty */ } else {
+          if (evento == '') { /* empty */ } else {
             return (
               <div key={index}>
                 <Card sx={{ maxWidth: 345 }}>
